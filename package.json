@@ -5,7 +5,10 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "angular": "^1.6.7",
+    "angular-ui-router": "^0.4.3",
     "ejs": "2.3.4",
+    "font-awesome": "^4.7.0",
     "grunt": "1.0.1",
     "grunt-contrib-clean": "1.0.0",
     "grunt-contrib-coffee": "1.0.0",
@@ -22,7 +25,8 @@
     "rc": "1.0.1",
     "sails": "~0.12.14",
     "sails-disk": "~0.10.9",
-    "sails-mysql": "^0.11.5"
+    "sails-mysql": "^0.11.5",
+    "skeleton-css": "^2.0.4"
   },
   "scripts": {
     "debug": "node debug app.js",
@@ -34,5 +38,8 @@
     "url": "git://github.com/anonymous node/sails user/GoForeigner.git"
   },
   "author": "anonymous node/sails user",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }

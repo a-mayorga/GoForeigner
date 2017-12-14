@@ -32,10 +32,14 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
+  'GET /api/user': {
+    controller: 'UserController',
+    action: 'getUsers'
   },
-  'POST /user': 'UserController.getUsers'
+  '/*': {
+    view: 'index',
+    skipAssets: true
+  }
 
   /***************************************************************************
   *                                                                          *
