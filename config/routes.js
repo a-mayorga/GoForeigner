@@ -118,7 +118,7 @@ module.exports.routes = {
   /**************************************************************************/
   'GET /api/publicacion': {
     controller: 'PublicacionController',
-    action: 'getPublicacion'
+    action: 'getPublicaciones'
   },
   'POST /api/publicacion/save': {
     controller: 'PublicacionController',
@@ -152,7 +152,7 @@ module.exports.routes = {
   /**************************************************************************/
   'GET /api/restriccionesinmuebles': {
     controller: 'RestriccionesInmueblesController',
-    action: 'getUsers'
+    action: 'getRestriccionesInmuebles'
   },
   'POST /api/restriccionesinmuebles/save': {
     controller: 'RestriccionesInmueblesController',

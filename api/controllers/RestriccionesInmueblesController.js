@@ -28,7 +28,7 @@ module.exports = {
 	update: function (req, res) {
 		Category.update({ idRescripcion: req.param('idRescripcion') }, {
 			idPublicacion: req.param('idPublicacion'),
-			idTipoRestriccion: req.param('idTipoRestriccion')
+			idTipoRestriccion: req.param('idTipoRestriccion'),
 			fechaReporte: req.param('fechaReporte')
 		}).exec(function(err, users) {
 			console.log("done");

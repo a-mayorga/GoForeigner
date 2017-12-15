@@ -6,7 +6,7 @@
  */
 
 module.exports = {
-	getPagosPublicacion: function(req, res) {
+	getPagosPublicidad: function(req, res) {
 		User.find().exec(function(err, user) {
 			if(err) {
 				console.log(err);
