@@ -1,6 +1,6 @@
 <div class="profile">
   <div class="user-data">
-    <span class="name">Alberto Torres</span>
+    <span class="name"> {{ profile.name + ' ' + profile.lastName }} </span>
     <a class="edit-profile" ui-sref="profile.edit">Editar perfil</a>
   </div>
   <div class="profile-photo">
@@ -28,9 +28,9 @@
       <div class="opt-icon"><i class="fa fa-question-circle"></i></div>
       <div class="opt-text"><span>Ayuda</span></div>
     </li>
-    <li class="sign-out" ui-sref="signOut">
+    <li class="sign-out">
       <div class="opt-icon"><i class="fa fa-sign-out"></i></div>
-      <div class="opt-text"><span>Cerrar sesión</span></div>
+      <div class="opt-text"><span ng-click="profile.logout()">Cerrar sesión</span></div>
     </li>
   </ul>
 </div>

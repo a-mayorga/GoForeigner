@@ -3,13 +3,30 @@
     'use strict';
 
     angular
-        .module('loginCtrl', [])
+        .module('loginCtrl', [
+          'toastr',
+          'authSrvc'
+        ])
         .controller('LoginCtrl', loginController);
 
-    // indexController.$inject = ['$document', '$window', 'vcRecaptchaService', 'contactService'];
+    loginController.$inject = ['toastr', 'authService'];
 
-    function loginController() {
+    function loginController(toastr, authService) {
         var vm = this;
+        vm.loginData = {};
+        vm.loginSubmit = loginSubmit;
+
+        function loginSubmit() {
+          let email = vm.loginData.email;
+          let pass = vm.loginData.pass;
+
+          if(email != null && pass != null) {
+            authService.login(vm.loginData);
+          }
+          else {
+            toastr.error('Debes completar todos los campos');
+          }
+        }
     }
 
 })();

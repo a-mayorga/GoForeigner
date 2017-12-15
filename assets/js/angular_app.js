@@ -4,7 +4,9 @@
 
   angular
     .module('goForeignerApp', [
+      'ngAnimate',
       'ui.router',
+      'toastr',
       'mainCtrl',
       'indexCtrl',
       'loginCtrl',
@@ -14,16 +16,29 @@
       'profileCtrl',
       'editProfileCtrl',
       'resultsCtrl',
+      'authSrvc',
       'pageTitleDir'
     ])
     .config(appConfig)
     .run(appRun);
 
   /* Injecting dependencies to the config */
-  appConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
-  appRun.$inject = ['$rootScope', '$state'];
+  appConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'toastrConfig'];
+  appRun.$inject = ['$rootScope', '$state', 'authService', 'toastr'];
 
-  function appConfig($stateProvider, $urlRouterProvider, $locationProvider) {
+  function appConfig($stateProvider, $urlRouterProvider, $locationProvider, toastrConfig) {
+    /* Configure toast messages */
+    angular.extend(toastrConfig, {
+        autoDismiss: true,
+        maxOpened: 1,
+        positionClass: 'toast-bottom-center',
+        preventOpenDuplicates: true,
+        target: 'div.container',
+        timeOut: 2500,
+        extendedTimeOut: 1000
+      }
+    );
+
     /* Creating states */
     var indexState = {
       name: 'index',
@@ -82,7 +97,7 @@
       controller: 'SavedCtrl',
       controllerAs: 'saved',
       templateUrl: 'js/templates/saved.html',
-      module: 'public',
+      module: 'private',
       data: {
         'pageTitle': 'Guardados'
       }
@@ -94,7 +109,7 @@
       controller: 'ProfileCtrl',
       controllerAs: 'profile',
       templateUrl: 'js/templates/profile.html',
-      module: 'public',
+      module: 'private',
       data: {
         'pageTitle': 'Perfil'
       }
@@ -157,23 +172,23 @@
 
   }
 
-  function appRun($rootScope, $state) {
+  function appRun($rootScope, $state, authService, toastr) {
     $rootScope.$state = $state;
-    // /* Listening to state changes to decide if the user is authorized to see its template */
-    // $rootScope.$on('$stateChangeStart', function(evt, toState, toParams, fromState, fromParams) {
-    //     /* If the current state has a private module and the user is not logged in, return to the login */
-    //     if (toState.module === 'private' && !authService.isLoggedIn()) {
-    //         evt.preventDefault();
-    //         toastr.error('Debes iniciar sesión primero', 'Error');
-    //         $state.go('login');
-    //     }
-    //
-    //     /* Avoiding a logged user from returning to the login form */
-    //     if (toState.name === 'login' && authService.isLoggedIn()) {
-    //         evt.preventDefault();
-    //         $state.go('app.home');
-    //     }
-    // });
+    /* Listening to state changes to decide if the user is authorized to see its template */
+    $rootScope.$on('$stateChangeStart', function(evt, toState, toParams, fromState, fromParams) {
+        /* If the current state has a private module and the user is not logged in, return to the login */
+        if (toState.module === 'private' && !authService.isLoggedIn()) {
+            evt.preventDefault();
+            toastr.error('Debes iniciar sesión primero', 'Error');
+            $state.go('login');
+        }
+
+        /* Avoiding a logged user from returning to the login form */
+        if (toState.name === 'login' && authService.isLoggedIn()) {
+            evt.preventDefault();
+            $state.go('profile');
+        }
+    });
   }
 
 })();

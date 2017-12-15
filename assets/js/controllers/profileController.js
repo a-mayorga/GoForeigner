@@ -3,13 +3,18 @@
     'use strict';
 
     angular
-        .module('profileCtrl', [])
+        .module('profileCtrl', [
+          'authSrvc'
+        ])
         .controller('ProfileCtrl', profileController);
 
-    // indexController.$inject = ['$document', '$window', 'vcRecaptchaService', 'contactService'];
+    profileController.$inject = ['authService', 'sessionControl'];
 
-    function profileController() {
+    function profileController(authService, sessionControl) {
         var vm = this;
+        vm.name = sessionControl.get('name');
+        vm.lastName = sessionControl.get('lastName');
+        vm.logout = authService.logout;        
     }
 
 })();

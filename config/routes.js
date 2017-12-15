@@ -31,6 +31,10 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
+  'POST /api/login': {
+    controller: 'UserController',
+    action: 'getUser'
+  },
   'GET /api/user': {
     controller: 'UserController',
     action: 'getUsers'
