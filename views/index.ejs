@@ -11,10 +11,14 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <nav>
-    <div class="left"></div>
-    <div class="right"></div>
+<body class=" {{ main.bodyClass }} ">
+  <nav ng-hide="$state.current.name === index">
+    <div class="nav-menu" ng-click="main.openNav()">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </nav>
   <ui-view></ui-view>
 
@@ -23,6 +27,7 @@
   <script src="js/angular_app.js" charset="utf-8"></script>
   <script src="js/controllers/mainController.js" charset="utf-8"></script>
   <script src="js/controllers/indexController.js" charset="utf-8"></script>
+  <script src="js/controllers/resultsController.js" charset="utf-8"></script>
   <script src="js/directives/pageTitleDirective.js" charset="utf-8"></script>
 </body>
 </html>

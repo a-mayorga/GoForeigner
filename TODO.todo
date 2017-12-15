@@ -1,5 +1,7 @@
 TODO:
-
+  ☐ After searching on initial page, show explore page with the results
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+  ✔ Inital page with background image and input at the center of the screen (Buscar por zona, universidad...) and on top benefits of GoForeigner @done(2017-12-14 18:53) @project(TODO)
+  ✔ Navbar of the initial page will have a transparent background and only the right div @done(2017-12-14 06:59) @project(TODO)
   ✔ Fix favicon @done(2017-12-13 16:24) @project(TODO)

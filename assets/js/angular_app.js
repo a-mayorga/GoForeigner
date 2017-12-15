@@ -7,6 +7,7 @@
             'ui.router',
             'mainCtrl',
             'indexCtrl',
+            'resultsCtrl',
             'pageTitleDir'
         ])
         .config(appConfig);
@@ -25,7 +26,21 @@
             templateUrl: 'js/templates/index.html',
             module: 'public',
             data: {
-                'pageTitle': 'GoForeigner'
+                'pageTitle': 'GoForeigner',
+                'bodyClass': 'body-main'
+            }
+        }
+
+        // NOTE: Add ID after /results
+        var resultsState = {
+            name: 'results',
+            url: '/results',
+            controller: 'ResultsCtrl',
+            controllerAs: 'results',
+            templateUrl: 'js/templates/results.html',
+            module: 'public',
+            data: {
+                'pageTitle': 'Resultados de búsqueda'
             }
         }
 
@@ -41,6 +56,7 @@
 
         /* Adding states to the StateProvider */
         $stateProvider.state(indexState);
+        $stateProvider.state(resultsState);
         $stateProvider.state(notFoundState);
 
         /* Defining redirection state when the route on the address bar doesn't match any state */
