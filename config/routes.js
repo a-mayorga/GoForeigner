@@ -35,6 +35,174 @@ module.exports.routes = {
     controller: 'UserController',
     action: 'getUsers'
   },
+  'POST /api/user/save': {
+    controller: 'UserController',
+    action: 'save'
+  },
+  'POST /api/user/update': {
+    controller: 'UserController',
+    action: 'update'
+  },
+  'POST /api/user/delete': {
+    controller: 'UserController',
+    action: 'delete'
+  },
+  /**************************************************************************/
+  'GET /api/calificaciones': {
+    controller: 'CalificacionesController',
+    action: 'getCalificaciones'
+  },
+  'POST /api/calificaciones/save': {
+    controller: 'CalificacionesController',
+    action: 'save'
+  },
+  'POST /api/calificaciones/update': {
+    controller: 'CalificacionesController',
+    action: 'update'
+  },
+  'POST /api/calificaciones/delete': {
+    controller: 'CalificacionesController',
+    action: 'delete'
+  },
+  /**************************************************************************/
+  'GET /api/comentarios': {
+    controller: 'ComentariosController',
+    action: 'getComentarios'
+  },
+  'POST /api/comentarios/save': {
+    controller: 'ComentariosController',
+    action: 'save'
+  },
+  'POST /api/comentarios/update': {
+    controller: 'ComentariosController',
+    action: 'update'
+  },
+  'POST /api/comentarios/delete': {
+    controller: 'ComentariosController',
+    action: 'delete'
+  },
+  /**************************************************************************/
+  'GET /api/guardados': {
+    controller: 'GuardadosController',
+    action: 'getGuardados'
+  },
+  'POST /api/guardados/save': {
+    controller: 'GuardadosController',
+    action: 'save'
+  },
+  'POST /api/guardados/update': {
+    controller: 'GuardadosController',
+    action: 'update'
+  },
+  'POST /api/guardados/delete': {
+    controller: 'GuardadosController',
+    action: 'delete'
+  },
+  /**************************************************************************/
+  'GET /api/pagosPublicidad': {
+    controller: 'PagosPublicidadController',
+    action: 'getPagosPublicidad'
+  },
+  'POST /api/pagosPublicidad/save': {
+    controller: 'PagosPublicidadController',
+    action: 'save'
+  },
+  'POST /api/pagosPublicidad/update': {
+    controller: 'PagosPublicidadController',
+    action: 'update'
+  },
+  'POST /api/pagosPublicidad/delete': {
+    controller: 'PagosPublicidadController',
+    action: 'delete'
+  },
+  /**************************************************************************/
+  'GET /api/publicacion': {
+    controller: 'PublicacionController',
+    action: 'getPublicacion'
+  },
+  'POST /api/publicacion/save': {
+    controller: 'PublicacionController',
+    action: 'save'
+  },
+  'POST /api/publicacion/update': {
+    controller: 'PublicacionController',
+    action: 'update'
+  },
+  'POST /api/publicacion/delete': {
+    controller: 'PublicacionController',
+    action: 'delete'
+  },
+  /**************************************************************************/
+  'GET /api/reportes': {
+    controller: 'ReportesController',
+    action: 'getReportes'
+  },
+  'POST /api/reportes/save': {
+    controller: 'ReportesController',
+    action: 'save'
+  },
+  'POST /api/reportes/update': {
+    controller: 'ReportesController',
+    action: 'update'
+  },
+  'POST /api/reportes/delete': {
+    controller: 'ReportesController',
+    action: 'delete'
+  },
+  /**************************************************************************/
+  'GET /api/restriccionesinmuebles': {
+    controller: 'RestriccionesInmueblesController',
+    action: 'getUsers'
+  },
+  'POST /api/restriccionesinmuebles/save': {
+    controller: 'RestriccionesInmueblesController',
+    action: 'save'
+  },
+  'POST /api/restriccionesinmuebles/update': {
+    controller: 'RestriccionesInmueblesController',
+    action: 'update'
+  },
+  'POST /api/restriccionesinmuebles/delete': {
+    controller: 'RestriccionesInmueblesController',
+    action: 'delete'
+  },
+  /**************************************************************************/
+  'GET /api/serviciosInmueble': {
+    controller: 'ServiciosInmuebleController',
+    action: 'getServiciosInmueble'
+  },
+  'POST /api/serviciosInmueble/save': {
+    controller: 'ServiciosInmuebleController',
+    action: 'save'
+  },
+  'POST /api/serviciosInmueble/update': {
+    controller: 'ServiciosInmuebleController',
+    action: 'update'
+  },
+  'POST /api/serviciosInmueble/delete': {
+    controller: 'ServiciosInmuebleController',
+    action: 'delete'
+  },
+  /**************************************************************************/
+  'GET /api/zonainmueble': {
+    controller: 'ZonaInmuebleController',
+    action: 'getZonaInmueble'
+  },
+  'POST /api/zonainmueble/save': {
+    controller: 'ZonaInmuebleController',
+    action: 'save'
+  },
+  'POST /api/zonainmueble/update': {
+    controller: 'ZonaInmuebleController',
+    action: 'update'
+  },
+  'POST /api/zonainmueble/delete': {
+    controller: 'ZonaInmuebleController',
+    action: 'delete'
+  },
+  /**************************************************************************/
+
+
   '/*': {
     view: 'index',
     skipAssets: true

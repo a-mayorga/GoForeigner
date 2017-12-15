@@ -13,5 +13,34 @@ module.exports = {
 			}
 			res.json(user);
 		});
+	},
+
+	save: function (req, res) {
+		var param = {
+			idPublicacion: req.param('idPublicacion'),
+			idUsuario: req.param('idUsuario'),
+			comentario: req.param('comentario')
+		}
+		User.create(param).exec(function(err, users) {
+			console.log("done");
+		});
+	},
+
+	update: function (req, res) {
+		Category.update({ idComentario: req.param('idComentario') }, {
+			idPublicacion: req.param('idPublicacion'),
+			idUsuario: req.param('idUsuario'),
+			comentario: req.param('comentario')
+		}).exec(function(err, users) {
+			console.log("done");
+		});
+		return;
+	},
+
+	delete: function (req, res) {
+	Category.destroy({ idComentario: req.param('idComentario') }).exec(function(err, users) {
+			console.log("done");
+		});
+		return;
 	}
 };

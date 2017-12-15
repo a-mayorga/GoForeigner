@@ -13,5 +13,37 @@ module.exports = {
 			}
 			res.json(user);
 		});
+	},
+
+	save: function (req, res) {
+		var param = {
+			idPublicacion: req.param('idPublicacion'),
+			idTipoPublicidad: req.param('idTipoPublicidad'),
+			fechaInicio: req.param('fechaInicio'),
+			idTipoUsuario: req.param('idTipoUsuario')
+		}
+		User.create(param).exec(function(err, users) {
+			console.log("done");
+		});
+	},
+
+	update: function (req, res) {
+		Category.update({ idPagoPublicidad: req.param('idPagoPublicidad') }, {
+			idPublicacion: req.param('idPublicacion'),
+			idTipoPublicidad: req.param('idTipoPublicidad'),
+			fechaInicio: req.param('fechaInicio'),
+			idTipoUsuario: req.param('idTipoUsuario')
+		}).exec(function(err, users) {
+			console.log("done");
+		});
+		return;
+	},
+
+	delete: function (req, res) {
+	Category.destroy({ idPagoPublicidad: req.param('idPagoPublicidad') }).exec(function(err, users) {
+			console.log("done");
+		});
+		return;
 	}
+
 };
