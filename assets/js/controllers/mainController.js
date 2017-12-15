@@ -24,6 +24,9 @@
                 vm.bodyClass = toState.data.bodyClass;
                 return;
             }
+            else {
+              vm.bodyClass = '';
+            }
         });
 
         function openNav() {

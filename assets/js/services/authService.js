@@ -82,7 +82,6 @@
           'Content-type': 'application/json'
         }
       }).then(function(response) {
-          console.log(response);
           cacheSession(response.data[0].nombre, response.data[0].apellidos,
             response.data[0].correo, response.data[0].idTipoUsuario, response.data[0].idTipoEstado);
           $state.go('profile');
