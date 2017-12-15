@@ -17,7 +17,7 @@
        columnName: 'idTipoPublicidad'
      },
      costo: {
-       type: 'double',
+       type: 'float',
        columnName: 'costo'
      },
      duracion :{
