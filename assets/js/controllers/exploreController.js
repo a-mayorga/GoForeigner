@@ -3,12 +3,12 @@
     'use strict';
 
     angular
-        .module('loginCtrl', [])
-        .controller('LoginCtrl', loginController);
+        .module('exploreCtrl', [])
+        .controller('ExploreCtrl', exploreController);
 
     // indexController.$inject = ['$document', '$window', 'vcRecaptchaService', 'contactService'];
 
-    function loginController() {
+    function exploreController() {
         var vm = this;
     }
 

@@ -12,21 +12,45 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class=" {{ main.bodyClass }} ">
-  <nav ng-hide="$state.current.name === index">
-    <div class="nav-menu" ng-click="main.openNav()">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
-  <ui-view></ui-view>
+  <div class="search-bar" ng-hide="$state.includes('index') || $state.includes('profile') || $state.includes('login')|| $state.includes('register')">
+    <i class="fa fa-search"></i>
+    <input type="search" placeholder="Cerca de mí">
+  </div>
+  <div class="container" ui-view></div>
+  <div class="bottom-bar" ng-hide="$state.includes('index') || $state.includes('login')|| $state.includes('register')">
+    <ul>
+      <li ui-sref-active="active">
+        <div class="section" ui-sref="explore">
+          <i class="fa fa-search"></i>
+          <p>Explorar</p>
+        </div>
+      </li>
+      <li ui-sref-active="active">
+        <div class="section" ui-sref="saved">
+          <i class="fa fa-heart-o"></i>
+          <p>Guardados</p>
+        </div>
+      </li>
+      <li ui-sref-active="active">
+        <div class="section" ui-sref="profile">
+          <i class="fa fa-user-o"></i>
+          <p>Perfil</p>
+        </div>
+      </li>
+    </ul>
+  </div>
 
   <script src="libs/angular/angular.min.js" charset="utf-8"></script>
   <script src="libs/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
   <script src="js/angular_app.js" charset="utf-8"></script>
   <script src="js/controllers/mainController.js" charset="utf-8"></script>
   <script src="js/controllers/indexController.js" charset="utf-8"></script>
+  <script src="js/controllers/loginController.js" charset="utf-8"></script>
+  <script src="js/controllers/registerController.js" charset="utf-8"></script>
+  <script src="js/controllers/exploreController.js" charset="utf-8"></script>
+  <script src="js/controllers/savedController.js" charset="utf-8"></script>
+  <script src="js/controllers/profileController.js" charset="utf-8"></script>
+  <script src="js/controllers/editProfileController.js" charset="utf-8"></script>
   <script src="js/controllers/resultsController.js" charset="utf-8"></script>
   <script src="js/directives/pageTitleDirective.js" charset="utf-8"></script>
 </body>

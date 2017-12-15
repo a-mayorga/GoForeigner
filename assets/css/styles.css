@@ -1,3 +1,10 @@
+:root {
+  --primary: #F06373;
+  --primary-dark: #F04458;
+  --success: #12B423;
+  --dark-grey: #616161;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -9,13 +16,20 @@ html {
   height: 100%;
 }
 
+.container {
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-bottom: 64px;
+}
+
 /* INDEX BODY */
 
 .body-main {
-  background: linear-gradient( rgba(36, 36, 36, 0.9), rgba(36, 36, 36, 0.9)), url('../images/apartment.jpg');
+  background: linear-gradient( rgba(36, 36, 36, 0.9), rgba(36, 36, 36, 0.9)), url('../images/apartment1.jpg');
   background-repeat: no-repeat;
   background-position: center top;
   background-size: 280% auto;
+  padding: 0;
 }
 
 /* TOP NAVIGATION BAR */
@@ -47,7 +61,7 @@ nav {
 
 .nav-menu:focus {
   outline: 0;
-  border:none;
+  border: none;
   color: rgba(0, 0, 0, 0);
 }
 
@@ -56,7 +70,7 @@ nav {
   position: absolute;
   height: 4px;
   width: 100%;
-  background: #F06373;
+  background: var(--primary);
   border-radius: 9px;
   opacity: 1;
   left: 0;
@@ -127,14 +141,14 @@ nav {
   margin-top: 15px;
 }
 
-.search {
+.search, .login {
   width: 100%;
   text-align: center;
   margin-top: 15%;
 }
 
 .search input {
-  width: 70%;
+  width: 100%;
   height: 52px;
   font-size: 1.1em;
   text-align: center;
@@ -142,27 +156,60 @@ nav {
   transition: 0.3s all;
 }
 
-.search input:focus {
-  border: 2px solid #F06373;
+.search input:focus, .login input:focus {
+  border: 2px solid var(--primary);
 }
 
 .search-button {
-  width: 40%;
+  width: 50%;
   height: 45px;
-  background: #F06373;
-  border: 1px solid #F06373;
+  background: var(--primary);
+  border: 1px solid var(--primary);
   color: white;
   font-size: 1em;
   transition: 0.3s all;
 }
 
 .search-button:hover {
-  background: #f04458;
+  background: var(--primary-dark);
   color: white;
-  border: 1px solid #f04458;
+  border: 1px solid var(--primary-dark);
 }
 
-/* RESULTS STYLES */
+.login input {
+  width: 80%;
+  height: 52px;
+  font-size: 1.1em;
+  border-radius: 5px;
+  transition: 0.3s all;
+}
+
+.login-button {
+  width: 80%;
+  height: 45px;
+  margin-top: 8%;
+  margin-bottom: 8%;
+  text-align: center;
+  background: var(--primary);
+  border: 1px solid var(--primary);
+  color: white;
+  font-size: 1em;
+  transition: 0.3s all;
+}
+
+.login-button:hover {
+  background: var(--primary-dark);
+  color: white;
+  border: 1px solid var(--primary-dark);
+}
+
+.login p {
+  color: white;
+  font-size: 1.2em;
+}
+
+/* SEARCH TOP BAR */
+
 .search-bar {
   width: 100%;
   height: 64px;
@@ -175,7 +222,7 @@ nav {
   top: 23px;
   left: 34px;
   font-size: 1.2em;
-  color: #F06373;
+  color: var(--primary);
 }
 
 .search-bar input {
@@ -185,18 +232,27 @@ nav {
   padding-left: 42px;
   font-size: 1.2em;
   box-shadow: 0px 2px 10px rgba(181, 181, 181, 0.8);
+  transition: 0.3s all;
 }
+
+.search-bar input:focus {
+  border: 2px solid var(--primary);
+}
+
+/* RESULTS STYLE */
 
 .results {
   width: 100%;
 }
 
+/* BOTTOM BAR */
+
 .bottom-bar {
   position: fixed;
+  background: white;
   width: 100%;
   height: 64px;
   bottom: 0;
-  left: 0;
   padding-left: 5%;
   padding-right: 5%;
   box-shadow: 0px -4px 10px rgba(181, 181, 181, 0.8);
@@ -215,8 +271,8 @@ nav {
   padding-top: 8px;
 }
 
-.bottom-bar ul>li.active .section>i, .bottom-bar ul>li.active .section>p{
-  color: #F06373;
+.bottom-bar ul>li.active .section>i, .bottom-bar ul>li.active .section>p {
+  color: var(--primary);
 }
 
 .bottom-bar ul>li>.section {
@@ -224,6 +280,122 @@ nav {
   text-align: center;
 }
 
+.bottom-bar ul>li>.section>i, .bottom-bar ul>li>.section>p {
+  color: var(--dark-grey);
+}
+
 .bottom-bar ul>li>.section>i {
   font-size: 1.6em;
+}
+
+.profile {
+  width: 100%;
+  padding-top: 10%;
+}
+
+.user-data {
+  width: 60%;
+  margin-top: 9px;
+  float: left;
+  text-align: center;
+}
+
+.user-data .name {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: var(--dark-grey);
+}
+
+.user-data .edit-profile {
+  font-size: 1.3em;
+  color: var(--primary);
+  outline: none;
+  text-decoration: underline;
+}
+
+/* PROFILE PHOTO STYLES */
+.profile-photo {
+  width: 40%;
+  float: right;
+  text-align: center;
+}
+
+.profile-photo img {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  border: 3px solid var(--primary);
+}
+
+.profile-photo .account-status{
+  color: var(--success);
+  font-size: 1.1em;
+}
+
+.profile-options {
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-top: 50%;
+}
+
+.profile-options ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.profile-options ul>li {
+  margin-bottom: 20px;
+}
+
+.opt-icon, .opt-text {
+  display: inline-block;
+}
+
+.opt-icon {
+  width: 10%;
+  text-align: center;
+}
+
+.opt-text {
+  width: 85%;
+}
+
+.opt-icon>i, .opt-text>span {
+  color: var(--dark-grey);
+  font-size: 1.5em;
+}
+
+.opt-text {
+  padding-left: 3%;
+}
+
+.sign-out>.opt-icon>i, .sign-out>.opt-text>span {
+  color: var(--primary);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--dark-grey);
+}
+
+.forgot-password, .register {
+  color: var(--primary);
+}
+
+.forgot-password {
+  float: right;
+  margin-right: 10%;
+  font-size: 1.1em;
+}
+
+.forgot-password:hover, .register:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.register {
+  margin-left: 1%;
 }
