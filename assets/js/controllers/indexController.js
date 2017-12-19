@@ -3,13 +3,16 @@
     'use strict';
 
     angular
-        .module('indexCtrl', [])
+        .module('indexCtrl', [
+          'authSrvc'
+        ])
         .controller('IndexCtrl', indexController);
 
-    // indexController.$inject = ['$document', '$window', 'vcRecaptchaService', 'contactService'];
+    indexController.$inject = ['authService'];
 
-    function indexController() {
+    function indexController(authService) {
         var vm = this;
+        vm.isLoggedIn = authService.isLoggedIn();
     }
 
 })();

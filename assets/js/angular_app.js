@@ -85,7 +85,7 @@
       controller: 'ExploreCtrl',
       controllerAs: 'explore',
       templateUrl: 'js/templates/explore.html',
-      module: 'public',
+      module: 'private',
       data: {
         'pageTitle': 'Explorar'
       }
