@@ -82,13 +82,13 @@
           'Content-type': 'application/json'
         }
       }).then(function(response) {
-          cacheSession(response.data[0].nombre, response.data[0].apellidos,
-            response.data[0].correo, response.data[0].idTipoUsuario, response.data[0].idTipoEstado);
-          $state.go('profile');
+          cacheSession(response.data.nombre, response.data.apellidos,
+            response.data.correo, response.data.idTipoUsuario, response.data.idTipoEstado);
+          $state.go('app.profile');
         },
         function(error) {
           uncacheSession();
-          toastr.error('Usuario o contraseña incorrectos');
+          toastr.error(error.data.message);
         }
       );
     }

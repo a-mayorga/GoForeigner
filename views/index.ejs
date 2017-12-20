@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="goForeignerApp" ng-controller="MainCtrl as main">
 <head>
+  <base href="http://localhost:1337">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -13,33 +14,7 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class=" {{ main.bodyClass }} ">
-  <div class="search-bar" ng-hide="$state.includes('index') || $state.includes('profile') || $state.includes('login')|| $state.includes('register')">
-    <i class="fa fa-search"></i>
-    <input type="search" placeholder="Cerca de mí">
-  </div>
-  <div class="container" ui-view></div>
-  <div class="bottom-bar" ng-hide="$state.includes('index') || $state.includes('login')|| $state.includes('register')">
-    <ul>
-      <li ui-sref-active="active">
-        <div class="section" ui-sref="explore">
-          <i class="fa fa-search"></i>
-          <p>Explorar</p>
-        </div>
-      </li>
-      <li ui-sref-active="active">
-        <div class="section" ui-sref="saved">
-          <i class="fa fa-heart-o"></i>
-          <p>Guardados</p>
-        </div>
-      </li>
-      <li ui-sref-active="active">
-        <div class="section" ui-sref="profile">
-          <i class="fa fa-user-o"></i>
-          <p>Perfil</p>
-        </div>
-      </li>
-    </ul>
-  </div>
+  <ui-view></ui-view>
 
   <script src="libs/angular/angular.min.js" charset="utf-8"></script>
   <script src="libs/angular-animate/angular-animate.min.js" charset="utf-8"></script>
@@ -50,6 +25,7 @@
   <script src="js/controllers/indexController.js" charset="utf-8"></script>
   <script src="js/controllers/loginController.js" charset="utf-8"></script>
   <script src="js/controllers/registerController.js" charset="utf-8"></script>
+  <script src="js/controllers/navigationController.js" charset="utf-8"></script>
   <script src="js/controllers/exploreController.js" charset="utf-8"></script>
   <script src="js/controllers/savedController.js" charset="utf-8"></script>
   <script src="js/controllers/profileController.js" charset="utf-8"></script>

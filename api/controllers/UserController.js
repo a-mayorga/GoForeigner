@@ -17,25 +17,28 @@ module.exports = {
       res.json(user);
     });
   },
-	getUser: function(req, res) {
-		var param = {
+  getUser: function(req, res) {
+    var param = {
       correo: req.body.email,
       password: crypto.createHash('md5').update(req.body.pass).digest('hex')
     }
 
-		User.find(param).exec(function(err, user) {
+    User.findOne(param).exec(function(err, user) {
       if (err) {
-        return res.serverError(err);
+        return res.json(500, { message: 'Hubo un problema. Inténtalo de nuevo.' });
       }
 
-			if(user.length > 0) {
-				res.ok(user);
-			}
-			else {
-				return res.serverError(err);
-			}
+      if (user) {
+        if (user.idTipoEstado == 1) {
+          return res.ok(user);
+        } else {
+          return res.json(500, { message: 'Tu cuenta se encuentra bloqueada.' });
+        }
+      } else {
+        return res.json(500, { message: 'Usuario o contraseña incorrectos.' });
+      }
     });
-	},
+  },
   save: function(req, res) {
     var param = {
       nombre: req.body.name,

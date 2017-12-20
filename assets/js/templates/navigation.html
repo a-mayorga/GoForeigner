@@ -1,0 +1,45 @@
+<div class="search-bar" ng-hide="$state.includes('app.index') || $state.includes('app.profile') || $state.includes('app.login')|| $state.includes('app.register') || $state.includes('app.editprofile')">
+  <i class="fa fa-search"></i>
+  <input type="search" placeholder="Cerca de mí">
+</div>
+<div class="container" ui-view></div>
+<div class="bottom-bar" ng-hide="$state.includes('app.index') || $state.includes('app.login')|| $state.includes('app.register')">
+  <ul>
+    <li ui-sref-active="active" ng-hide="navigation.user.type == 1 || navigation.user.type == 2">
+      <div class="section" ui-sref="app.explore">
+        <i class="fa fa-search"></i>
+        <p>Explorar</p>
+      </div>
+    </li>
+    <li ui-sref-active="active" ng-hide="navigation.user.type == 2 || navigation.user.type == 3">
+      <div class="section" ui-sref="app.posts">
+        <i class="fa fa-file-o"></i>
+        <p>Publicaciones</p>
+      </div>
+    </li>
+    <li ui-sref-active="active" ng-hide="navigation.user.type == 1 || navigation.user.type == 3">
+      <div class="section" ui-sref="app.myposts">
+        <i class="fa fa-file-o"></i>
+        <p>Mis Publicaciones</p>
+      </div>
+    </li>
+    <li ui-sref-active="active" ng-hide="navigation.user.type == 1 || navigation.user.type == 2">
+      <div class="section" ui-sref="app.saved">
+        <i class="fa fa-heart-o"></i>
+        <p>Guardados</p>
+      </div>
+    </li>
+    <li ui-sref-active="active" ng-hide="navigation.user.type == 2 || navigation.user.type == 3">
+      <div class="section" ui-sref="app.reports">
+        <i class="fa fa-ban"></i>
+        <p>Reportes</p>
+      </div>
+    </li>
+    <li ui-sref-active="active">
+      <div class="section" ui-sref="app.profile">
+        <i class="fa fa-user-o"></i>
+        <p>Perfil</p>
+      </div>
+    </li>
+  </ul>
+</div>

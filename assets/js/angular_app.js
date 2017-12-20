@@ -11,6 +11,7 @@
       'indexCtrl',
       'loginCtrl',
       'registerCtrl',
+      'navCtrl',
       'exploreCtrl',
       'savedCtrl',
       'profileCtrl',
@@ -33,7 +34,7 @@
         maxOpened: 1,
         positionClass: 'toast-bottom-center',
         preventOpenDuplicates: true,
-        target: 'div.container',
+        target: 'ui-view',
         timeOut: 2500,
         extendedTimeOut: 1000
       }
@@ -79,9 +80,19 @@
       }
     }
 
+    var appState = {
+        name: 'app',
+        url: '/app',
+        controller: 'NavigationCtrl',
+        controllerAs: 'navigation',
+        templateUrl: 'js/templates/navigation.html',
+        module: 'private'
+    }
+
     var exploreState = {
-      name: 'explore',
+      name: 'app.explore',
       url: '/explore',
+      parent: 'app',
       controller: 'ExploreCtrl',
       controllerAs: 'explore',
       templateUrl: 'js/templates/explore.html',
@@ -92,8 +103,9 @@
     }
 
     var savedState = {
-      name: 'saved',
+      name: 'app.saved',
       url: '/saved',
+      parent: 'app',
       controller: 'SavedCtrl',
       controllerAs: 'saved',
       templateUrl: 'js/templates/saved.html',
@@ -104,8 +116,9 @@
     }
 
     var profileState = {
-      name: 'profile',
+      name: 'app.profile',
       url: '/profile',
+      parent: 'app',
       controller: 'ProfileCtrl',
       controllerAs: 'profile',
       templateUrl: 'js/templates/profile.html',
@@ -115,21 +128,22 @@
       }
     }
 
-    // var editProfileState = {
-    //   name: 'profile.edit',
-    //   url: '/edit',
-    //   controller: 'EditProfileCtrl',
-    //   controllerAs: 'editProfile',
-    //   templateUrl: 'js/templates/edit_profile.html',
-    //   module: 'public',
-    //   data: {
-    //     'pageTitle': 'Editar perfil'
-    //   }
-    // }
+    var editProfileState = {
+      name: 'app.editprofile',
+      url: '/editprofile',
+      parent: 'app',
+      controller: 'EditProfileCtrl',
+      controllerAs: 'editProfile',
+      templateUrl: 'js/templates/edit_profile.html',
+      module: 'private',
+      data: {
+        'pageTitle': 'Editar perfil'
+      }
+    }
 
     // NOTE: Add ID after /results
     var resultsState = {
-      name: 'results',
+      name: 'app.results',
       url: '/results',
       controller: 'ResultsCtrl',
       controllerAs: 'results',
@@ -154,10 +168,11 @@
     $stateProvider.state(indexState);
     $stateProvider.state(loginState);
     $stateProvider.state(registerState);
+    $stateProvider.state(appState);
     $stateProvider.state(exploreState);
     $stateProvider.state(savedState);
     $stateProvider.state(profileState);
-    // $stateProvider.state(editProfileState);
+    $stateProvider.state(editProfileState);
     $stateProvider.state(resultsState);
     $stateProvider.state(notFoundState);
 
