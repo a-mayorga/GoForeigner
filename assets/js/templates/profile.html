@@ -15,22 +15,22 @@
       <div class="opt-text"><span>Inicio</span></div>
     </li>
     <li><div class="divider"></div></li>
-    <li ui-sref="suggestions">
+    <li ui-sref="app.suggestions">
       <div class="opt-icon"><i class="fa fa-info-circle"></i></div>
       <div class="opt-text"><span>Sugerencias</span></div>
     </li>
-    <li ui-sref="offer">
+    <li ui-sref="app.offer">
       <div class="opt-icon"><i class="fa fa-handshake-o"></i></div>
       <div class="opt-text"><span>Ofrecer a huéspedes</span></div>
     </li>
     <li><div class="divider"></div></li>
-    <li ui-sref="help">
+    <li ui-sref="app.help">
       <div class="opt-icon"><i class="fa fa-question-circle"></i></div>
       <div class="opt-text"><span>Ayuda</span></div>
     </li>
-    <li class="sign-out">
+    <li class="sign-out" ng-click="profile.logout()">
       <div class="opt-icon"><i class="fa fa-sign-out"></i></div>
-      <div class="opt-text"><span ng-click="profile.logout()">Cerrar sesión</span></div>
+      <div class="opt-text"><span>Cerrar sesión</span></div>
     </li>
   </ul>
 </div>

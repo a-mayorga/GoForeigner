@@ -16,9 +16,11 @@
       'savedCtrl',
       'profileCtrl',
       'editProfileCtrl',
+      'helpCtrl',
       'resultsCtrl',
       'authSrvc',
-      'pageTitleDir'
+      'pageTitleDir',
+      'navBarDir'
     ])
     .config(appConfig)
     .run(appRun);
@@ -141,6 +143,19 @@
       }
     }
 
+    var helpState = {
+      name: 'app.help',
+      url: '/help',
+      parent: 'app',
+      controller: 'HelpCtrl',
+      controllerAs: 'help',
+      templateUrl: 'js/templates/help.html',
+      module: 'private',
+      data: {
+        'pageTitle': 'Ayuda'
+      }
+    }
+
     // NOTE: Add ID after /results
     var resultsState = {
       name: 'app.results',
@@ -173,6 +188,7 @@
     $stateProvider.state(savedState);
     $stateProvider.state(profileState);
     $stateProvider.state(editProfileState);
+    $stateProvider.state(helpState);
     $stateProvider.state(resultsState);
     $stateProvider.state(notFoundState);
 
