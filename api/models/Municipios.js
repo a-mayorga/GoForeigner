@@ -16,10 +16,6 @@
        primaryKey: true,
        columnName: 'idMunicipio'
      },
-     idEstado: {
-       type: 'integer',
-       columnName: 'idEstado'
-     },
      nombreMunicipio: {
        type: 'string',
        size: 25,
