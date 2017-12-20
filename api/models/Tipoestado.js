@@ -6,7 +6,7 @@
  */
 
  module.exports = {
-   tableName: 'tipoestado',
+   tableName: 'tiposestado',
    autoCreatedAt: false,
    autoUpdatedAt: false,
    attributes: {

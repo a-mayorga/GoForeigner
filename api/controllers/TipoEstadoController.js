@@ -7,11 +7,11 @@
 
 module.exports = {
 	getTipoEstado: function(req, res) {
-		User.find().exec(function(err, user) {
+		TipoEstado.find().exec(function(err, types) {
 			if(err) {
 				console.log(err);
 			}
-			res.json(user);
+			res.json(types);
 		});
 	}
 };

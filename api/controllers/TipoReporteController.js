@@ -7,11 +7,11 @@
 
 module.exports = {
 	getTipoReporte: function(req, res) {
-		User.find().exec(function(err, user) {
+		TipoReporte.find().exec(function(err, types) {
 			if(err) {
 				console.log(err);
 			}
-			res.json(user);
+			res.json(types);
 		});
 	}
 };

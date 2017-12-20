@@ -44,6 +44,11 @@ module.exports = {
       type: 'string',
       size: 100,
       columnName: 'password'
+    },
+    dirImagen: {
+      type: 'string',
+      size: 255,
+      columnName: 'dirImagen'
     }
   }
 

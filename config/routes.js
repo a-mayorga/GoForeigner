@@ -35,6 +35,7 @@ module.exports.routes = {
     controller: 'UserController',
     action: 'getUser'
   },
+  /**************************************************************************/
   'GET /api/user': {
     controller: 'UserController',
     action: 'getUsers'
@@ -52,161 +53,184 @@ module.exports.routes = {
     action: 'delete'
   },
   /**************************************************************************/
-  'GET /api/calificaciones': {
+  'GET /api/grades': {
     controller: 'CalificacionesController',
     action: 'getCalificaciones'
   },
-  'POST /api/calificaciones/save': {
+  'POST /api/grades/save': {
     controller: 'CalificacionesController',
     action: 'save'
   },
-  'POST /api/calificaciones/update': {
+  'POST /api/grades/update': {
     controller: 'CalificacionesController',
     action: 'update'
   },
-  'POST /api/calificaciones/delete': {
+  'POST /api/grades/delete': {
     controller: 'CalificacionesController',
     action: 'delete'
   },
   /**************************************************************************/
-  'GET /api/comentarios': {
+  'GET /api/comments': {
     controller: 'ComentariosController',
     action: 'getComentarios'
   },
-  'POST /api/comentarios/save': {
+  'POST /api/comments/save': {
     controller: 'ComentariosController',
     action: 'save'
   },
-  'POST /api/comentarios/update': {
+  'POST /api/comments/update': {
     controller: 'ComentariosController',
     action: 'update'
   },
-  'POST /api/comentarios/delete': {
+  'POST /api/comments/delete': {
     controller: 'ComentariosController',
     action: 'delete'
   },
   /**************************************************************************/
-  'GET /api/guardados': {
+  'GET /api/saved': {
     controller: 'GuardadosController',
     action: 'getGuardados'
   },
-  'POST /api/guardados/save': {
+  'POST /api/saved/save': {
     controller: 'GuardadosController',
     action: 'save'
   },
-  'POST /api/guardados/update': {
+  'POST /api/saved/update': {
     controller: 'GuardadosController',
     action: 'update'
   },
-  'POST /api/guardados/delete': {
+  'POST /api/saved/delete': {
     controller: 'GuardadosController',
     action: 'delete'
   },
   /**************************************************************************/
-  'GET /api/pagosPublicidad': {
+  'GET /api/adspayment': {
     controller: 'PagosPublicidadController',
     action: 'getPagosPublicidad'
   },
-  'POST /api/pagosPublicidad/save': {
+  'POST /api/adspayment/save': {
     controller: 'PagosPublicidadController',
     action: 'save'
   },
-  'POST /api/pagosPublicidad/update': {
+  'POST /api/adspayment/update': {
     controller: 'PagosPublicidadController',
     action: 'update'
   },
-  'POST /api/pagosPublicidad/delete': {
+  'POST /api/adspayment/delete': {
     controller: 'PagosPublicidadController',
     action: 'delete'
   },
   /**************************************************************************/
-  'GET /api/publicacion': {
+  'GET /api/posts': {
     controller: 'PublicacionController',
     action: 'getPublicaciones'
   },
-  'POST /api/publicacion/save': {
+  'POST /api/posts/save': {
     controller: 'PublicacionController',
     action: 'save'
   },
-  'POST /api/publicacion/update': {
+  'POST /api/posts/update': {
     controller: 'PublicacionController',
     action: 'update'
   },
-  'POST /api/publicacion/delete': {
+  'POST /api/posts/delete': {
     controller: 'PublicacionController',
     action: 'delete'
   },
   /**************************************************************************/
-  'GET /api/reportes': {
+  'GET /api/reports': {
     controller: 'ReportesController',
     action: 'getReportes'
   },
-  'POST /api/reportes/save': {
+  'POST /api/reports/save': {
     controller: 'ReportesController',
     action: 'save'
   },
-  'POST /api/reportes/update': {
+  'POST /api/reports/update': {
     controller: 'ReportesController',
     action: 'update'
   },
-  'POST /api/reportes/delete': {
+  'POST /api/reports/delete': {
     controller: 'ReportesController',
     action: 'delete'
   },
   /**************************************************************************/
-  'GET /api/restriccionesinmuebles': {
+  'GET /api/restrictions': {
     controller: 'RestriccionesInmueblesController',
     action: 'getRestriccionesInmuebles'
   },
-  'POST /api/restriccionesinmuebles/save': {
+  'POST /api/restrictions/save': {
     controller: 'RestriccionesInmueblesController',
     action: 'save'
   },
-  'POST /api/restriccionesinmuebles/update': {
+  'POST /api/restrictions/update': {
     controller: 'RestriccionesInmueblesController',
     action: 'update'
   },
-  'POST /api/restriccionesinmuebles/delete': {
+  'POST /api/restrictions/delete': {
     controller: 'RestriccionesInmueblesController',
     action: 'delete'
   },
   /**************************************************************************/
-  'GET /api/serviciosInmueble': {
+  'GET /api/services': {
     controller: 'ServiciosInmuebleController',
     action: 'getServiciosInmueble'
   },
-  'POST /api/serviciosInmueble/save': {
+  'POST /api/services/save': {
     controller: 'ServiciosInmuebleController',
     action: 'save'
   },
-  'POST /api/serviciosInmueble/update': {
+  'POST /api/services/update': {
     controller: 'ServiciosInmuebleController',
     action: 'update'
   },
-  'POST /api/serviciosInmueble/delete': {
+  'POST /api/services/delete': {
     controller: 'ServiciosInmuebleController',
     action: 'delete'
   },
   /**************************************************************************/
-  'GET /api/zonainmueble': {
+  'GET /api/zone': {
     controller: 'ZonaInmuebleController',
     action: 'getZonaInmueble'
   },
-  'POST /api/zonainmueble/save': {
+  'POST /api/zone/save': {
     controller: 'ZonaInmuebleController',
     action: 'save'
   },
-  'POST /api/zonainmueble/update': {
+  'POST /api/zone/update': {
     controller: 'ZonaInmuebleController',
     action: 'update'
   },
-  'POST /api/zonainmueble/delete': {
+  'POST /api/zone/delete': {
     controller: 'ZonaInmuebleController',
     action: 'delete'
   },
   /**************************************************************************/
-
-
+  'GET /api/adstype': {
+    controller: 'TipoPublicidadController',
+    action: 'getTipoPublicidad'
+  },
+  'GET /api/reportstype': {
+    controller: 'TipoReporteController',
+    action: 'getTipoReporte'
+  },
+  'GET /api/statetype': {
+    controller: 'TipoEstadoController',
+    action: 'getTipoEstado'
+  },
+  'GET /api/restrictionstype': {
+    controller: 'TiposRestriccionController',
+    action: 'getTipoRestriccion'
+  },
+  'GET /api/servicestype': {
+    controller: 'TiposServicioController',
+    action: 'getTiposServicio'
+  },
+  'GET /api/zonetype': {
+    controller: 'TiposZonasController',
+    action: 'getTiposZonas'
+  },
+  /*************************************************************************/
   '/*': {
     view: 'index',
     skipAssets: true

@@ -7,11 +7,11 @@
 
 module.exports = {
 	getTiposZonas: function(req, res) {
-		User.find().exec(function(err, user) {
+		TiposZonas.find().exec(function(err, types) {
 			if(err) {
 				console.log(err);
 			}
-			res.json(user);
+			res.json(types);
 		});
 	}
 };

@@ -16,10 +16,6 @@
        primaryKey: true,
        columnName: 'idCalificacion'
      },
-     idTipoCalificacion: {
-       type: 'integer',
-       columnName: 'idTipoCalificacion'
-     },
      idUsuarioCal: {
        type: 'integer',
        columnName: 'idUsuarioCal'
@@ -27,6 +23,10 @@
      idUsuarioEval: {
        type: 'integer',
        columnName: 'idUsuarioEval'
+     },
+     calificacion: {
+       type: 'integer',
+       columnName: 'calificacion'
      },
      comentario: {
        type: 'string',

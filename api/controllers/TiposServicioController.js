@@ -7,7 +7,7 @@
 
 module.exports = {
 	getTiposServicio: function(req, res) {
-		User.find().exec(function(err, user) {
+		TiposServicio.find().exec(function(err, user) {
 			if(err) {
 				console.log(err);
 			}

@@ -44,6 +44,10 @@
        size: 15,
        columnName: 'telefono'
      },
+     huespedes: {
+       type: 'integer',
+       columnName: 'huespedes'
+     },
      fechaPublicacion: {
        type: "datetime",
        defaultsTo: function () {
