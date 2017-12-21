@@ -33,6 +33,7 @@ html {
 }
 
 /* NAVBAR STYLES */
+
 .navbar {
   width: 100%;
   height: 65px;
@@ -318,6 +319,7 @@ html {
 }
 
 /* PROFILE PHOTO STYLES */
+
 .profile-photo {
   width: 40%;
   float: right;
@@ -331,7 +333,7 @@ html {
   border: 3px solid var(--primary);
 }
 
-.profile-photo .account-status{
+.profile-photo .account-status {
   color: var(--success);
   font-size: 1.1em;
 }
@@ -424,6 +426,7 @@ html {
 }
 
 /* POSTS STYLES */
+
 .posts {
   width: 100%;
   margin: 0;
@@ -482,4 +485,96 @@ ul.rating>li {
 
 span.university {
   color: var(--primary);
+}
+
+/* NEW POST STYLES */
+
+.post-images, .post-price, .post-services, .post-restrictions, .post-location, .post-comments, .publish {
+  margin-top: 5%;
+}
+
+.post-images, .post-price, .post-services, .post-restrictions, .post-location, .post-comments {
+  width: 100%;
+}
+
+.post-price, .post-comments, .post-button {
+  text-align: center;
+}
+
+.post-price>input, .post-price>select {
+  width: 28%;
+  transition: 0.3s all;
+}
+
+.post-price>input:focus, .post-price>select:focus {
+  border: 2px solid var(--primary);
+}
+
+.post-price>select {
+  margin-left: 3%;
+}
+
+.post-header {
+  text-align: center;
+}
+
+.post-header span {
+  font-size: 1.4em;
+  color: var(--dark-grey);
+}
+
+.post-header .divider {
+  width: 80%;
+  margin-left: 10%;
+  background: var(--dark-grey);
+}
+
+.left-options, .right-options {
+  float: left;
+  width: 50%;
+}
+
+.post-services::after, .post-restrictions::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.left-options>ul, .right-options>ul {
+  margin: 0;
+  padding: 0;
+  padding-left: 20%;
+  list-style: none;
+  margin-top: 15%;
+}
+
+.post-location .map {
+  width: 80%;
+  height: 200px;
+  margin-top: 6%;
+  margin-left: 10%;
+  border: 1px solid var(--primary);
+}
+
+.post-comments>textarea {
+  width: 80%;
+  height: 150px;
+  margin-top: 6%;
+  font-size: 1.1em;
+  resize: none;
+  transition: 0.3s all;
+}
+
+.post-comments>textarea:focus {
+  border: 2px solid var(--primary);
+}
+
+.post-button>button {
+  width: 80%;
+  height: 55px;
+  background: var(--primary);
+  border: none;
+  color: white;
+  font-size: 1.2em;
+  margin-bottom: 10%;
 }

@@ -7,11 +7,11 @@
 
 module.exports = {
 	getTiposServicio: function(req, res) {
-		TiposServicio.find().exec(function(err, user) {
+		TiposServicio.find({ select: ['descripcion'] }).exec(function(err, types) {
 			if(err) {
 				console.log(err);
 			}
-			res.json(user);
+			res.json(types);
 		});
 	}
 };

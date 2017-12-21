@@ -1,1 +1,64 @@
-<h2>New post</h2>
+<div class="post-images">
+  Images here
+</div>
+<div class="post-price">
+  <span>$</span>
+  <input type="number" name="price" placeholder="Precio">
+  <span>.00 MXN</span>
+  <select name="period">
+    <option value="1">Semanal</option>
+    <option value="2">Quincenal</option>
+    <option value="3">Mensual</option>
+  </select>
+</div>
+<div class="post-services">
+  <div class="post-header">
+    <span>Servicios</span>
+    <div class="divider"></div>
+  </div>
+  <div class="left-options">
+    <ul>
+      <li ng-repeat="service in newpost.services | limitTo:8:0"><label><input type="checkbox"> {{ service.descripcion }}</label></li>
+    </ul>
+  </div>
+  <div class="right-options">
+    <ul>
+      <li ng-repeat="service in newpost.services | limitTo:16:8"><label><input type="checkbox"> {{ service.descripcion }}</label></li>
+    </ul>
+  </div>
+</div>
+<div class="post-restrictions">
+  <div class="post-header">
+    <span>Restricciones</span>
+    <div class="divider"></div>
+  </div>
+  <div class="left-options">
+    <ul>
+      <li ng-repeat="restriction in newpost.restrictions | limitTo:3:0"><label><input type="checkbox"> {{ restriction.descripcion }}</label></li>
+    </ul>
+  </div>
+  <div class="right-options">
+    <ul>
+      <li ng-repeat="restriction in newpost.restrictions | limitTo:6:3"><label><input type="checkbox"> {{ restriction.descripcion }}</label></li>
+    </ul>
+  </div>
+</div>
+<div class="post-location">
+  <div class="post-header">
+    <span>Ubicación</span>
+    <div class="divider"></div>
+    <div class="map">
+
+    </div>
+  </div>
+</div>
+<div class="post-comments">
+  <div class="post-header">
+    <span>Comentarios adicionales</span>
+    <div class="divider"></div>
+  </div>
+  <textarea name="name"></textarea>
+</div>
+<div class="post-button">
+  <button class="publish">Publicar</button>
+</div>

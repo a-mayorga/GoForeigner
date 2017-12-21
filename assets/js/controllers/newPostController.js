@@ -3,13 +3,31 @@
     'use strict';
 
     angular
-        .module('newPostCtrl', [])
+        .module('newPostCtrl', [
+          'servicesSrvc',
+          'restrictionsSrvc'
+        ])
         .controller('NewPostCtrl', newPostController);
 
-    newPostController.$inject = [];
+    newPostController.$inject = ['servicesService', 'restrictionsService'];
 
-    function newPostController() {
+    function newPostController(servicesService, restrictionsService) {
         var vm = this;
+
+        getServices();
+        getRestrictions();
+
+        function getServices() {
+          servicesService.getServices().then(function(data) {
+            vm.services = data;
+          });
+        }
+
+        function getRestrictions() {
+          restrictionsService.getRestrictions().then(function(data) {
+            vm.restrictions = data;
+          });
+        }
     }
 
 })();

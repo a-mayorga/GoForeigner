@@ -14,7 +14,8 @@
         var vm = this;
         vm.name = sessionControl.get('name');
         vm.lastName = sessionControl.get('lastName');
-        vm.logout = authService.logout;        
+        vm.picture = sessionControl.get('picture');
+        vm.logout = authService.logout;
     }
 
 })();
