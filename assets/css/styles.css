@@ -17,8 +17,8 @@ html {
 }
 
 .container {
-  padding-left: 5%;
-  padding-right: 5%;
+  width: 100%;
+  padding: 5% 5% 0px 5%;
   margin-bottom: 64px;
 }
 
@@ -174,12 +174,10 @@ html {
 
 .search-bar {
   width: 100%;
-  height: 64px;
   padding: 0px 5%;
-  text-align: center;
 }
 
-.search-bar i {
+.search-bar i.fa.fa-search {
   position: absolute;
   top: 23px;
   left: 34px;
@@ -199,6 +197,46 @@ html {
 
 .search-bar input:focus {
   border: 2px solid var(--primary);
+}
+
+.filters {
+  width: 100%;
+}
+
+.filters>* {
+  float: left;
+}
+
+.filters:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.filters>span {
+  font-size: 1.2em;
+  margin-top: 6px;
+  margin-right: 7px;
+}
+
+.filters>ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.filters>ul>li {
+  display: inline-block;
+}
+
+.filters>ul>li>button {
+  padding: 0px 15px;
+  margin-bottom: 0px;
+  text-transform: capitalize;
+  border: 0;
+  background-color: var(--primary);
+  color: white;
+  font-size: 0.9em;
 }
 
 /* RESULTS STYLE */
@@ -250,9 +288,13 @@ html {
   font-size: 1.6em;
 }
 
+.bottom-bar ul>li>.section>p {
+  font-size: 0.9em;
+}
+
 .profile {
   width: 100%;
-  padding-top: 10%;
+  padding-top: 5%;
 }
 
 .user-data {
@@ -360,4 +402,84 @@ html {
 
 .register {
   margin-left: 1%;
+}
+
+/* FAB STYLES */
+
+.fab {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-bottom: calc(65px + 5%);
+  margin-right: 5%;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  font-size: 1.7em;
+  text-align: center;
+  line-height: 70px;
+  box-shadow: 3px 3px 6px rgba(181, 181, 181, 0.6);
+}
+
+/* POSTS STYLES */
+.posts {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li>.post {
+  width: 100%;
+  height: 180px;
+  padding: 2%;
+  box-shadow: 0px 1px 6px rgba(181, 181, 181, 0.6);
+}
+
+.delete-saved {
+  width: 100%;
+}
+
+.delete-saved>i {
+  float: right;
+  margin-right: 7px;
+  color: var(--dark-grey);
+}
+
+.post-image, .post-data {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+
+.post-data {
+  padding-left: 15px;
+}
+
+.post-image>img {
+  max-width: 100%;
+  margin-top: 18%;
+  border: 2px solid var(--primary);
+}
+
+.post-data ul.amenities, .post-data ul.rating {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.amenities>li {
+  margin: 0;
+}
+
+ul.rating>li {
+  float: left;
+  margin: 0px 5px 0px 0px;
+  color: rgb(245, 234, 66);
+}
+
+span.university {
+  color: var(--primary);
 }

@@ -17,6 +17,8 @@
       'profileCtrl',
       'editProfileCtrl',
       'helpCtrl',
+      'myPostsCtrl',
+      'newPostCtrl',
       'resultsCtrl',
       'authSrvc',
       'pageTitleDir',
@@ -156,6 +158,32 @@
       }
     }
 
+    var myPostsState = {
+      name: 'app.myposts',
+      url: '/myposts',
+      parent: 'app',
+      controller: 'MyPostsCtrl',
+      controllerAs: 'myposts',
+      templateUrl: 'js/templates/my_posts.html',
+      module: 'private',
+      data: {
+        'pageTitle': 'Mis publicaciones'
+      }
+    }
+
+    var newPostState = {
+      name: 'app.newpost',
+      url: '/newpost',
+      parent: 'app',
+      controller: 'NewPostCtrl',
+      controllerAs: 'newpost',
+      templateUrl: 'js/templates/new_post.html',
+      module: 'private',
+      data: {
+        'pageTitle': 'Nueva publicación'
+      }
+    }
+
     // NOTE: Add ID after /results
     var resultsState = {
       name: 'app.results',
@@ -189,6 +217,8 @@
     $stateProvider.state(profileState);
     $stateProvider.state(editProfileState);
     $stateProvider.state(helpState);
+    $stateProvider.state(myPostsState);
+    $stateProvider.state(newPostState);
     $stateProvider.state(resultsState);
     $stateProvider.state(notFoundState);
 
