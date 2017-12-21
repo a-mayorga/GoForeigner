@@ -6,10 +6,11 @@
         .module('editProfileCtrl', [])
         .controller('EditProfileCtrl', editProfileController);
 
-    // indexController.$inject = ['$document', '$window', 'vcRecaptchaService', 'contactService'];
+    editProfileController.$inject = ['$scope'];
 
-    function editProfileController() {
+    function editProfileController($scope) {
         var vm = this;
+        vm.picture = $scope.$parent.navigation.user.picture;
     }
 
 })();

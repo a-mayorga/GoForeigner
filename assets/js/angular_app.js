@@ -140,7 +140,7 @@
       url: '/editprofile',
       parent: 'app',
       controller: 'EditProfileCtrl',
-      controllerAs: 'editProfile',
+      controllerAs: 'editprofile',
       templateUrl: 'js/templates/edit_profile.html',
       module: 'private',
       data: {
