@@ -15,6 +15,7 @@
         vm.lastName = $scope.$parent.navigation.user.lastName;
         vm.email = $scope.$parent.navigation.user.email;
         vm.phone = $scope.$parent.navigation.user.phone;
+        vm.preview = 'profile_pictures/default.jpg';        
     }
 
 })();

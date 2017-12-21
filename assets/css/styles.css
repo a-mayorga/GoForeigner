@@ -523,9 +523,7 @@ span.university {
   margin-left: 3%;
 }
 
-.post-price>.guests {
-
-}
+.post-price>.guests {}
 
 .post-header {
   text-align: center;
@@ -593,8 +591,12 @@ span.university {
 }
 
 /* EDIT PROFILE STYLES */
-.profile-picture, .profile-data {
+
+.profile-picture, .profile-change-picture .profile-data {
   width: 100%;
+}
+
+.profile-picture, .profile-data {
   text-align: center;
 }
 
@@ -602,5 +604,77 @@ span.university {
   width: 140px;
   height: 140px;
   border-radius: 50%;
+  margin-bottom: 10%;
   border: 3px solid var(--primary);
+}
+
+.profile-change-picture {
+  margin-top: 5%;
+  margin-bottom: 8%;
+}
+
+.profile-change-picture>.preview, .profile-change-picture>.upload-file {
+  width: 50%;
+  float: left;
+}
+
+.profile-change-picture::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.profile-change-picture>.preview {
+  text-align: center;
+}
+
+.profile-change-picture>.preview>img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 15%;
+  border: 3px solid var(--primary);
+}
+
+.profile-change-picture>.upload-file>input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.profile-change-picture>.upload-file>input + label {
+  width: 150px;
+  font-size: 1.4em;
+  font-weight: 700;
+  margin-top: 5%;
+  margin-bottom: 15%;
+  color: var(--primary);
+  display: inline-block;
+}
+
+.profile-data>span {
+  color: var(--dark-grey);
+  font-weight: bold;
+}
+
+.profile-data>input {
+  width: 70%;
+  font-size: 1em;
+  transition: 0.3s all;
+}
+
+.profile-data>input:focus {
+  border: 2px solid var(--primary);
+}
+
+.profile-data>button {
+  width: 70%;
+  margin-top: 8%;
+  margin-bottom: 10%;
+  background-color: var(--primary);
+  color: white;
+  font-size: 1em;
 }

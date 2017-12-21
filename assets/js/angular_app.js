@@ -4,6 +4,7 @@
 
   angular
     .module('goForeignerApp', [
+      'angular-media-preview',
       'ngAnimate',
       'ui.router',
       'toastr',
@@ -21,6 +22,7 @@
       'notificationsCtrl',
       'newPostCtrl',
       'postsCtrl',
+      'postCtrl',
       'reportsCtrl',
       'resultsCtrl',
       'authSrvc',
@@ -226,6 +228,19 @@
       }
     }
 
+    var postState = {
+      name: 'app.post',
+      url: '/post',
+      parent: 'app',
+      controller: 'PostCtrl',
+      controllerAs: 'post',
+      templateUrl: 'js/templates/post.html',
+      module: 'private',
+      data: {
+        'pageTitle': 'Publicaciones'
+      }
+    }
+
     var reportsState = {
       name: 'app.reports',
       url: '/reports',
@@ -277,6 +292,7 @@
     $stateProvider.state(notificationsState);
     $stateProvider.state(newPostState);
     $stateProvider.state(postsState);
+    $stateProvider.state(postState);
     $stateProvider.state(reportsState);
     $stateProvider.state(resultsState);
     $stateProvider.state(notFoundState);

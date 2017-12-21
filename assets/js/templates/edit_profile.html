@@ -1,6 +1,15 @@
 <div class="profile-picture">
   <img src="{{ editprofile.picture }}">
 </div>
+<div class="profile-change-picture">
+  <div class="preview" id="preview">
+    <img src="{{ editprofile.preview }}">
+  </div>
+  <div class="upload-file">
+    <input type="file" name="file" id="file" media-preview preview-container="preview" accept="image/*">
+    <label for="file"><i class="fa fa-cloud-upload"></i> Subir foto</label>
+  </div>
+</div>
 <div class="profile-data">
   <span>Nombre</span><br>
   <input type="text" maxlength="50" value="{{ editprofile.name }}"><br>
@@ -16,5 +25,5 @@
   <input type="password"><br>
   <span>Confirmar password</span><br>
   <input type="password"><br>
-  <button class="save-changes">Guardar Cambios</button>
+  <button class="save-changes">Guardar</button>
 </div>
