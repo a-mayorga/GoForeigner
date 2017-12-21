@@ -7,6 +7,7 @@
     <input type="text" placeholder="Nombre" ng-model="register.registerData.name"><br>
     <input type="text" placeholder="Apellidos" ng-model="register.registerData.lastName"><br>
     <input type="email" placeholder="Email" ng-model="register.registerData.email"><br>
+    <input type="number" placeholder="Teléfono" onkeypress="if(this.value.length == 15) return false;" ng-model="register.registerData.phone"><br>
     <input type="password" placeholder="Password" ng-model="register.registerData.pass"><br>
     <input type="password" placeholder="Confirmar password" ng-model="register.registerData.confPass"><br>
     <button class="login-button">Registrarme</button><br>

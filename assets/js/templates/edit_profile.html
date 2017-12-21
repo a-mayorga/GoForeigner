@@ -1,57 +1,20 @@
-<div class="row editarPerfil">
-    <img class="perfil" src="{{ editprofile.picture }}">
-    <h2>Cara Delevingne</h2>
-    <p>Editar Nombre</p>
-    <hr>
-    <h4>Sobre Mí</h4>
-    <div class="editar">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi sed porro nam et, dolorum. Non dignissimos quibusdam repellat illum, ipsa veniam rerum asperiores deleniti, et velit nemo obcaecati, laboriosam ullam.</p>
-    </div>
-    <p>Editar Mí Descripción</p>
-    <hr>
-    <h4>Información Personal</h4>
-    <div class="editar">
-       <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-        <table>
-            <tbody>
-                <tr>
-                    <td>Sexo</td>
-                    <td class="campo">Femenino</td>
-                </tr>
-                <tr>
-                    <td>Fecha de Nacmiento</td>
-                    <td class="campo">19/09/95</td>
-                </tr>
-                <tr>
-                    <td>Correo Electronico</td>
-                    <td class="campo">ejemplo@ejemplo.com</td>
-                </tr>
-                <tr>
-                    <td>Telefono</td>
-                    <td class="campo">4422980912</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <h4>Detalles</h4>
-    <div class="editar">
-       <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-        <table>
-            <tbody>
-                <tr>
-                    <td>Ubicación</td>
-                    <td class="campo-a">Santiago de Querétaro, México</td>
-                </tr>
-                 <tr>
-                    <td>Institución</td>
-                    <td class="campo-a">Universidad Autonóma de Querétaro</td>
-                </tr>
-                 <tr>
-                    <td>Zona de Interés</td>
-                    <td class="campo-a">Norte</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div class="profile-picture">
+  <img src="{{ editprofile.picture }}">
 </div>
-<button class="btn-primary">Guardar Cambios</button>
+<div class="profile-data">
+  <span>Nombre</span><br>
+  <input type="text" maxlength="50" value="{{ editprofile.name }}"><br>
+  <span>Apellidos</span><br>
+  <input type="text" maxlength="80" value="{{ editprofile.lastName }}"><br>
+  <span>Email</span><br>
+  <input type="email" maxlength="50" value="{{ editprofile.email }}"><br>
+  <span>Teléfono</span><br>
+  <input type="number" onkeypress="if(this.value.length == 15) return false;" value="{{ editprofile.phone }}"><br>
+  <span>Password anterior</span><br>
+  <input type="password"><br>
+  <span>Nuevo password</span><br>
+  <input type="password"><br>
+  <span>Confirmar password</span><br>
+  <input type="password"><br>
+  <button class="save-changes">Guardar Cambios</button>
+</div>

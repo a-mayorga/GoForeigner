@@ -54,11 +54,12 @@
 
     return authService;
 
-    function cacheSession(name, lastName, email, type, status, picture) {
+    function cacheSession(name, lastName, email, phone, type, status, picture) {
       sessionControl.set('isLogged', true);
       sessionControl.set('name', name);
       sessionControl.set('lastName', lastName);
       sessionControl.set('email', email);
+      sessionControl.set('phone', phone);
       sessionControl.set('type', type);
       sessionControl.set('status', status);
       sessionControl.set('picture', picture);
@@ -69,6 +70,7 @@
       sessionControl.unset('name');
       sessionControl.unset('lastName');
       sessionControl.unset('email');
+      sessionControl.unset('phone');
       sessionControl.unset('type');
       sessionControl.unset('status');
       sessionControl.unset('picture');
@@ -85,7 +87,8 @@
         }
       }).then(function(response) {
           cacheSession(response.data.nombre, response.data.apellidos,
-            response.data.correo, response.data.idTipoUsuario, response.data.idTipoEstado, response.data.dirImagen);
+            response.data.correo, response.data.telefono, response.data.idTipoUsuario,
+            response.data.idTipoEstado, response.data.dirImagen);
           $state.go('app.profile');
         },
         function(error) {

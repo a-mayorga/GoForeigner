@@ -44,6 +44,7 @@ module.exports = {
       nombre: req.body.name,
       apellidos: req.body.lastName,
       correo: req.body.email,
+      telefono: req.body.phone,
       idTipoUsuario: 3,
       idTipoEstado: 1,
       password: crypto.createHash('md5').update(req.body.pass).digest('hex')

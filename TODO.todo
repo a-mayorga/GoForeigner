@@ -2,7 +2,10 @@ TODO:
   ☐ After searching on initial page, show results
   ☐ Change index, login and register image background
   ☐ Border: 2px solid var(--primary) for all inputs when focused
-  ☐ Implement new post
+  ☐ Implement new post functionality
+  ☐ Fix edit profile view
+  ☐ Add phone input to register
+  ☐ Make search bar and bottom bar directives
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
   ✔ Fix edit profile @done(2017-12-20 02:18) @project(TODO)

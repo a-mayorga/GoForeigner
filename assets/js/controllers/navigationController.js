@@ -15,6 +15,8 @@
         vm.user = {
             name: sessionControl.get('name'),
             lastName: sessionControl.get('lastName'),
+            email: sessionControl.get('email'),
+            phone: sessionControl.get('phone'),
             type: sessionControl.get('type'),
             picture: sessionControl.get('picture')
         };

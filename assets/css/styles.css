@@ -591,3 +591,16 @@ span.university {
   font-size: 1.2em;
   margin-bottom: 10%;
 }
+
+/* EDIT PROFILE STYLES */
+.profile-picture, .profile-data {
+  width: 100%;
+  text-align: center;
+}
+
+.profile-picture>img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 3px solid var(--primary);
+}

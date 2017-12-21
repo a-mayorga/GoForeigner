@@ -32,6 +32,12 @@ module.exports = {
       unique: true,
       columnName: 'correo'
     },
+    telefono: {
+      type: 'string',
+      size: 50,
+      unique: true,
+      columnName: 'telefono'
+    },
     idTipoUsuario: {
       type: 'integer',
       columnName: 'idTipoUsuario'

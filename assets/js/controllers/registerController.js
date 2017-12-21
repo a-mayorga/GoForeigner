@@ -20,10 +20,11 @@
           let name = vm.registerData.name;
           let lastName = vm.registerData.lastName;
           let email = vm.registerData.email;
+          let phone = vm.registerData.phone;
           let pass = vm.registerData.pass;
           let confPass = vm.registerData.confPass;
 
-          if(name != null && lastName != null && email != null && pass != null && confPass != null) {
+          if(name != null && lastName != null && email != null && phone != null && pass != null && confPass != null) {
             if(pass.length >= 6) {
               if(pass == confPass) {
                 userService.createUser(vm.registerData);
