@@ -18,7 +18,10 @@
       'editProfileCtrl',
       'helpCtrl',
       'myPostsCtrl',
+      'notificationsCtrl',
       'newPostCtrl',
+      'postsCtrl',
+      'reportsCtrl',
       'resultsCtrl',
       'authSrvc',
       'pageTitleDir',
@@ -138,7 +141,7 @@
       parent: 'app',
       controller: 'EditProfileCtrl',
       controllerAs: 'editProfile',
-      templateUrl: 'js/templates/editProfile.html',
+      templateUrl: 'js/templates/edit_profile.html',
       module: 'private',
       data: {
         'pageTitle': 'Editar perfil'
@@ -184,6 +187,19 @@
       }
     }
 
+    var notificationsState = {
+      name: 'app.notifications',
+      url: '/notifications',
+      parent: 'app',
+      controller: 'NotificationsCtrl',
+      controllerAs: 'notifications',
+      templateUrl: 'js/templates/notifications.html',
+      module: 'private',
+      data: {
+        'pageTitle': 'Notificaciones'
+      }
+    }
+
     var newPostState = {
       name: 'app.newpost',
       url: '/newpost',
@@ -194,6 +210,32 @@
       module: 'private',
       data: {
         'pageTitle': 'Nueva publicación'
+      }
+    }
+
+    var postsState = {
+      name: 'app.posts',
+      url: '/posts',
+      parent: 'app',
+      controller: 'PostsCtrl',
+      controllerAs: 'posts',
+      templateUrl: 'js/templates/posts.html',
+      module: 'private',
+      data: {
+        'pageTitle': 'Publicaciones'
+      }
+    }
+
+    var reportsState = {
+      name: 'app.reports',
+      url: '/reports',
+      parent: 'app',
+      controller: 'ReportsCtrl',
+      controllerAs: 'reports',
+      templateUrl: 'js/templates/reports.html',
+      module: 'private',
+      data: {
+        'pageTitle': 'Publicaciones'
       }
     }
 
@@ -232,7 +274,10 @@
     $stateProvider.state(offerState);
     $stateProvider.state(helpState);
     $stateProvider.state(myPostsState);
+    $stateProvider.state(notificationsState);
     $stateProvider.state(newPostState);
+    $stateProvider.state(postsState);
+    $stateProvider.state(reportsState);
     $stateProvider.state(resultsState);
     $stateProvider.state(notFoundState);
 

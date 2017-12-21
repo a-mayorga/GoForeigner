@@ -83,6 +83,10 @@ html {
   margin-top: 15%;
 }
 
+.search {
+  padding: 0px 5%;
+}
+
 .search input {
   width: 100%;
   height: 52px;
@@ -180,15 +184,15 @@ html {
 
 .search-bar i.fa.fa-search {
   position: absolute;
-  top: 23px;
-  left: 34px;
+  top: 29px;
+  left: 38px;
   font-size: 1.2em;
   color: var(--primary);
 }
 
 .search-bar input {
   width: 100%;
-  height: 44px;
+  height: 55px;
   margin-top: 10px;
   padding-left: 42px;
   font-size: 1.2em;
@@ -303,6 +307,7 @@ html {
   margin-top: 9px;
   float: left;
   text-align: center;
+  padding-top: 5%;
 }
 
 .user-data .name {
@@ -497,21 +502,29 @@ span.university {
   width: 100%;
 }
 
-.post-price, .post-comments, .post-button {
+.post-comments, .post-button {
   text-align: center;
 }
 
-.post-price>input, .post-price>select {
+.post-price>span:nth-child(1), .post-price>span:nth-child(5) {
+  margin-left: 10%;
+}
+
+.post-price>input, .post-price>select:nth-child(1) {
   width: 28%;
   transition: 0.3s all;
 }
 
-.post-price>input:focus, .post-price>select:focus {
+.post-price>input:focus, .post-price>select:nth-child(1):focus {
   border: 2px solid var(--primary);
 }
 
-.post-price>select {
+.post-price>select:nth-child(1) {
   margin-left: 3%;
+}
+
+.post-price>.guests {
+
 }
 
 .post-header {

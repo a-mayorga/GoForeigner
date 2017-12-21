@@ -1,7 +1,6 @@
 <div class="profile">
   <div class="user-data">
     <span class="name"> {{ profile.name + ' ' + profile.lastName }} </span>
-    <a class="edit-profile" ui-sref="app.editprofile">Editar perfil</a>
   </div>
   <div class="profile-photo">
     <img src="{{ profile.picture }}">
@@ -10,20 +9,24 @@
 </div>
 <div class="profile-options">
   <ul>
-    <li ui-sref="index">
-      <div class="opt-icon"><i class="fa fa-home"></i></div>
-      <div class="opt-text"><span>Inicio</span></div>
+    <li ui-sref="app.editprofile">
+      <div class="opt-icon"><i class="fa fa-pencil-square-o"></i></div>
+      <div class="opt-text"><span>Editar perfil</span></div>
     </li>
-    <li><div class="divider"></div></li>
-    <li ui-sref="app.suggestions">
+    <li>
+      <div class="divider"></div>
+    </li>
+    <li ui-sref="app.suggestions" ng-show="profile.type == 2 || profile.type == 3">
       <div class="opt-icon"><i class="fa fa-info-circle"></i></div>
       <div class="opt-text"><span>Sugerencias</span></div>
     </li>
-    <li ui-sref="app.offer">
+    <li ui-sref="app.offer" ng-show="profile.type == 3">
       <div class="opt-icon"><i class="fa fa-handshake-o"></i></div>
       <div class="opt-text"><span>Ofrecer a huéspedes</span></div>
     </li>
-    <li><div class="divider"></div></li>
+    <li ng-show="profile.type == 2 || profile.type == 3">
+      <div class="divider"></div>
+    </li>
     <li ui-sref="app.help">
       <div class="opt-icon"><i class="fa fa-question-circle"></i></div>
       <div class="opt-text"><span>Ayuda</span></div>
