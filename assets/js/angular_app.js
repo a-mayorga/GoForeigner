@@ -138,10 +138,23 @@
       parent: 'app',
       controller: 'EditProfileCtrl',
       controllerAs: 'editProfile',
-      templateUrl: 'js/templates/edit_profile.html',
+      templateUrl: 'js/templates/editProfile.html',
       module: 'private',
       data: {
         'pageTitle': 'Editar perfil'
+      }
+    }
+
+    var offerState = {
+      name: 'app.offer',
+      url: '/offer',
+      parent: 'app',
+      controller: 'EditProfileCtrl',
+      controllerAs: 'editProfile',
+      templateUrl: 'js/templates/offerGuests.html',
+      module: 'private',
+      data: {
+        'pageTitle': 'Ofrecer a Huéspedes'
       }
     }
 
@@ -216,6 +229,7 @@
     $stateProvider.state(savedState);
     $stateProvider.state(profileState);
     $stateProvider.state(editProfileState);
+    $stateProvider.state(offerState);
     $stateProvider.state(helpState);
     $stateProvider.state(myPostsState);
     $stateProvider.state(newPostState);

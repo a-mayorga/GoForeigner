@@ -19,7 +19,7 @@ h2{
 }
 
 .titulo{
-    font-size: 5em;    
+    /* font-size: 5em; */
 }
 
 .fondo-g{
@@ -31,7 +31,7 @@ h2{
 }
 
 .separar-1{
-    margin-top: 20%;
+    /* margin-top: 20%; */
 }
 
 .center{
@@ -53,7 +53,7 @@ h2{
 
 .info-pago > p{
     text-align: center;
-    font-size: 3em;
+    /* font-size: 3em; */
 }
 
 .info-pago > p#precio{
@@ -62,7 +62,7 @@ h2{
 
 .pago > p{
     text-align: center;
-    font-size: 4em;
+    /* font-size: 4em; */
 }
 
 .pago > img{
@@ -78,19 +78,19 @@ h2{
     margin-bottom: 50px;
     display: block;
     width: 70%;
-    height: 100px;
-    border : 5px #F06373 solid;
+    height: 50px;
+    border : 2px #F06373 solid;
     color: #F06373;
-    font-size: 2em;
+    /* font-size: 2em; */
 }
 /********opcion***************/
 .opcion{
-    margin-top: 50px;
+    margin-top: 30px;
     box-shadow: -1px 1px 11px -1px rgba(0,0,0,0.46);
     width: 90%;
     margin-left: 5%;
-    min-height: 150px;
-    font-size: 3em;
+    /* min-height: 80px; */
+    /* font-size: 3em; */
     text-align: left;
     padding: 20px;
     box-sizing: border-box;
@@ -101,8 +101,8 @@ h2{
 }
 /*****************************/
 .aviso{
-  position: absolute;
-  bottom: 20px;  
+  /* position: absolute; */
+  bottom: 50px;
 }
 
 #activo{
@@ -121,24 +121,24 @@ h2{
 }
 
 .editarPerfil > h2{
-    font-size: 4em;
+    /* font-size: 4em; */
     font-weight: bold;
 }
 
 .editarPerfil > h4{
-    font-size: 3em;
+    /* font-size: 3em; */
     font-weight: lighter;
     text-align: center;
 }
 
 .editarPerfil > p{
     color: #F06373;
-    font-size: 2em;
+    /* font-size: 2em; */
     text-align: center;
 }
 
 .editar > p{
-    font-size: 2em;
+    /* font-size: 2em; */
 }
 
 .editar{
@@ -153,7 +153,7 @@ h2{
 }
 
 .editar td{
-    font-size: 2.5em;
+    /* font-size: 2.5em; */
 }
 
 .campo {
@@ -171,11 +171,11 @@ h2{
 
 /************ESTRELLAS***********/
 .ec-stars-wrapper {
-	/* Espacio entre los inline-block (los hijos, los `a`) 
+	/* Espacio entre los inline-block (los hijos, los `a`)
 	   http://ksesocss.blogspot.com/2012/03/display-inline-block-y-sus-empeno-en.html */
 	font-size: 0;
-	/* Podríamos quitarlo, 
-		pero de esta manera (siempre que no le demos padding), 
+	/* Podríamos quitarlo,
+		pero de esta manera (siempre que no le demos padding),
 		sólo aplicará la regla .ec-stars-wrapper:hover a cuando
 		también se esté haciendo hover a alguna estrella */
 	display: inline-block;
@@ -236,7 +236,7 @@ h2{
 
 .info-publicacion  p{
     margin-bottom: 10px;
-    font-size: 2em;
+    /* font-size: 2em; */
 }
 .galeria{
     position: relative;
@@ -261,7 +261,7 @@ h2{
 .comentario > textarea{
     width: 100%;
     height: 150px;
-    font-size: 2em;
+    /* font-size: 2em; */
     border: 1px solid black;
 }
 
@@ -286,7 +286,7 @@ h2{
 }
 
 .btn-opcion{
-    font-size: 3em;
+    /* font-size: 3em; */
     text-align: right;
     margin : 0;
 }
@@ -330,7 +330,7 @@ h2{
 
 .subir-archivo  p{
     text-align: center;
-    font-size : 3em;
+    /* font-size : 3em; */
     display: inline-block;
     color: #F06373;
 }
@@ -350,13 +350,13 @@ h2{
 }
 
 .precio > label{
-    font-size: 2.5em;
+    /* font-size: 2.5em; */
 }
 
 .precio > input{
     width: 90%;
     height: 60px;
-    font-size: 2.5em;
+    /* font-size: 2.5em; */
     color: #F06373;
     border: 2px solid #F06373;
 }
@@ -371,13 +371,13 @@ h2{
 }
 
 .periodo-pago > label{
-    font-size: 2.5em;
+    /* font-size: 2.5em; */
 }
 
 .periodo-pago > select{
     width: 90%;
     height: 60px;
-    font-size: 2.5em;
+    /* font-size: 2.5em; */
     color: #F06373;
     border: 2px solid #F06373;
     outline: none;
@@ -389,7 +389,7 @@ h2{
     height: 300px;
     margin-left: 5%;
     border: 2px solid #F06373;
-    font-size: 2.5em;
+    /* font-size: 2.5em; */
 }
 
 .opciones-publicacion{
@@ -398,7 +398,7 @@ h2{
 }
 
 .opciones-publicacion p{
-    font-size: 2em;
+    /* font-size: 2em; */
     display: inline-block;
     margin-left: 10px;
 }
