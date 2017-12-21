@@ -6,10 +6,13 @@
         .module('savedCtrl', [])
         .controller('SavedCtrl', savedController);
 
-    // indexController.$inject = ['$document', '$window', 'vcRecaptchaService', 'contactService'];
+    savedController.$inject = [];
 
     function savedController() {
         var vm = this;
+        vm.deleteSaved = function() {
+          alert('Deleting...');
+        };
     }
 
 })();

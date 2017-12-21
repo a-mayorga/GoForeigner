@@ -6,8 +6,9 @@
     .module('goForeignerApp', [
       'angular-media-preview',
       'ngAnimate',
-      'ui.router',
+      'ngMap',
       'toastr',
+      'ui.router',
       'mainCtrl',
       'indexCtrl',
       'loginCtrl',
@@ -23,6 +24,7 @@
       'newPostCtrl',
       'postsCtrl',
       'postCtrl',
+      'termsCtrl',
       'reportsCtrl',
       'resultsCtrl',
       'authSrvc',
@@ -237,7 +239,20 @@
       templateUrl: 'js/templates/post.html',
       module: 'private',
       data: {
-        'pageTitle': 'Publicaciones'
+        'pageTitle': 'Publicación'
+      }
+    }
+
+    var contactState = {
+      name: 'app.terms',
+      url: '/terms',
+      parent: 'app',
+      controller: 'TermsCtrl',
+      controllerAs: 'terms',
+      templateUrl: 'js/templates/terms.html',
+      module: 'private',
+      data: {
+        'pageTitle': 'Términos y Condiciones'
       }
     }
 
@@ -293,6 +308,7 @@
     $stateProvider.state(newPostState);
     $stateProvider.state(postsState);
     $stateProvider.state(postState);
+    $stateProvider.state(contactState);
     $stateProvider.state(reportsState);
     $stateProvider.state(resultsState);
     $stateProvider.state(notFoundState);

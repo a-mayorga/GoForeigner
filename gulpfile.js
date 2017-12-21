@@ -8,6 +8,7 @@ gulp.task('angular-animate', function() {
   gulp.src(['node_modules/angular-animate/**/*']).pipe(gulp.dest('assets/libs/angular-animate'));
 });
 
+
 gulp.task('angular-toastr', function() {
   gulp.src(['node_modules/angular-toastr/**/*']).pipe(gulp.dest('assets/libs/angular-toastr'));
 });
@@ -20,6 +21,10 @@ gulp.task('font-awesome', function() {
   gulp.src(['node_modules/font-awesome/**/*']).pipe(gulp.dest('assets/libs/font-awesome'));
 });
 
+gulp.task('ngmap', function() {
+  gulp.src(['node_modules/ngmap/**/*']).pipe(gulp.dest('assets/libs/ngmap'));
+});
+
 gulp.task('skeleton', function() {
   gulp.src(['node_modules/skeleton-css/**/*']).pipe(gulp.dest('assets/libs/skeleton'));
 });
@@ -30,5 +35,6 @@ gulp.task('default', [
   'angular-toastr',
   'angular-ui-router',
   'font-awesome',
+  'ngmap',
   'skeleton'
 ]);

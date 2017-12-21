@@ -1,15 +1,20 @@
 (function() {
 
-    'use strict';
+  'use strict';
 
-    angular
-        .module('postCtrl', [])
-        .controller('PostCtrl', postController);
+  angular
+    .module('postCtrl', [])
+    .controller('PostCtrl', postController);
 
-    postController.$inject = [];
+  postController.$inject = [];
 
-    function postController() {
-        var vm = this;
-    }
+  function postController() {
+    var vm = this;
+    vm.map = {
+      latitude: 45,
+      longitude: -73,
+      zoom: 8
+    };
+  }
 
 })();

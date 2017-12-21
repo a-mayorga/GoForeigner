@@ -55,14 +55,14 @@
   <div class="post-header">
     <span>Ubicación</span>
     <div class="divider"></div>
-    <div class="map">
-
-    </div>
+    <ng-map zoom="{{ newpost.map.zoom }}" center="[{{ newpost.map.latitude }}, {{ newpost.map.longitude }}]">
+      <marker position="[{{ newpost.map.latitude }}, {{ newpost.map.longitude }}]" center="true" ></marker>
+    </ng-map>
   </div>
 </div>
 <div class="post-comments">
   <div class="post-header">
-    <span>Comentarios adicionales</span>
+    <span>Descripción</span>
     <div class="divider"></div>
   </div>
   <textarea name="name"></textarea>
