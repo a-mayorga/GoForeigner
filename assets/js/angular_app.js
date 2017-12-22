@@ -26,6 +26,7 @@
       'postCtrl',
       'payCtrl',
       'scoreHomeCtrl',
+      'planAdvertisingCtrl',
       'termsCtrl',
       'reportsCtrl',
       'resultsCtrl',
