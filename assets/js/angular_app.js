@@ -24,6 +24,8 @@
       'newPostCtrl',
       'postsCtrl',
       'postCtrl',
+      'payCtrl',
+      'scoreHomeCtrl',
       'termsCtrl',
       'reportsCtrl',
       'resultsCtrl',
@@ -256,6 +258,45 @@
       }
     }
 
+    var payState = {
+      name: 'app.pay',
+      url: '/pay/{id}',
+      parent: 'app',
+      controller: 'PayCtrl',
+      controllerAs: 'pay',
+      templateUrl: 'js/templates/pay.html',
+      module: 'public',
+      data: {
+        'pageTitle': 'Pago de Publicidad'
+      }
+    }
+
+    var planAdvertisingState = {
+      name: 'app.planAdvertising',
+      url: '/planAdvertising/{id}',
+      parent: 'app',
+      controller: 'PlanAdvertisingCtrl',
+      controllerAs: 'planAdvertising',
+      templateUrl: 'js/templates/planAdvertising.html',
+      module: 'public',
+      data: {
+        'pageTitle': 'Planes de Publicidad'
+      }
+    }
+
+    var scoreHomeState = {
+      name: 'app.scoreHome',
+      url: '/scoreHome',
+      parent: 'app',
+      controller: 'ScoreHomeCtrl',
+      controllerAs: 'scoreHome',
+      templateUrl: 'js/templates/scoreHome.html',
+      module: 'public',
+      data: {
+        'pageTitle': 'Calificar Estadía'
+      }
+    }
+
     var reportsState = {
       name: 'app.reports',
       url: '/reports',
@@ -308,6 +349,9 @@
     $stateProvider.state(newPostState);
     $stateProvider.state(postsState);
     $stateProvider.state(postState);
+    $stateProvider.state(payState);
+    $stateProvider.state(planAdvertisingState);
+    $stateProvider.state(scoreHomeState);
     $stateProvider.state(termsState);
     $stateProvider.state(reportsState);
     $stateProvider.state(resultsState);
