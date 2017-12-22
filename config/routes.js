@@ -210,6 +210,10 @@ module.exports.routes = {
     controller: 'TipoPublicidadController',
     action: 'getTipoPublicidad'
   },
+  'POST /api/adstypebyId': {
+    controller: 'TipoPublicidadController',
+    action: 'getPlan'
+  },
   'GET /api/reportstype': {
     controller: 'TipoReporteController',
     action: 'getTipoReporte'

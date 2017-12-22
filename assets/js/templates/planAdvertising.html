@@ -1,9 +1,9 @@
 <div class="separar-1">
     <h2>Seleciona un plan de Publicidad</h2>
     <hr>
-    <div class="info-pago plan-pago" ng-repeat="plan in planAdvertising.dataPlan">
+    <div class="info-pago plan-pago" ng-repeat="plan in planAdvertising.dataPlan" id="{{ plan.idTipoPublicidad }}" ng-click="planAdvertising.seleccionaPlan(plan.idTipoPublicidad)">
         <p id="precio">${{ plan.costo }}.00 MX/{{ plan.duracion }} días</p>
         <p>{{ plan.descripcion }}</p>
     </div>
 </div>
-<button class="btn-primary"><a href="/app/pay/{{ planAdvertising.idPublicacion }}">Continuar Pago</a></button>
+<button class="btn-primary" ng-click="planAdvertising.pagarPayPal()">Continuar Pago</button>

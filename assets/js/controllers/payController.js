@@ -13,17 +13,17 @@
 
     function payController($stateParams, toastr, payService) {
         var vm = this;
-        vm.idPlan = $stateParams.id;
+        vm.idPlan = localStorage.getItem("idPago");
         vm.payData = {};
         vm.paypal = paypal;
 
-        paypal();
+        // paypal();
         getDataToPay();
 
         function getDataToPay() {
-          payService.getPayData(vm.idPlan).then(function(data) {
+
+          payService.getInfoPago({ id : vm.idPlan }).then(function(data) {
             vm.payData = data;
-            console.log(data);
           });
         }
 

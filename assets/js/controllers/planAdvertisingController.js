@@ -4,24 +4,54 @@
 
     angular
         .module('planAdvertisingCtrl', [
-          'planAdvertisingSrvc'
+          'planAdvertisingSrvc',
+          'paySrvc',
+          'toastr'
         ])
         .controller('PlanAdvertisingCtrl', planAdvertisingController);
 
-    planAdvertisingController.$inject = ['$stateParams','planAdvertisingService'];
+    planAdvertisingController.$inject = ['$stateParams','planAdvertisingService', 'payService', 'toastr'];
 
-    function planAdvertisingController($stateParams, planAdvertisingService) {
+    function planAdvertisingController($stateParams, planAdvertisingService, payService, toastr) {
         var vm = this;
+        vm.idPublicacion = {};
         vm.idPublicacion = $stateParams.id;
+        vm.idPago = {};
         vm.dataPlan = {};
-        console.log($stateParams.id);
+        vm.seleccionaPlan = seleccionaPlan;
+        vm.pagarPayPal = pagarPayPal
         getTipPlan();
 
         function getTipPlan() {
           planAdvertisingService.getPlan().then(function(data) {
             vm.dataPlan = data;
-            console.log(data);
           });
+        }
+
+        function seleccionaPlan(id) {
+          vm.idPago = id;
+          localStorage.setItem("idPago",id);
+          localStorage.setItem("idPublicacion",vm.idPublicacion);
+
+          var elementos = document.getElementsByClassName("seleccionado");
+          for (var i = 0; i < elementos.length; i++) {
+            elementos[i].classList.remove("seleccionado");
+          }
+          if (document.getElementById(id).classList.contains("seleccionado")) {
+            document.getElementById(id).classList.remove("seleccionado");
+          } else {
+            document.getElementById(id).classList.add("seleccionado");
+            toastr.success('Plan Seleccionado');
+          }
+
+        }
+
+        function pagarPayPal() {
+          if(vm.idPago > 0){
+            window.location.href = "/app/pay";
+          } else {
+            toastr.error('Selecciona un plan');
+          }
         }
     }
 

@@ -261,7 +261,7 @@
 
     var payState = {
       name: 'app.pay',
-      url: '/pay/{id}',
+      url: '/pay',
       parent: 'app',
       controller: 'PayCtrl',
       controllerAs: 'pay',
