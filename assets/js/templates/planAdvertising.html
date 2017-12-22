@@ -1,17 +1,9 @@
 <div class="separar-1">
     <h2>Seleciona un plan de Publicidad</h2>
     <hr>
-    <div class="info-pago plan-pago">
-        <p id="precio">$100.00 MX/PAGO UNICO</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit minima sapiente ad adipisci sed eaque beatae ipsum, dicta odit, magnam maxime sunt aspernatur aliquid doloribus, odio delectus magni, nisi praesentium?</p>
-    </div>
-    <div class="info-pago plan-pago">
-        <p id="precio">$100.00 MX/PAGO UNICO</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit minima sapiente ad adipisci sed eaque beatae ipsum, dicta odit, magnam maxime sunt aspernatur aliquid doloribus, odio delectus magni, nisi praesentium?</p>
-    </div>
-    <div class="info-pago plan-pago">
-        <p id="precio">$100.00 MX/PAGO UNICO</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit minima sapiente ad adipisci sed eaque beatae ipsum, dicta odit, magnam maxime sunt aspernatur aliquid doloribus, odio delectus magni, nisi praesentium?</p>
+    <div class="info-pago plan-pago" ng-repeat="plan in planAdvertising.dataPlan">
+        <p id="precio">${{ plan.costo }}.00 MX/{{ plan.duracion }} días</p>
+        <p>{{ plan.descripcion }}</p>
     </div>
 </div>
-<button class="btn-primary">Continuar Pago</button>
+<button class="btn-primary"><a href="/app/pay/{{ planAdvertising.idPublicacion }}">Continuar Pago</a></button>
