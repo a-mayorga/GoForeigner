@@ -1,33 +1,28 @@
 /**
- * Tipopublicidad.js
+ * Contactos.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
  module.exports = {
-   tableName: 'tipopublicidad',
+   tableName: 'contactos',
    autoCreatedAt: false,
    autoUpdatedAt: false,
    attributes: {
-     idTipoPublicidad: {
+     idContacto: {
        type: 'integer',
        autoIncrement: true,
        primaryKey: true,
-       columnName: 'idTipoPublicidad'
+       columnName: 'idContacto'
      },
-     costo: {
-       type: 'float',
-       columnName: 'costo'
+     idUsuario: {
+       type: 'integer',
+       columnName: 'idUsuario'
      },
-     duracion :{
+     idPublicacion :{
        type : 'integer',
-       columnName : 'duracion'
-     },
-     descripcion :{
-       type : 'string',
-       size : 500,
-       columnName : 'descripcion'
+       columnName : 'idPublicacion'
      }
    }
  };
