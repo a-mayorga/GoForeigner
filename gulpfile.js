@@ -8,7 +8,6 @@ gulp.task('angular-animate', function() {
   gulp.src(['node_modules/angular-animate/**/*']).pipe(gulp.dest('assets/libs/angular-animate'));
 });
 
-
 gulp.task('angular-toastr', function() {
   gulp.src(['node_modules/angular-toastr/**/*']).pipe(gulp.dest('assets/libs/angular-toastr'));
 });

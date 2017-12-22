@@ -243,7 +243,7 @@
       }
     }
 
-    var contactState = {
+    var termsState = {
       name: 'app.terms',
       url: '/terms',
       parent: 'app',
@@ -308,7 +308,7 @@
     $stateProvider.state(newPostState);
     $stateProvider.state(postsState);
     $stateProvider.state(postState);
-    $stateProvider.state(contactState);
+    $stateProvider.state(termsState);
     $stateProvider.state(reportsState);
     $stateProvider.state(resultsState);
     $stateProvider.state(notFoundState);

@@ -6,23 +6,10 @@
         .module('termsCtrl', [])
         .controller('TermsCtrl', termsController);
 
-    termsController.$inject = ['$state'];
+    termsController.$inject = [];
 
-    function termsController($state) {
+    function termsController() {
         var vm = this;
-        vm.accept;
-        vm.contact = contact;
-
-        function contact() {
-          if(vm.accept != undefined || vm.accept) {
-            // NOTE: Replace by app.contact
-            $state.go('app.explore');
-          }
-          else {
-            // NOTE: Show toast message instead
-            alert('Tienes que aceptar los términos y condiciones');
-          }
-        }
     }
 
 })();
