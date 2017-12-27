@@ -15,9 +15,9 @@
         var vm = this;
         vm.idPlan = localStorage.getItem("idPago");
         vm.payData = {};
-        vm.paypal = paypal;
+        vm.paypl = paypl;
 
-        // paypal();
+        paypl();
         getDataToPay();
 
         function getDataToPay() {
@@ -27,9 +27,9 @@
           });
         }
 
-        function paypal() {
+        function paypl() {
           paypal.Button.render({
-              env: 'production', // Or 'sandbox'
+              env: 'sandbox', // Or 'sandbox'
               client: {
                   sandbox:    'ARp962Irq2fb09N20pPMnl0T86CeVtAkcMPqrSquRzUdSS1Yo6kKbGiOw7AG8IOzWOw4OwsRP2ywYEn6',
                   production: 'AU42QHezL0JzJsmfYb0pigw-Hnq-omahb0-3lja7u9uMutIw1Y8JKMPELhFtm5vLm_m4r3w7suYqFdWW'
