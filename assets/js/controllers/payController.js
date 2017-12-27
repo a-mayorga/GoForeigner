@@ -17,17 +17,17 @@
         vm.payData = {};
         vm.paypl = paypl;
 
-        paypl();
         getDataToPay();
 
         function getDataToPay() {
 
           payService.getInfoPago({ id : vm.idPlan }).then(function(data) {
             vm.payData = data;
+            paypl(data.costo);
           });
         }
 
-        function paypl() {
+        function paypl(costo) {
           paypal.Button.render({
               env: 'sandbox', // Or 'sandbox'
               client: {
@@ -47,7 +47,7 @@
                       payment: {
                           transactions: [
                               {
-                                  amount: { total: '1.00', currency: 'MXN' }
+                                  amount: { total: costo+".00", currency: 'MXN' }
                               }
                           ]
                       }

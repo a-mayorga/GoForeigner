@@ -7,6 +7,13 @@
     z-index: 1;
 }
 
+/*************************PAYPAL*********/
+#paypal-button{
+  margin-top: 50px;
+}
+/*************************PAYPAL*********/
+
+
 .container{
   /* padding: 0 !important; */
 }
