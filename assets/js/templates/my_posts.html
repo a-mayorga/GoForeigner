@@ -1,21 +1,32 @@
 <ul class="posts">
-  <li>
-    <div class="post">
-      <div class="delete-saved" ng-show="$state.includes('app.saved')">
-        <i class="fa fa-times"></i>
-      </div>
-      <div class="post-elements">
+  <div class="row">
+    <li class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <div class="post">
+        <div class="delete-saved" ng-show="$state.includes('app.myposts')">
+          <i class="fa fa-ellipsis-v"></i>
+        </div>
         <div class="post-image">
-          <img src="../images/apartment1.jpg">
+          <!-- <img src="../images/apartment1.jpg"> -->
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <img class="swiper-slide" src="../images/apartment1.jpg">
+              <img class="swiper-slide" src="../images/apartment1.jpg">
+              <img class="swiper-slide" src="../images/apartment1.jpg">
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+          </div>
         </div>
         <div class="post-data">
-          <span>$1,000.00 MXN</span>
+          <span>$700.00 MXN</span>
           <ul class="amenities">
             <li>Departamento</li>
             <li>Medio baño</li>
             <li>2 camas</li>
           </ul>
-          <span class="university">UAQ - Facultad de Ciencias Naturales</span>
+          <span class="university">UAQ - Facultad de Informática</span>
           <ul class="rating">
             <li><i class="fa fa-star"></i></li>
             <li><i class="fa fa-star"></i></li>
@@ -24,87 +35,16 @@
             <li><i class="fa fa-star-o"></i></li>
           </ul>
         </div>
+        <div class="post-opcion no-visible">
+          <ul>
+            <li>Editar</li>
+            <li>Publicidad</li>
+            <li class="delete-opcion">Eliminar</li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </li>
-  <li>
-    <div class="post">
-      <div class="delete-saved" ng-show="$state.includes('app.saved')">
-        <i class="fa fa-times"></i>
-      </div>
-      <div class="post-image">
-        <img src="../images/apartment1.jpg">
-      </div>
-      <div class="post-data">
-        <span>$700.00 MXN</span>
-        <ul class="amenities">
-          <li>Departamento</li>
-          <li>Medio baño</li>
-          <li>2 camas</li>
-        </ul>
-        <span class="university">UAQ - Facultad de Informática</span>
-        <ul class="rating">
-          <li><i class="fa fa-star"></i></li>
-          <li><i class="fa fa-star"></i></li>
-          <li><i class="fa fa-star"></i></li>
-          <li><i class="fa fa-star-o"></i></li>
-          <li><i class="fa fa-star-o"></i></li>
-        </ul>
-      </div>
-    </div>
-  </li>
-  <li>
-    <div class="post">
-      <div class="delete-saved" ng-show="$state.includes('app.saved')">
-        <i class="fa fa-times"></i>
-      </div>
-      <div class="post-image">
-        <img src="../images/apartment1.jpg">
-      </div>
-      <div class="post-data">
-        <span>$450.00 MXN</span>
-        <ul class="amenities">
-          <li>Departamento</li>
-          <li>Medio baño</li>
-          <li>2 camas</li>
-        </ul>
-        <span class="university">UNAM - Campus Juriquilla</span>
-        <ul class="rating">
-          <li><i class="fa fa-star"></i></li>
-          <li><i class="fa fa-star"></i></li>
-          <li><i class="fa fa-star"></i></li>
-          <li><i class="fa fa-star-o"></i></li>
-          <li><i class="fa fa-star-o"></i></li>
-        </ul>
-      </div>
-    </div>
-  </li>
-  <li>
-    <div class="post">
-      <div class="delete-saved" ng-show="$state.includes('app.saved')">
-        <i class="fa fa-times"></i>
-      </div>
-      <div class="post-image">
-        <img src="../images/apartment1.jpg">
-      </div>
-      <div class="post-data">
-        <span>$450.00 MXN</span>
-        <ul class="amenities">
-          <li>Departamento</li>
-          <li>Medio baño</li>
-          <li>2 camas</li>
-        </ul>
-        <span class="university">UNAM - Campus Juriquilla</span>
-        <ul class="rating">
-          <li><i class="fa fa-star"></i></li>
-          <li><i class="fa fa-star"></i></li>
-          <li><i class="fa fa-star"></i></li>
-          <li><i class="fa fa-star-o"></i></li>
-          <li><i class="fa fa-star-o"></i></li>
-        </ul>
-      </div>
-    </div>
-  </li>
+    </li>
+  </div>
 </ul>
 
 <div class="fab add" ui-sref="app.newpost">

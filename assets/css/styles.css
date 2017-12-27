@@ -17,9 +17,14 @@ html {
   height: 100%;
 }
 
+.no-visible{
+  display: none;
+}
+
 .container {
   width: 100%;
-  padding: 5% 5% 0px 5%;
+  /* padding: 5% 5% 0px 5%; */
+  padding: 40px 20px 0px 20px;
   margin-bottom: 64px;
 }
 
@@ -441,6 +446,7 @@ html {
 }
 
 li>.post {
+  position: relative;
   width: 100%;
   height: 180px;
   padding: 2%;
@@ -460,16 +466,28 @@ li>.post {
 .post-image, .post-data {
   width: 50%;
   height: 100%;
+  position: relative;
   float: left;
 }
 
 .post-data {
   padding-left: 15px;
 }
+.post-image{
+  padding: 20px;
+  box-sizing: border-box;
+}
 
-.post-image>img {
+/* .post-image>img {
   max-width: 100%;
-  margin-top: 18%;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 2px solid var(--primary);
+} */
+
+.post-image img.swiper-slide{
   border: 2px solid var(--primary);
 }
 
@@ -477,6 +495,43 @@ li>.post {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.post-opcion{
+  position: absolute;
+  right: 5%;
+  margin-right: 7px;
+  margin-top: 5%;
+  /* margin-bottom: 5%; */
+  width: 25%;
+  /* height: 60%; */
+  background: white;
+  box-shadow: 0px 1px 6px rgba(181, 181, 181, 0.6);
+}
+
+.post-opcion > ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.post-opcion >ul li{
+  padding: 1rem;
+  margin-bottom: 0;
+  box-sizing: border-box;
+  border-bottom: .5px solid rgba(181, 181, 181, 0.8);
+  transition: .8s all;
+}
+
+.post-opcion > ul li:hover{
+  background: var(--primary-dark);
+  color: white;
+}
+
+li.delete-opcion{
+  color: var(--primary-dark);
 }
 
 ul.amenities>li {
