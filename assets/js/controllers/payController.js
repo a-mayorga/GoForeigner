@@ -56,7 +56,7 @@
 
               onAuthorize: function(data, actions) {
                   return actions.payment.execute().then(function(payment) {
-
+                      console.log(data);
                       // The payment is complete!
                       // You can now show a confirmation message to the customer
                   });

@@ -60,7 +60,7 @@
       url: '/',
       controller: 'IndexCtrl',
       controllerAs: 'index',
-      templateUrl: 'js/templates/index.html',
+      templateUrl: 'js/templates/login.html',
       module: 'public',
       data: {
         'pageTitle': 'GoForeigner',
@@ -381,7 +381,12 @@
         }
 
         /* Avoiding a logged user from returning to the login form */
+        console.log(authService.isLoggedIn());
         if (toState.name === 'login' && authService.isLoggedIn()) {
+            evt.preventDefault();
+            $state.go('profile');
+        }
+        if (toState.name === 'register' && authService.isLoggedIn()) {
             evt.preventDefault();
             $state.go('profile');
         }

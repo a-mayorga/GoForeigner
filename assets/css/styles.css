@@ -33,9 +33,10 @@ html {
 .body-main {
   background: linear-gradient( rgba(36, 36, 36, 0.9), rgba(36, 36, 36, 0.9)), url('../images/apartment1.jpg');
   background-repeat: no-repeat;
-  background-position: center top;
-  background-size: 280% auto;
-  padding: 0;
+  background-position: center;
+  background-size: cover;
+  /* padding: 0; */
+  overflow-x: hidden;
 }
 
 /* NAVBAR STYLES */
@@ -67,26 +68,62 @@ html {
 /* INDEX STYLES */
 
 .logo {
-  width: 100%;
-  margin-top: calc(50% - 100px);
-  text-align: center;
+  margin-top: 50px;
 }
 
 .logo img {
   width: 25%;
 }
 
+@media only screen and (min-width: 75em) {
+  .login {
+    margin-top: 50px;
+  }
+
+  .register-form {
+    margin-top: 10%;
+  }
+}
+
+@media only screen and (min-width: 64em) {
+  .login {
+    margin-top: 50px;
+  }
+
+  .register-form {
+    margin-top: 10%;
+  }
+}
+
+@media only screen and (min-width: 48em) {
+  .login {
+    margin-top: 50px;
+  }
+
+  .register-form {
+    margin-top: 10%;
+  }
+}
+
 .logo p {
   font-size: 2em;
   color: white;
   font-weight: bold;
-  margin-top: 15px;
+  /* margin-top: 15px; */
 }
 
-.search, .login {
+.search{
   width: 100%;
   text-align: center;
   margin-top: 15%;
+}
+
+.login{
+  /* margin-top: 35%; */
+}
+
+.register-form{
+  /* margin-top: 50px; */
 }
 
 .search {
@@ -159,9 +196,9 @@ html {
 
 .login-button {
   width: 80%;
-  height: 45px;
-  margin-top: 8%;
-  margin-bottom: 8%;
+  /* height: 45px; */
+  /* margin-top: 8%; */
+  /* margin-bottom: 8%; */
   text-align: center;
   background: var(--primary);
   border: 1px solid var(--primary);

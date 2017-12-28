@@ -1,16 +1,22 @@
-<div class="logo">
-  <img src="images/logo.png">
-  <p>GoForeigner</p>
-</div>
-<div class="login">
-  <form ng-submit="register.registerSubmit()">
-    <input type="text" placeholder="Nombre" ng-model="register.registerData.name"><br>
-    <input type="text" placeholder="Apellidos" ng-model="register.registerData.lastName"><br>
-    <input type="email" placeholder="Email" ng-model="register.registerData.email"><br>
-    <input type="number" placeholder="Teléfono" onkeypress="if(this.value.length == 15) return false;" ng-model="register.registerData.phone"><br>
-    <input type="password" placeholder="Password" ng-model="register.registerData.pass"><br>
-    <input type="password" placeholder="Confirmar password" ng-model="register.registerData.confPass"><br>
-    <button class="login-button">Registrarme</button><br>
-  </form>
-  <p>¿Ya tienes una cuenta? <a class="register" ui-sref="login">Inicia Sesión</a></p>
+<div class="row center-xs center-sm center-md center-lg middle-xs middle-sm middle-md middle-lg">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="logo">
+      <img src="images/logo.png">
+      <p>GoForeigner</p>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+    <div class="register-form login">
+      <form ng-submit="register.registerSubmit()">
+        <input type="text" placeholder="Nombre" ng-model="register.registerData.name"><br>
+        <input type="text" placeholder="Apellidos" ng-model="register.registerData.lastName"><br>
+        <input type="email" placeholder="Email" ng-model="register.registerData.email"><br>
+        <input type="number" placeholder="Teléfono" onkeypress="if(this.value.length == 15) return false;" ng-model="register.registerData.phone"><br>
+        <input type="password" placeholder="Password" ng-model="register.registerData.pass"><br>
+        <input type="password" placeholder="Confirmar password" ng-model="register.registerData.confPass"><br>
+        <button class="login-button">Registrarme</button><br>
+      </form>
+      <p>¿Ya tienes una cuenta? <a class="register" ui-sref="login">Inicia Sesión</a></p>
+    </div>
+  </div>
 </div>

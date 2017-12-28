@@ -180,6 +180,14 @@ module.exports.routes = {
     controller: 'PagosPublicidadController',
     action: 'getPagosPublicidad'
   },
+  'POST /api/adspayment/publicaciones': {
+    cors: {
+       origin: '*',
+       headers: 'Content-Type, Authorization'
+    },
+    controller: 'PagosPublicidadController',
+    action: 'publicaciones'
+  },
   'POST /api/adspayment/save': {
     cors: {
        origin: '*',
