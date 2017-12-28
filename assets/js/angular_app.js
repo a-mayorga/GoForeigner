@@ -7,6 +7,7 @@
       'angular-media-preview',
       'ngAnimate',
       'ngMap',
+      'ngMapAutocomplete',
       'toastr',
       'ui.router',
       'mainCtrl',
@@ -266,7 +267,7 @@
       controller: 'PayCtrl',
       controllerAs: 'pay',
       templateUrl: 'js/templates/pay.html',
-      module: 'public',
+      module: 'private',
       data: {
         'pageTitle': 'Pago de Publicidad'
       }
@@ -279,7 +280,7 @@
       controller: 'PlanAdvertisingCtrl',
       controllerAs: 'planAdvertising',
       templateUrl: 'js/templates/planAdvertising.html',
-      module: 'public',
+      module: 'private',
       data: {
         'pageTitle': 'Planes de Publicidad'
       }
@@ -381,14 +382,17 @@
         }
 
         /* Avoiding a logged user from returning to the login form */
-        console.log(authService.isLoggedIn());
         if (toState.name === 'login' && authService.isLoggedIn()) {
             evt.preventDefault();
-            $state.go('profile');
+            $state.go('app.explore');
         }
         if (toState.name === 'register' && authService.isLoggedIn()) {
             evt.preventDefault();
-            $state.go('profile');
+            $state.go('app.explore');
+        }
+        if (toState.name === 'index' && authService.isLoggedIn()) {
+            evt.preventDefault();
+            $state.go('app.explore');
         }
     });
   }

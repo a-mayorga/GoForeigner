@@ -7,10 +7,11 @@
 
 module.exports = {
 	getPagosPublicidad: function(req, res) {
-		User.find().exec(function(err, user) {
+		PagosPublicidad.find().exec(function(err, user) {
 			if(err) {
 				console.log(err);
 			}
+			sails.log(user)
 			res.json(user);
 		});
 	},
@@ -44,6 +45,15 @@ module.exports = {
 			console.log("done");
 		});
 		return;
+	},
+
+	publicaciones : function(req, res){
+		PagosPublicidad.query('SELECT * FROM publicacion WHERE idPublicacion IN (SELECT idPublicacion FROM pagosPublicidad)', [ 'idPublicacion' ] ,function(err, rawResult) {
+		  if (err) { return res.serverError(err); }
+		  sails.log(rawResult);
+		  res.json(rawResult);
+		  return res.ok();
+		});
 	}
 
 };

@@ -1,5 +1,15 @@
 <div class="post-images">
-  Images here
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <img class="swiper-slide" src="../images/apartment1.jpg">
+      <img class="swiper-slide" src="../images/apartment1.jpg">
+      <img class="swiper-slide" src="../images/apartment1.jpg">
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>
 </div>
 <div class="post-price">
   <span>$</span>
@@ -52,8 +62,9 @@
   </div>
 </div>
 <div class="post-location">
+  <span>Ubicación</span>
+  <input type="text" ng-map-autocomplete ng-model="newpost.autocomplete" options="newpost.options" details="newpost.details"/>
   <div class="post-header">
-    <span>Ubicación</span>
     <div class="divider"></div>
     <ng-map zoom="{{ newpost.map.zoom }}" center="[{{ newpost.map.latitude }}, {{ newpost.map.longitude }}]">
       <marker position="[{{ newpost.map.latitude }}, {{ newpost.map.longitude }}]" center="true" ></marker>
