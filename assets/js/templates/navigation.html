@@ -9,7 +9,7 @@
   </div>
 </div>
 <nav-bar ng-show="$state.includes('app.help') || $state.includes('app.newpost') || $state.includes('app.editprofile') || $state.includes('app.offer') || $state.includes('app.post') || $state.includes('app.terms')"></nav-bar>
-<div class="container" ui-view></div>
+<div class="cont" ui-view></div>
 <div class="bottom-bar" ng-hide="$state.includes('app.index') || $state.includes('app.login')|| $state.includes('app.register')">
   <ul>
     <li ui-sref-active="active" ng-hide="navigation.user.type == 1 || navigation.user.type == 2">
