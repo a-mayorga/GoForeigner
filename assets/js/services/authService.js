@@ -89,7 +89,7 @@
           cacheSession(response.data.nombre, response.data.apellidos,
             response.data.correo, response.data.telefono, response.data.idTipoUsuario,
             response.data.idTipoEstado, response.data.dirImagen);
-          $state.go('app.profile');
+          $state.go('app.explore');
         },
         function(error) {
           uncacheSession();
