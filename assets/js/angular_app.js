@@ -58,8 +58,8 @@
     var indexState = {
       name: 'index',
       url: '/',
-      controller: 'IndexCtrl',
-      controllerAs: 'index',
+      controller: 'LoginCtrl',
+      controllerAs: 'login',
       templateUrl: 'js/templates/login.html',
       module: 'public',
       data: {
