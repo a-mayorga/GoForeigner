@@ -19,7 +19,7 @@
         vm.idPago = {};
         vm.dataPlan = {};
         vm.seleccionaPlan = seleccionaPlan;
-        vm.pagarPayPal = pagarPayPal
+        vm.pagarPayPal = pagarPayPal;
         getTipPlan();
 
         function getTipPlan() {

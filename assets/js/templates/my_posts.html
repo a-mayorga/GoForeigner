@@ -2,7 +2,7 @@
   <div class="row">
     <li class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
       <div class="post">
-        <div class="delete-saved" ng-show="$state.includes('app.myposts')">
+        <div class="delete-saved" ng-show="$state.includes('app.myposts')" ng-click="myposts.opciones('opt-1');">
           <i class="fa fa-ellipsis-v"></i>
         </div>
         <div class="post-image">
@@ -35,10 +35,10 @@
             <li><i class="fa fa-star-o"></i></li>
           </ul>
         </div>
-        <div class="post-opcion no-visible">
+        <div class="post-opcion no-visible" id="opt-1">
           <ul>
             <li>Editar</li>
-            <li href="/app/planAdvertising/1">Publicidad</li>
+            <li onclick="location.href='/app/planAdvertising/1'">Publicidad</li>
             <li class="delete-opcion">Eliminar</li>
           </ul>
         </div>
