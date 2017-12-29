@@ -19,6 +19,7 @@
       return $http.get('http://localhost:1337/api/restrictionstype')
         .then(function(response) {
             return response.data;
+            console.log(response.data);
           },
           function(error) {
             console.log(error);
