@@ -54,7 +54,7 @@
 
     return authService;
 
-    function cacheSession(name, lastName, email, phone, type, status, picture) {
+    function cacheSession(name, lastName, email, phone, type, status, picture, idUsuario) {
       sessionControl.set('isLogged', true);
       sessionControl.set('name', name);
       sessionControl.set('lastName', lastName);
@@ -63,6 +63,7 @@
       sessionControl.set('type', type);
       sessionControl.set('status', status);
       sessionControl.set('picture', picture);
+      sessionControl.set('idUsuario', idUsuario);
     }
 
     function uncacheSession() {
@@ -74,6 +75,7 @@
       sessionControl.unset('type');
       sessionControl.unset('status');
       sessionControl.unset('picture');
+      sessionControl.unset('idUsuario');
     }
 
     /* Executes the $auth dependency login function (provided by Satellizer) with the login form data */
@@ -88,7 +90,7 @@
       }).then(function(response) {
           cacheSession(response.data.nombre, response.data.apellidos,
             response.data.correo, response.data.telefono, response.data.idTipoUsuario,
-            response.data.idTipoEstado, response.data.dirImagen);
+            response.data.idTipoEstado, response.data.dirImagen, response.data.idUsuario);
           $state.go('app.explore');
         },
         function(error) {

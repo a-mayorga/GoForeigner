@@ -5,15 +5,17 @@
     angular
         .module('newPostCtrl', [
           'servicesSrvc',
+          'postSrvc',
           'restrictionsSrvc',
           'ngMap',
-          'ngMapAutocomplete'
+          'ngMapAutocomplete',
+          'toastr'
         ])
         .controller('NewPostCtrl', newPostController);
 
-    newPostController.$inject = ['servicesService', 'restrictionsService','NgMap'];
+    newPostController.$inject = ['servicesService', 'restrictionsService','postService' ,'NgMap', 'toastr'];
 
-    function newPostController(servicesService, restrictionsService, NgMap) {
+    function newPostController(servicesService, restrictionsService, postService, NgMap, toastr) {
         var vm = this;
         vm.options = {
           country: 'mx'
@@ -26,6 +28,11 @@
         vm.map = {
           zoom: 17
         };
+        vm.data = {
+          guests : 0,
+          services : [],
+          restrictions : []
+        };
 
         var swiper = new Swiper('.swiper-container', {
           pagination: {
@@ -34,6 +41,8 @@
           scrollbar: {
             el: '.swiper-scrollbar',
           },
+          loop :  true,
+          dynamicBullets: true,
         });
 
         getServices();
@@ -65,12 +74,6 @@
 
           NgMap.getMap().then(function(map) {
             console.log(map);
-            // map.markers.shift();
-            // map.markers.push({
-            //   latitude: parseFloat(lat),
-            //   longitude: parseFloat(lng),
-            //   draggable: true
-            // });
             console.log('markers', map.markers[0].position);
           });
 
@@ -81,6 +84,67 @@
             vm.pos.lng = e.latLng.lng();
         };
 
+        vm.validarForm = function(){
+          if(parseInt(vm.data.guests) > 0 && parseInt(vm.data.guests) <= 5){
+            if(vm.data.location.lat != undefined && vm.data.location.lng != undefined ){
+              if(parseInt(vm.data.period) > 0 && parseInt(vm.data.period) <= 3){
+                if (vm.data.restrictions.length > 0 && vm.data.services.length > 0) {
+                  var dataPublicacion = {
+                    idUsuario : sessionStorage.getItem('idUsuario'),
+              			lat: vm.data.location.lat,
+              			lng: vm.data.location.lng,
+              			costo: vm.data.price,
+              			descripciones: vm.data.description,
+              			idZonaInmueble: 1,
+                    huespedes : vm.data.guests
+                  }
+                  postService.setPost(dataPublicacion).then(function(data) {
+                    console.log(data);
+                  });
+                } else {
+                  toastr.error("Selecciona por lo menos más de 3 servicios y 3 restrictiones");
+                }
+              } else {
+                toastr.error("El periodo no es valido");
+              }
+            } else {
+              toastr.error("Mueve el pin del mapa para señalar la Ubicación");
+            }
+          } else {
+            toastr.error("El número de Huéspedes no es valido");
+          }
+        }
+
+        vm.addRestriccion = function(id) {
+          console.log(id);
+          var index = vm.data.restrictions.indexOf(id);
+          if ( index == -1) {
+            vm.data.restrictions.push(id);
+          } else {
+            vm.data.restrictions.splice(index, 1);
+          }
+        }
+
+        vm.addServicio = function(id){
+          console.log(id);
+          var index = vm.data.services.indexOf(id);
+          if ( index == -1) {
+            vm.data.services.push(id);
+          } else {
+            vm.data.services.splice(index, 1);
+          }
+        }
+
+        vm.publicarPost = function(){
+          // console.log(swiper.slideNext());
+          vm.data.location = {
+            lat : vm.pos.lat,
+            lng : vm.pos.lng
+          }
+          if(vm.validarForm()){
+
+          }
+        }
 
     }
 })();

@@ -1,84 +1,110 @@
-<div class="post-images">
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <img class="swiper-slide" src="../images/apartment1.jpg">
-      <img class="swiper-slide" src="../images/apartment1.jpg">
-      <img class="swiper-slide" src="../images/apartment1.jpg">
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6">
+    <div class="post-images">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <img class="swiper-slide" src="../images/apartment1.jpg">
+          <img class="swiper-slide" src="../images/apartment1.jpg">
+          <img class="swiper-slide" src="../images/apartment1.jpg">
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+      </div>
+      <div class="upload-file">
+        <input type="file" name="file" id="file" media-preview preview-container="preview" accept="image/*" ng-model="newpost.data.img" file-upload multiple>
+        <label for="file" class="upload-imagen-post"><i class="fa fa-cloud-upload"></i> Subir foto</label>
+      </div>
     </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
-    <!-- If we need scrollbar -->
-    <div class="swiper-scrollbar"></div>
+  </div>
+  <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
+    <div class="post-price">
+      <span>$</span>
+      <input type="number" name="price" placeholder="Precio" ng-model="newpost.data.price" required>
+      <span>.00 MXN</span>
+      <select name="period" class="period" ng-model="newpost.data.period" ng-init="newpost.data.period='0'">
+        <option value="0">seleccione...</option>
+        <option value="1">Semanal</option>
+        <option value="2">Quincenal</option>
+        <option value="3" ng-selected>Mensual</option>
+      </select>
+      <span>Huéspedes: </span>
+      <select name="guests" ng-model="newpost.data.guests" ng-init="newpost.data.guests='0'">
+        <option value="0">seleccione...</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6">
+    <div class="post-services">
+      <div class="post-header">
+        <span>Servicios</span>
+        <div class="divider"></div>
+      </div>
+      <div class="left-options">
+        <ul>
+          <li ng-repeat="service in newpost.services | limitTo:8:0"><label><input ng-click="newpost.addServicio(service.idTipoServicio)" type="checkbox"> {{ service.descripcion }}</label></li>
+        </ul>
+      </div>
+      <div class="right-options">
+        <ul>
+          <li ng-repeat="service in newpost.services | limitTo:16:8"><label><input ng-click="newpost.addServicio(service.idTipoServicio)" type="checkbox"> {{ service.descripcion }}</label></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6">
+    <div class="post-restrictions">
+      <div class="post-header">
+        <span>Restricciones</span>
+        <div class="divider"></div>
+      </div>
+      <div class="left-options">
+        <ul>
+          <li ng-repeat="restriction in newpost.restrictions | limitTo:3:0"><label><input type="checkbox" ng-click="newpost.addRestriccion(restriction.idTipoRestriccion)"> {{ restriction.descripcion }}</label></li>
+        </ul>
+      </div>
+      <div class="right-options">
+        <ul>
+          <li ng-repeat="restriction in newpost.restrictions | limitTo:6:3"><label><input type="checkbox" ng-click="newpost.addRestriccion(restriction.idTipoRestriccion)"> {{ restriction.descripcion }}</label></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 first-lg first-md first-sm">
+    <div class="post-location">
+      <span>Ubicación</span>
+      <input type="text" ng-map-autocomplete ng-model="newpost.autocomplete" options="newpost.options" details="newpost.details" ng-model="newpost.result" ng-blur="newpost.setMarker()"/>
+      <!-- <div>result: {{newpost.details.geometry}}</div> -->
+      <div class="post-header">
+        <div class="divider"></div>
+        <ng-map zoom="{{ newpost.map.zoom }}" center="[{{ newpost.map.latitude }}, {{ newpost.map.longitude }}]" >
+          <marker position="[{{ newpost.map.latitude }}, {{ newpost.map.longitude }}]" center="true"  draggable="true" visible="true" on-dragend="newpost.getCurrentlocation()"></marker>
+        </ng-map>
+      </div>
+    </div>
   </div>
 </div>
-<div class="post-price">
-  <span>$</span>
-  <input type="number" name="price" placeholder="Precio">
-  <span>.00 MXN</span>
-  <select name="period" class="period">
-    <option value="1">Semanal</option>
-    <option value="2">Quincenal</option>
-    <option value="3">Mensual</option>
-  </select>
-  <span>Huéspedes: </span>
-  <select name="guests">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
-</div>
-<div class="post-services">
-  <div class="post-header">
-    <span>Servicios</span>
-    <div class="divider"></div>
-  </div>
-  <div class="left-options">
-    <ul>
-      <li ng-repeat="service in newpost.services | limitTo:8:0"><label><input id="{{ service.idTipoServicio }}" type="checkbox"> {{ service.descripcion }}</label></li>
-    </ul>
-  </div>
-  <div class="right-options">
-    <ul>
-      <li ng-repeat="service in newpost.services | limitTo:16:8"><label><input id="{{ service.idTipoServicio }}" type="checkbox"> {{ service.descripcion }}</label></li>
-    </ul>
+<div class="row center-sm center-md center-lg">
+  <div class="col-lg-6 col-xs-12 col-sm-6 col-md-6">
+    <div class="post-comments">
+      <div class="post-header">
+        <span>Descripción</span>
+        <div class="divider"></div>
+      </div>
+      <textarea name="name" ng-model="newpost.data.description"></textarea>
+    </div>
   </div>
 </div>
-<div class="post-restrictions">
-  <div class="post-header">
-    <span>Restricciones</span>
-    <div class="divider"></div>
+<div class="row center-sm center-md center-lg">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="post-button">
+      <button class="publish" ng-click="newpost.publicarPost()">Publicar</button>
+    </div>
   </div>
-  <div class="left-options">
-    <ul>
-      <li ng-repeat="restriction in newpost.restrictions | limitTo:3:0"><label><input id="{{ restriction.idTipoRestriccion }}" type="checkbox"> {{ restriction.descripcion }}</label></li>
-    </ul>
-  </div>
-  <div class="right-options">
-    <ul>
-      <li ng-repeat="restriction in newpost.restrictions | limitTo:6:3"><label><input id="{{ restriction.idTipoRestriccion }}" type="checkbox"> {{ restriction.descripcion }}</label></li>
-    </ul>
-  </div>
-</div>
-<div class="post-location">
-  <span>Ubicación</span>
-  <input type="text" ng-map-autocomplete ng-model="newpost.autocomplete" options="newpost.options" details="newpost.details" ng-model="newpost.result" ng-blur="newpost.setMarker()"/>
-  <!-- <div>result: {{newpost.details.geometry}}</div> -->
-  <div class="post-header">
-    <div class="divider"></div>
-    <ng-map zoom="{{ newpost.map.zoom }}" center="[{{ newpost.map.latitude }}, {{ newpost.map.longitude }}]" >
-      <marker position="[{{ newpost.map.latitude }}, {{ newpost.map.longitude }}]" center="true"  draggable="true" visible="true" on-dragend="newpost.getCurrentlocation()"></marker>
-    </ng-map>
-  </div>
-</div>
-<div class="post-comments">
-  <div class="post-header">
-    <span>Descripción</span>
-    <div class="divider"></div>
-  </div>
-  <textarea name="name"></textarea>
-</div>
-<div class="post-button">
-  <button class="publish">Publicar</button>
 </div>

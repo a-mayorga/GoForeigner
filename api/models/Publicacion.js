@@ -16,33 +16,32 @@
        primaryKey: true,
        columnName: 'idPublicacion'
      },
+     idUsuario : {
+       type: 'integer',
+       columnName: 'idUsuario'
+     },
      idZonaInmueble: {
        type: 'integer',
-       columnName: 'zonainmueble'
+       columnName: 'idZonaInmueble'
      },
      lat: {
-       type: 'varchar',
+       type: 'string',
        size: 25,
        columnName: 'lat'
      },
      lng: {
-       type: 'varchar',
+       type: 'string',
        size: 25,
        columnName: 'lng'
      },
      costo: {
-       type: 'double',
+       type: 'float',
        columnName: 'costo'
      },
      descripcion: {
-       type: 'varchar',
+       type: 'string',
        size: 150,
        columnName: 'descripcion'
-     },
-     telefono: {
-       type: 'varchar',
-       size: 15,
-       columnName: 'telefono'
      },
      huespedes: {
        type: 'integer',

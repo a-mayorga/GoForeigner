@@ -17,17 +17,20 @@ module.exports = {
 
 	save: function (req, res) {
 		var param = {
+			idUsuario : req.param('idUsuario'),
 			lat: req.param('lat'),
 			lng: req.param('lng'),
 			costo: req.param('costo'),
-			descripciones: req.param('descripciones'),
-			telefono: req.param('telefono'),
-			fechaPublicacion: req.param('fechaPublicacion'),
-			fechavencimiento: req.param('fechavencimiento'),
-			zonainmueble: req.param('zonainmueble')
+			descripcion: req.param('descripciones'),
+			idZonaInmueble: req.param('idZonaInmueble'),
+			huespedes: req.param('huespedes')
 		}
-		User.create(param).exec(function(err, users) {
-			console.log("done");
+		Publicacion.create(param).exec(function(err, users) {
+			if(err) {
+				sails.log(err);
+			}
+			sails.log(users);
+			res.json(users);
 		});
 	},
 

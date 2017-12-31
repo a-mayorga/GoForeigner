@@ -12,7 +12,8 @@
 
   function postService($http, $state, toastr) {
     var postService = {
-      getServices: getServices
+      getServices: getServices,
+      setPost : setPost
     }
 
     return postService;
@@ -28,18 +29,17 @@
         );
     }
 
-    function createUser(userData) {
+    function setPost(postData) {
       return $http({
           method: 'POST',
-          url: 'http://localhost:1337/api/user/save',
-          data: JSON.stringify(userData),
+          url: 'http://localhost:1337/api/posts/save',
+          data: JSON.stringify(postData),
           headers: {
             'Content-type': 'application/json'
           }
         })
         .then(function(response) {
             console.log(response.data);
-
           },
           function(error) {
             toastr.error('Hubo un error al crear tu cuenta');
