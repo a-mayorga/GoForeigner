@@ -31,7 +31,13 @@
         vm.data = {
           guests : 0,
           services : [],
-          restrictions : []
+          restrictions : [],
+          img : {
+            uno : null,
+            dos : null,
+            tre : null,
+            cua : null
+          }
         };
 
         var swiper = new Swiper('.swiper-container', {
@@ -135,12 +141,37 @@
           }
         }
 
+        vm.validarImg = function() {
+          var contador = 1;
+
+          for (var i = 0; i < 5; i++){
+            if (vm.data.img[i] == null) {
+              let suma = i+1;
+              toastr.error('La Foto número '+suma+' no ha sido cargada');
+              return false;
+            }
+          }
+
+          for(var k in vm.data.img) {
+            if (vm.data.img[k] != null) {
+              vm.fileExt = vm.data.img[k].name.split(".").pop();
+              if(!vm.fileExt.match(/^(jpg|jpeg|gif|png)$/)){
+                  let suma = parseInt(k)+1;
+                  toastr.error('La Foto número '+suma+' no tiene un formato valido');
+                  return false;
+              }
+            }
+          }
+        }
+
         vm.publicarPost = function(){
           // console.log(swiper.slideNext());
+          vm.validarImg();
           vm.data.location = {
             lat : vm.pos.lat,
             lng : vm.pos.lng
           }
+          console.log(vm.data.img);
           if(vm.validarForm()){
 
           }

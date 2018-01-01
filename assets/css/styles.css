@@ -396,7 +396,7 @@ html {
   padding-left: 5%;
   padding-right: 5%;
   /* margin-top: 50%; */
-  margin-top: 150px;
+  margin-top: 5rem;
 }
 
 .profile-options ul {
@@ -599,6 +599,29 @@ span.university {
 
 .post-images, .post-price, .post-services, .post-restrictions, .post-location, .post-comments {
   width: 100%;
+}
+
+.image-post-preview{
+  margin-top: 50px;
+  text-align: center;
+}
+
+.media-container{
+  height: 3em;
+  width: 3em;
+  /* background-color: red; */
+  display: inline-block;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.media-container > img{
+  width: 50px;
+  height: 50px;
+  background-position: center;
+  background-image: cover;
+  background-repeat: no-repeat;
+  border: 2px solid var(--primary);
 }
 
 .post-location > input {
@@ -814,6 +837,10 @@ span.university {
   max-width: 100%;
 }
 
+.post-images > label{
+  text-align: center;
+}
+
 .post-info>.price-rating, .post-info>.lessee {
   width: 50%;
   float: left;
@@ -900,6 +927,7 @@ span.university {
 .upload-imagen-post{
   text-align: center;
   font-size: 1.5em;
+  display: inline-block;
 }
 
 /* TERMS AND CONDITIONS */

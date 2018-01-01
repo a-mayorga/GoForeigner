@@ -1,20 +1,24 @@
 <div class="row">
   <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6">
     <div class="post-images">
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <img class="swiper-slide" src="../images/apartment1.jpg">
-          <img class="swiper-slide" src="../images/apartment1.jpg">
-          <img class="swiper-slide" src="../images/apartment1.jpg">
+      <label>Selecciona por lo menos 4 imágenes</label>
+      <div class="image-post-preview">
+        <div class="upload-file">
+          <input type="file" name="file-1" id="file-1" media-preview preview-container="preview" accept="image/*" ng-model="newpost.data.img.uno">
+          <label for="file-1" class="upload-imagen-post"><i class="fa fa-cloud-upload"></i> Subir foto 1</label>
         </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-        <!-- If we need scrollbar -->
-        <div class="swiper-scrollbar"></div>
-      </div>
-      <div class="upload-file">
-        <input type="file" name="file" id="file" media-preview preview-container="preview" accept="image/*" ng-model="newpost.data.img" file-upload multiple>
-        <label for="file" class="upload-imagen-post"><i class="fa fa-cloud-upload"></i> Subir foto</label>
+        <div class="upload-file">
+          <input type="file" name="file-2" id="file-2" media-preview preview-container="preview" accept="image/*" ng-model="newpost.data.img.dos">
+          <label for="file-2" class="upload-imagen-post"><i class="fa fa-cloud-upload"></i> Subir foto 2</label>
+        </div>
+        <div class="upload-file">
+          <input type="file" name="file-3" id="file-3" media-preview preview-container="preview" accept="image/*" ng-model="newpost.data.img.tre">
+          <label for="file-3" class="upload-imagen-post"><i class="fa fa-cloud-upload"></i> Subir foto 3</label>
+        </div>
+        <div class="upload-file">
+          <input type="file" name="file-4" id="file-4" media-preview preview-container="preview" accept="image/*" ng-model="newpost.data.img.cua">
+          <label for="file-4" class="upload-imagen-post"><i class="fa fa-cloud-upload"></i> Subir foto 4</label>
+        </div>
       </div>
     </div>
   </div>
