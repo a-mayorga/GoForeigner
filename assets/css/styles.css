@@ -395,7 +395,8 @@ html {
   width: 100%;
   padding-left: 5%;
   padding-right: 5%;
-  margin-top: 50%;
+  /* margin-top: 50%; */
+  margin-top: 150px;
 }
 
 .profile-options ul {
@@ -717,17 +718,20 @@ span.university {
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  margin-bottom: 10%;
+  margin-bottom: 50px;
   border: 3px solid var(--primary);
 }
 
 .profile-change-picture {
-  margin-top: 5%;
-  margin-bottom: 8%;
+  /* margin-top: 5%;
+  /* margin-bottom: 8%; */
+  margin-left: 20%;
 }
 
 .profile-change-picture>.preview, .profile-change-picture>.upload-file {
-  width: 50%;
+  margin-right: 15px;
+  margin-left: 15px;
+  width: calc(30% - 15px);
   float: left;
 }
 
