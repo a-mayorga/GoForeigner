@@ -83,13 +83,14 @@
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 first-lg first-md first-sm">
     <div class="post-location">
       <span>Ubicación</span>
-      <input type="text" ng-map-autocomplete ng-model="newpost.autocomplete" options="newpost.options" details="newpost.details" ng-model="newpost.result" ng-blur="newpost.setMarker()"/>
+      <input type="text" id="autocomplete" ng-map-autocomplete ng-model="newpost.autocomplete" options="newpost.options" details="newpost.details" ng-model="newpost.result" ng-blur="newpost.setMarker()"/>
       <!-- <div>result: {{newpost.details.geometry}}</div> -->
       <div class="post-header">
         <div class="divider"></div>
-        <ng-map zoom="{{ newpost.map.zoom }}" center="[{{ newpost.map.latitude }}, {{ newpost.map.longitude }}]" >
+        <!-- <ng-map zoom="{{ newpost.map.zoom }}" center="[{{ newpost.map.latitude }}, {{ newpost.map.longitude }}]" >
           <marker position="[{{ newpost.map.latitude }}, {{ newpost.map.longitude }}]" center="true"  draggable="true" visible="true" on-dragend="newpost.getCurrentlocation()"></marker>
-        </ng-map>
+        </ng-map> -->
+        <div id="map"></div>
       </div>
     </div>
   </div>

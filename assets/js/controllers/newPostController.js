@@ -53,7 +53,8 @@
 
         getServices();
         getRestrictions();
-        getPosition();
+        // getPosition();
+        initMap();
 
         function getServices() {
           servicesService.getServices().then(function(data) {
@@ -77,11 +78,15 @@
         vm.setMarker = function() {
           var lat = vm.details.geometry.location.lat();
           var lng = vm.details.geometry.location.lng();
-
-          NgMap.getMap().then(function(map) {
-            console.log(map);
-            console.log('markers', map.markers[0].position);
-          });
+          var vm.pos = {
+            lat: lat,
+            lng: lng
+          };
+          vm.cargarMapa(vm.pos,2,15);
+          // NgMap.getMap().then(function(map) {
+          //   console.log(map);
+          //   console.log('markers', map.markers[0].position);
+          // });
 
         }
 
@@ -175,6 +180,54 @@
           if(vm.validarForm()){
 
           }
+        }
+
+        /***********************************MAPS***************************************/
+        function initMap() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+              vm.pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              };
+              vm.cargarMapa(vm.pos,2,15);
+            }, function() {
+
+            });
+          }
+        }
+
+        document.getElementById('autocomplete').addEventListener('keypress',function(e){
+          if (e.keyCode == 13) {
+            vm.setMarker();
+          }
+        },true);
+
+        vm.cargarMapa = function(lugar,opt,zoom = 12) {
+          if (opt == 1) {
+            lugar = JSON.parse(lugar);
+          }
+          var uluru = lugar;
+          var map = new google.maps.Map(document.getElementById('map'), {
+             zoom: zoom,
+             center: uluru
+           });
+
+           var marker = new google.maps.Marker({
+             position: uluru,
+             map: map,
+             title: 'Mi Lugar',
+             draggable: true,
+             animation: google.maps.Animation.DROP,
+           });
+
+           marker.addListener('dragend', function(evt) {
+             vm.pos = {
+               lat: evt.latLng.lat(),
+               lng: evt.latLng.lng()
+             };
+             console.log(vm.pos);
+          });
         }
 
     }

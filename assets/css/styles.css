@@ -624,6 +624,10 @@ span.university {
   border: 2px solid var(--primary);
 }
 
+#map{
+  height: 20em;
+}
+
 .post-location > input {
   width: 100%;
   height: 38px;
