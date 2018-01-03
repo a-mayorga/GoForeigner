@@ -95,7 +95,6 @@
             if(vm.pos.lat != undefined && vm.pos.lng != undefined ){
               if(parseInt(vm.data.period) > 0 && parseInt(vm.data.period) <= 3){
                 if (vm.data.restrictions.length > 0 && vm.data.services.length > 2) {
-                  var idPublicacion = 0;
                   var dataPublicacion = {
                     idUsuario : sessionStorage.getItem('idUsuario'),
               			lat: vm.pos.lat,
@@ -109,8 +108,7 @@
                   }
 
                   postService.setPost(dataPublicacion).then(function(data) {
-                    console.log(data);
-                    setServicio(data)
+                    return setServicio(data);
                   });
 
                 } else {
@@ -133,9 +131,9 @@
             restricciones : vm.data.restrictions,
             servicios : vm.data.services
           }
-          console.log(dataPublicacion);
           postService.setAdd(dataPublicacion).then(function(data) {
             console.log(data);
+            return true;
           });
         }
 
@@ -159,7 +157,6 @@
 
         vm.validarImg = function() {
           var contador = 1;
-
           for (var i = 0; i < 5; i++){
             if (vm.data.img[i] == null) {
               let suma = i+1;
@@ -187,7 +184,7 @@
             lng : vm.pos.lng
           }
           if(vm.validarForm()){
-
+            toastr.succes("Se ha publicado exitosamente");
           }
         }
 
