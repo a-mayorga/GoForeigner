@@ -40,16 +40,16 @@
           }
         };
 
-        var swiper = new Swiper('.swiper-container', {
-          pagination: {
-            el: '.swiper-pagination',
-          },
-          scrollbar: {
-            el: '.swiper-scrollbar',
-          },
-          loop :  true,
-          dynamicBullets: true,
-        });
+        // var swiper = new Swiper('.swiper-container', {
+        //   pagination: {
+        //     el: '.swiper-pagination',
+        //   },
+        //   scrollbar: {
+        //     el: '.swiper-scrollbar',
+        //   },
+        //   loop :  true,
+        //   dynamicBullets: true,
+        // });
 
         getServices();
         getRestrictions();
@@ -78,16 +78,11 @@
         vm.setMarker = function() {
           var lat = vm.details.geometry.location.lat();
           var lng = vm.details.geometry.location.lng();
-          var vm.pos = {
+          vm.pos = {
             lat: lat,
             lng: lng
           };
           vm.cargarMapa(vm.pos,2,15);
-          // NgMap.getMap().then(function(map) {
-          //   console.log(map);
-          //   console.log('markers', map.markers[0].position);
-          // });
-
         }
 
         vm.getCurrentlocation = function(e) {
@@ -97,23 +92,29 @@
 
         vm.validarForm = function(){
           if(parseInt(vm.data.guests) > 0 && parseInt(vm.data.guests) <= 5){
-            if(vm.data.location.lat != undefined && vm.data.location.lng != undefined ){
+            if(vm.pos.lat != undefined && vm.pos.lng != undefined ){
               if(parseInt(vm.data.period) > 0 && parseInt(vm.data.period) <= 3){
-                if (vm.data.restrictions.length > 0 && vm.data.services.length > 0) {
+                if (vm.data.restrictions.length > 0 && vm.data.services.length > 2) {
+                  var idPublicacion = 0;
                   var dataPublicacion = {
                     idUsuario : sessionStorage.getItem('idUsuario'),
-              			lat: vm.data.location.lat,
-              			lng: vm.data.location.lng,
+              			lat: vm.pos.lat,
+              			lng: vm.pos.lng,
               			costo: vm.data.price,
               			descripciones: vm.data.description,
               			idZonaInmueble: 1,
-                    huespedes : vm.data.guests
+                    huespedes : vm.data.guests,
+                    restricciones : vm.data.restrictions,
+                    servicios : vm.data.services
                   }
+
                   postService.setPost(dataPublicacion).then(function(data) {
                     console.log(data);
+                    setServicio(data)
                   });
+
                 } else {
-                  toastr.error("Selecciona por lo menos más de 3 servicios y 3 restrictiones");
+                  toastr.error("Selecciona por lo menos 3 servicios y 1 restriction");
                 }
               } else {
                 toastr.error("El periodo no es valido");
@@ -126,8 +127,19 @@
           }
         }
 
+        function setServicio(id) {
+          var dataPublicacion = {
+            idPublicacion : id,
+            restricciones : vm.data.restrictions,
+            servicios : vm.data.services
+          }
+          console.log(dataPublicacion);
+          postService.setAdd(dataPublicacion).then(function(data) {
+            console.log(data);
+          });
+        }
+
         vm.addRestriccion = function(id) {
-          console.log(id);
           var index = vm.data.restrictions.indexOf(id);
           if ( index == -1) {
             vm.data.restrictions.push(id);
@@ -137,7 +149,6 @@
         }
 
         vm.addServicio = function(id){
-          console.log(id);
           var index = vm.data.services.indexOf(id);
           if ( index == -1) {
             vm.data.services.push(id);
@@ -170,13 +181,11 @@
         }
 
         vm.publicarPost = function(){
-          // console.log(swiper.slideNext());
           vm.validarImg();
           vm.data.location = {
             lat : vm.pos.lat,
             lng : vm.pos.lng
           }
-          console.log(vm.data.img);
           if(vm.validarForm()){
 
           }
@@ -226,7 +235,6 @@
                lat: evt.latLng.lat(),
                lng: evt.latLng.lng()
              };
-             console.log(vm.pos);
           });
         }
 

@@ -13,7 +13,8 @@
   function postService($http, $state, toastr) {
     var postService = {
       getServices: getServices,
-      setPost : setPost
+      setPost : setPost,
+      setAdd : setAdd
     }
 
     return postService;
@@ -39,10 +40,28 @@
           }
         })
         .then(function(response) {
-            console.log(response.data);
+            return response.data.idPublicacion;
           },
           function(error) {
-            toastr.error('Hubo un error al crear tu cuenta');
+            toastr.error('Hubo un error al crear tu publicación');
+            console.log(error);
+          });
+    }
+
+    function setAdd(postData) {
+      return $http({
+          method: 'POST',
+          url: 'http://localhost:1337/api/posts/setAdd',
+          data: JSON.stringify(postData),
+          headers: {
+            'Content-type': 'application/json'
+          }
+        })
+        .then(function(response) {
+            return response.data;
+          },
+          function(error) {
+            toastr.error('Hubo un error al crear tu publicación');
             console.log(error);
           });
     }
