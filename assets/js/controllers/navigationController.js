@@ -4,7 +4,8 @@
 
     angular
         .module('navCtrl', [
-            'authSrvc'
+            'authSrvc',
+            'ngMapAutocomplete'
         ])
         .controller('NavigationCtrl', navigationController);
 
@@ -12,6 +13,11 @@
 
     function navigationController($window, $rootScope, authService, sessionControl) {
         var vm = this;
+        vm.options = {
+          country: 'mx'
+        };
+        vm.result = '';
+        vm.details = '';
         vm.user = {
             name: sessionControl.get('name'),
             lastName: sessionControl.get('lastName'),

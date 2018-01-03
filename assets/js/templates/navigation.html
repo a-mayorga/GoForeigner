@@ -1,6 +1,6 @@
 <div class="search-bar" ng-show="$state.includes('app.explore')">
   <i class="fa fa-search"></i>
-  <input type="search" placeholder="Cerca de mí">
+  <input type="search" placeholder="Cerca de mí" ng-map-autocomplete ng-model="navigation.autocomplete" options="navigation.options" details="navigation.details" ng-model="navigation.result">
   <div class="filters">
     <span>Filtros:</span>
     <ul>
