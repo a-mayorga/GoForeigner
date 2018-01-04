@@ -237,6 +237,14 @@ module.exports.routes = {
     controller: 'PublicacionController',
     action: 'saveAdd'
   },
+  'POST /api/posts/uploadImg': {
+    cors: {
+       origin: '*',
+       headers: 'Content-Type, Authorization'
+    },
+    controller: 'PublicacionController',
+    action: 'uploadImg'
+  },
   'POST /api/posts/update': {
     cors: {
        origin: '*',

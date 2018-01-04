@@ -17,19 +17,15 @@
 
     function newPostController(servicesService, restrictionsService, postService, NgMap, toastr) {
         var vm = this;
-        vm.options = {
-          country: 'mx'
-        };
+        vm.options = { country: 'mx' };
         vm.result = '';
         vm.details = '';
         vm.latitude = '';
         vm.longitude = '';
         vm.pos = {};
-        vm.map = {
-          zoom: 17
-        };
+        vm.map = { zoom: 17 };
         vm.data = {
-          guests : 0,
+          guests : 1,
           services : [],
           restrictions : [],
           img : {
@@ -40,20 +36,8 @@
           }
         };
 
-        // var swiper = new Swiper('.swiper-container', {
-        //   pagination: {
-        //     el: '.swiper-pagination',
-        //   },
-        //   scrollbar: {
-        //     el: '.swiper-scrollbar',
-        //   },
-        //   loop :  true,
-        //   dynamicBullets: true,
-        // });
-
         getServices();
         getRestrictions();
-        // getPosition();
         initMap();
 
         function getServices() {
@@ -65,13 +49,6 @@
         function getRestrictions() {
           restrictionsService.getRestrictions().then(function(data) {
             vm.restrictions = data;
-          });
-        }
-
-        function getPosition() {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            vm.map.latitude = position.coords.latitude;
-            vm.map.longitude = position.coords.longitude;
           });
         }
 
@@ -95,6 +72,7 @@
             if(vm.pos.lat != undefined && vm.pos.lng != undefined ){
               if(parseInt(vm.data.period) > 0 && parseInt(vm.data.period) <= 3){
                 if (vm.data.restrictions.length > 0 && vm.data.services.length > 2) {
+
                   var dataPublicacion = {
                     idUsuario : sessionStorage.getItem('idUsuario'),
               			lat: vm.pos.lat,
@@ -108,7 +86,11 @@
                   }
 
                   postService.setPost(dataPublicacion).then(function(data) {
-                    return setServicio(data);
+                    if(uploadImg(data) && setServicio(data)){
+                      return true;
+                    } else {
+                      return false;
+                    }
                   });
 
                 } else {
@@ -132,9 +114,24 @@
             servicios : vm.data.services
           }
           postService.setAdd(dataPublicacion).then(function(data) {
-            console.log(data);
             return true;
           });
+        }
+
+        function uploadImg(id) {
+          var contador = 0;
+          var formData = new FormData();
+          formData.append("dataimg", id);
+          formData.append("1", vm.data.img.uno);
+          formData.append("1", vm.data.img.dos);
+          formData.append("1", vm.data.img.tre);
+          formData.append("1", vm.data.img.cua);
+          postService.uploadImg(formData).then(function(data) {
+            if(parseInt(data.message) == 1) {
+              return true;
+            }
+          });
+
         }
 
         vm.addRestriccion = function(id) {
@@ -156,15 +153,6 @@
         }
 
         vm.validarImg = function() {
-          var contador = 1;
-          for (var i = 0; i < 5; i++){
-            if (vm.data.img[i] == null) {
-              let suma = i+1;
-              toastr.error('La Foto número '+suma+' no ha sido cargada');
-              return false;
-            }
-          }
-
           for(var k in vm.data.img) {
             if (vm.data.img[k] != null) {
               vm.fileExt = vm.data.img[k].name.split(".").pop();
@@ -183,8 +171,17 @@
             lat : vm.pos.lat,
             lng : vm.pos.lng
           }
-          if(vm.validarForm()){
-            toastr.succes("Se ha publicado exitosamente");
+
+          vm.validarForm();
+
+          if(true){
+            toastr.success("Se ha publicado exitosamente");
+            setTimeout(function(){
+              window.location.href = '/app/myposts';
+            },2000);
+          } else {
+            toastr.error("Intenta más tarde");
+            // window.location.href = 'app/mypost';
           }
         }
 

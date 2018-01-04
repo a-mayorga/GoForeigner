@@ -14,7 +14,8 @@
     var postService = {
       getServices: getServices,
       setPost : setPost,
-      setAdd : setAdd
+      setAdd : setAdd,
+      uploadImg : uploadImg
     }
 
     return postService;
@@ -63,6 +64,25 @@
           function(error) {
             toastr.error('Hubo un error al crear tu publicación');
             console.log(error);
+          });
+    }
+
+    function uploadImg(dataimg) {
+      return $http({
+          method: 'POST',
+          url: 'http://localhost:1337/api/posts/uploadImg',
+          data: (dataimg),
+          headers: {
+            'Content-type': undefined
+          },
+          processData: false,
+          contentType: false
+        })
+        .then(function(response) {
+            return response.data;
+          },
+          function(error) {
+            toastr.error('Hubo un error al crear tu publicación');
           });
     }
 

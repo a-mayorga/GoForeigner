@@ -69,6 +69,36 @@ module.exports = {
 		});
 	},
 
+	uploadImg: function (req, res) {
+		res.setTimeout(0);
+		// console.log(sails.config.appPath);
+		req.file('1').upload({
+			maxBytes: 20000000,
+		  dirname: require('path').resolve(sails.config.appPath, 'assets/images/publicaciones')
+		},function (err, uploadedFiles) {
+		  if (err) return res.negotiate(err);
+			Imagenes.create([
+				{ idPublicacion : req.param("dataimg"),
+					dirImagen : uploadedFiles[0].fd.split('\\').pop()
+				},
+				{ idPublicacion : req.param("dataimg"),
+					dirImagen : uploadedFiles[1].fd.split('\\').pop()
+				},
+				{ idPublicacion : req.param("dataimg"),
+					dirImagen : uploadedFiles[2].fd.split('\\').pop()
+				},
+				{ idPublicacion : req.param("dataimg"),
+					dirImagen : uploadedFiles[3].fd.split('\\').pop()
+				}
+			]).exec(function(err, users) {
+				console.log("done");
+			});
+		  return res.json({
+		    message: uploadedFiles.length
+		  });
+		});
+	},
+
 	update: function (req, res) {
 		Category.update({ idPublicacion: req.param('idPublicacion') }, {
 			lat: req.param('lat'),
