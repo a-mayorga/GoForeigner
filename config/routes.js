@@ -261,6 +261,14 @@ module.exports.routes = {
     controller: 'PublicacionController',
     action: 'delete'
   },
+  'POST /api/posts/getMyPublicaciones': {
+    cors: {
+       origin: '*',
+       headers: 'Content-Type, Authorization'
+    },
+    controller: 'PublicacionController',
+    action: 'getMyPublicaciones'
+  },
   /**************************************************************************/
   'GET /api/reports': {
     cors: {

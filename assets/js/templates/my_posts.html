@@ -1,6 +1,6 @@
 <ul class="posts">
   <div class="row">
-    <li class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+    <li class="col-xs-12 col-sm-12 col-md-6 col-lg-4" ng-repeat="post in myposts.mypostsData">
       <div class="post">
         <div class="delete-saved" ng-show="$state.includes('app.myposts')" ng-click="myposts.opciones('opt-1');">
           <i class="fa fa-ellipsis-v"></i>
@@ -9,9 +9,10 @@
           <!-- <img src="../images/apartment1.jpg"> -->
           <div class="swiper-container">
             <div class="swiper-wrapper">
-              <img class="swiper-slide" src="../images/apartment1.jpg">
-              <img class="swiper-slide" src="../images/apartment1.jpg">
-              <img class="swiper-slide" src="../images/apartment1.jpg">
+              <img class="swiper-slide" src="../images/publicaciones/{{ post.dirImagenuno }}">
+              <img class="swiper-slide" src="../images/publicaciones/{{ post.dirImagendos }}">
+              <img class="swiper-slide" src="../images/publicaciones/{{ post.dirImagentre }}">
+              <img class="swiper-slide" src="../images/publicaciones/{{ post.dirImagencua }}">
             </div>
             <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
@@ -20,25 +21,23 @@
           </div>
         </div>
         <div class="post-data">
-          <span>$700.00 MXN</span>
+          <span>${{ post.costo }}.00 MXN</span>
           <ul class="amenities">
-            <li>Departamento</li>
-            <li>Medio baño</li>
-            <li>2 camas</li>
+            <li>{{ post.descripcion }}</li>
           </ul>
-          <span class="university">UAQ - Facultad de Informática</span>
-          <ul class="rating">
+          <!-- <span class="university">UAQ - Facultad de Informática</span> -->
+          <!-- <ul class="rating">
             <li><i class="fa fa-star"></i></li>
             <li><i class="fa fa-star"></i></li>
             <li><i class="fa fa-star"></i></li>
             <li><i class="fa fa-star-o"></i></li>
             <li><i class="fa fa-star-o"></i></li>
-          </ul>
+          </ul> -->
         </div>
         <div class="post-opcion no-visible" id="opt-1">
           <ul>
             <li>Editar</li>
-            <li onclick="location.href='/app/planAdvertising/1'">Publicidad</li>
+            <li ng-click="myposts.planAdvertising(post.idPublicacion)">Publicidad</li>
             <li class="delete-opcion">Eliminar</li>
           </ul>
         </div>

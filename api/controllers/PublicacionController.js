@@ -112,5 +112,14 @@ module.exports = {
 			console.log("done");
 		});
 		return;
-	}
+	},
+
+	getMyPublicaciones: function(req, res) {
+    Publicacion.find({idUsuario : req.param("idUsuario")}).exec(function(err, myposts) {
+      if (err) {
+        return res.json(500, { message: 'Hubo un problema. Inténtalo de nuevo.' });
+      }
+      return res.ok(myposts);
+    });
+  },
 };

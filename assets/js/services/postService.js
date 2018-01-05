@@ -15,7 +15,8 @@
       getServices: getServices,
       setPost : setPost,
       setAdd : setAdd,
-      uploadImg : uploadImg
+      uploadImg : uploadImg,
+      getMyPosts : getMyPosts
     }
 
     return postService;
@@ -83,6 +84,24 @@
           },
           function(error) {
             toastr.error('Hubo un error al crear tu publicación');
+          });
+    }
+
+    function getMyPosts() {
+      return $http({
+          method: 'POST',
+          url: 'http://localhost:1337/api/posts/getMyPublicaciones',
+          data: JSON.stringify({idUsuario : sessionStorage.getItem("idUsuario")}),
+          headers: {
+            'Content-type': 'application/json'
+          }
+        })
+        .then(function(response) {
+            return response.data;
+          },
+          function(error) {
+            toastr.error('Hubo un error al crear tu publicación');
+            console.log(error);
           });
     }
 
