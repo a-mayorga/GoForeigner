@@ -1,1 +1,11 @@
-<h2>Contact page</h2>
+<div class="contact-map">
+  <ng-map zoom="{{contact.map.zoom}}" center="[{{contact.map.latitude}}, {{contact.map.longitude}}]" style="margin-bottom: 10%;"></ng-map>
+</div>
+<div class="contact-data">
+  <p>Colonia Desarrollo</p>
+  <p>Calle Playa Limbo #321</p><br>
+  <p>Número para contactar:</p>
+  <p>4426512189</p><br>
+  <p class="contact-warning">Te esperan apartir de mañana a las 8:00 pm</p>
+  <button class="contact-button" ng-click="contact.accept()">Aceptar</button>
+</div>

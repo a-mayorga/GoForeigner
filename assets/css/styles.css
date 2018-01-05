@@ -984,3 +984,37 @@ span.university {
   background: var(--dark-grey);
   cursor: disabled;
 }
+
+/* CONTACT STYLES */
+.contact-map {
+  width: 100%;
+  margin-top: 45px;
+}
+
+.contact-data {
+  width: 100%;
+  text-align: center;
+}
+
+.contact-data>p {
+  font-size: 1.4em;
+  color: var(--dark-grey);
+  margin: 0;
+}
+
+.contact-warning {
+  color: var(--primary-dark) !important;
+  font-size: 1.2em !important;
+}
+
+.contact-button {
+  width: 60%;
+  height: 45px;
+  margin: 10% 0px;
+  /* margin-top: 10%;
+  margin-left: 15%; */
+  font-size: 1em;
+  background: var(--primary);
+  border: none;
+  color: white;
+}
