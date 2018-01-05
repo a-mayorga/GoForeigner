@@ -2,7 +2,7 @@
   <div class="row">
     <li class="col-xs-12 col-sm-12 col-md-6 col-lg-4" ng-repeat="post in myposts.mypostsData">
       <div class="post">
-        <div class="delete-saved" ng-show="$state.includes('app.myposts')" ng-click="myposts.opciones('opt-1');">
+        <div class="delete-saved" ng-show="$state.includes('app.myposts')" ng-click="myposts.opciones(post.idPublicacion);">
           <i class="fa fa-ellipsis-v"></i>
         </div>
         <div class="post-image">
@@ -34,7 +34,7 @@
             <li><i class="fa fa-star-o"></i></li>
           </ul> -->
         </div>
-        <div class="post-opcion no-visible" id="opt-1">
+        <div class="post-opcion no-visible" id="{{ post.idPublicacion }}">
           <ul>
             <li>Editar</li>
             <li ng-click="myposts.planAdvertising(post.idPublicacion)">Publicidad</li>

@@ -18,6 +18,15 @@
       longitude: -73,
       zoom: 8
     };
+    
+    var swiper = new Swiper('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+    });
 
 
   }

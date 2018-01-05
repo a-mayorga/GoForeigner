@@ -100,7 +100,7 @@
             return response.data;
           },
           function(error) {
-            toastr.error('Hubo un error al crear tu publicación');
+            toastr.error('Hubo un error al cargar tus publicaciones');
             console.log(error);
           });
     }
