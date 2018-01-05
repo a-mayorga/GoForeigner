@@ -77,20 +77,12 @@ module.exports = {
 		  dirname: require('path').resolve(sails.config.appPath, 'assets/images/publicaciones')
 		},function (err, uploadedFiles) {
 		  if (err) return res.negotiate(err);
-			Imagenes.create([
-				{ idPublicacion : req.param("dataimg"),
-					dirImagen : uploadedFiles[0].fd.split('\\').pop()
-				},
-				{ idPublicacion : req.param("dataimg"),
-					dirImagen : uploadedFiles[1].fd.split('\\').pop()
-				},
-				{ idPublicacion : req.param("dataimg"),
-					dirImagen : uploadedFiles[2].fd.split('\\').pop()
-				},
-				{ idPublicacion : req.param("dataimg"),
-					dirImagen : uploadedFiles[3].fd.split('\\').pop()
-				}
-			]).exec(function(err, users) {
+			Publicacion.update({ idPublicacion : req.param("dataimg") },
+			{ dirImagenuno : uploadedFiles[0].fd.split('\\').pop(),
+				dirImagendos : uploadedFiles[1].fd.split('\\').pop(),
+				dirImagentre : uploadedFiles[2].fd.split('\\').pop(),
+				dirImagencua : uploadedFiles[3].fd.split('\\').pop() }
+			).exec(function(err, users) {
 				console.log("done");
 			});
 		  return res.json({

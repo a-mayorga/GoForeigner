@@ -86,7 +86,9 @@
                   }
 
                   postService.setPost(dataPublicacion).then(function(data) {
-                    if(uploadImg(data) && setServicio(data)){
+                    setServicio(data);
+                    if(uploadImg(data)){
+                      console.log(true);
                       return true;
                     } else {
                       return false;
@@ -114,6 +116,7 @@
             servicios : vm.data.services
           }
           postService.setAdd(dataPublicacion).then(function(data) {
+            console.log(data);
             return true;
           });
         }
@@ -127,7 +130,8 @@
           formData.append("1", vm.data.img.tre);
           formData.append("1", vm.data.img.cua);
           postService.uploadImg(formData).then(function(data) {
-            if(parseInt(data.message) == 1) {
+            console.log(data);
+            if(parseInt(data.message) == 4) {
               return true;
             }
           });
@@ -172,13 +176,11 @@
             lng : vm.pos.lng
           }
 
-          vm.validarForm();
-
-          if(true){
+          if(vm.validarForm()){
             toastr.success("Se ha publicado exitosamente");
-            setTimeout(function(){
-              window.location.href = '/app/myposts';
-            },2000);
+            // setTimeout(function(){
+            //   window.location.href = '/app/myposts';
+            // },2000);
           } else {
             toastr.error("Intenta más tarde");
             // window.location.href = 'app/mypost';

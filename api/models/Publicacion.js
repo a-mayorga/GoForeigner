@@ -54,6 +54,26 @@
        },
        columnName: 'fechaPublicacion'
      },
+     dirImagenuno: {
+       type: 'string',
+       size: 250,
+       columnName: 'dirImagenuno'
+     },
+     dirImagendos: {
+       type: 'string',
+       size: 250,
+       columnName: 'dirImagendos'
+     },
+     dirImagencua: {
+       type: 'string',
+       size: 250,
+       columnName: 'dirImagencua'
+     },
+     dirImagentre: {
+       type: 'string',
+       size: 250,
+       columnName: 'dirImagentre'
+     },
      fechaVencimiento: {
        type: "datetime",
        defaultsTo: function () {
