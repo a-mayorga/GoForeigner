@@ -1,9 +1,13 @@
-<div class="pago separar">
-    <p>Método de pago</p>
-    <img src="../images/paypal.svg" alt="">
+<div class="row center-sm center-md center-lg">
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+    <div class="pago separar">
+        <p>Método de pago</p>
+        <img src="../images/paypal.svg" alt="">
+    </div>
+    <div class="info-pago">
+        <p id="precio">${{ pay.payData.costo }}.00 MX/{{ pay.payData.duracion }} días</p>
+        <p>{{ pay.payData.descripcion }}</p>
+    </div>
+    <div id="paypal-button"></div>
+  </div>
 </div>
-<div class="info-pago">
-    <p id="precio">${{ pay.payData.costo }}.00 MX/{{ pay.payData.duracion }} días</p>
-    <p>{{ pay.payData.descripcion }}</p>
-</div>
-<div id="paypal-button"></div>
