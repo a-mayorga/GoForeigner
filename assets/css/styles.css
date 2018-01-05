@@ -882,6 +882,10 @@ span.university {
   color: var(--rating);
 }
 
+.post-info {
+  margin-top: 15px;
+}
+
 .post-info::after {
   content: "";
   clear: both;
@@ -972,4 +976,10 @@ span.university {
   background: var(--primary);
   border: none;
   color: white;
+  cursor: disabled;
+}
+
+.terms>button:disabled {
+  background: var(--dark-grey);
+  cursor: disabled;
 }

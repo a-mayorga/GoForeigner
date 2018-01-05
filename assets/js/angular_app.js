@@ -29,6 +29,7 @@
       'scoreHomeCtrl',
       'planAdvertisingCtrl',
       'termsCtrl',
+      'contactCtrl',
       'reportsCtrl',
       'resultsCtrl',
       'authSrvc',
@@ -260,6 +261,19 @@
       }
     }
 
+    var contactState = {
+      name: 'app.contact',
+      url: '/contact',
+      parent: 'app',
+      controller: 'ContactCtrl',
+      controllerAs: 'contact',
+      templateUrl: 'js/templates/contact.html',
+      module: 'private',
+      data: {
+        'pageTitle': 'Contacto'
+      }
+    }
+
     var payState = {
       name: 'app.pay',
       url: '/pay',
@@ -355,6 +369,7 @@
     $stateProvider.state(planAdvertisingState);
     $stateProvider.state(scoreHomeState);
     $stateProvider.state(termsState);
+    $stateProvider.state(contactState);
     $stateProvider.state(reportsState);
     $stateProvider.state(resultsState);
     $stateProvider.state(notFoundState);
