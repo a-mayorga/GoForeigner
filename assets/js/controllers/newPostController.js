@@ -178,9 +178,9 @@
 
           if(vm.validarForm()){
             toastr.success("Se ha publicado exitosamente");
-            // setTimeout(function(){
-            //   window.location.href = '/app/myposts';
-            // },2000);
+            setTimeout(function(){
+              window.location.href = '/app/myposts';
+            },2000);
           } else {
             toastr.error("Intenta más tarde");
             // window.location.href = 'app/mypost';
