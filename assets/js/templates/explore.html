@@ -1,17 +1,18 @@
 <ul class="posts">
   <div class="row">
-    <li class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+    <li class="col-xs-12 col-sm-12 col-md-6 col-lg-4" ng-repeat="posts in explore.post">
       <div class="post" ui-sref="app.post">
-        <div class="delete-saved" ng-show="$state.includes('app.saved')" ng-click="myposts.opciones('opt-1');">
+        <div class="delete-saved" ng-show="$state.includes('app.saved')">
           <i class="fa fa-times"></i>
         </div>
         <div class="post-image">
           <!-- <img src="../images/apartment1.jpg"> -->
           <div class="swiper-container">
             <div class="swiper-wrapper">
-              <img class="swiper-slide" src="../images/apartment1.jpg">
-              <img class="swiper-slide" src="../images/apartment1.jpg">
-              <img class="swiper-slide" src="../images/apartment1.jpg">
+              <img class="swiper-slide" src="../images/publicaciones/{{ posts.dirImagenuno }}">
+              <img class="swiper-slide" src="../images/publicaciones/{{ posts.dirImagendos }}">
+              <img class="swiper-slide" src="../images/publicaciones/{{ posts.dirImagentre }}">
+              <img class="swiper-slide" src="../images/publicaciones/{{ posts.dirImagencua }}">
             </div>
             <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
@@ -20,7 +21,7 @@
           </div>
         </div>
         <div class="post-data">
-          <span>$700.00 MXN</span>
+          <span>${{ posts.costo }}.00 MXN</span>
           <ul class="amenities">
             <li>Departamento</li>
             <li>Medio baño</li>
@@ -33,11 +34,6 @@
             <li><i class="fa fa-star"></i></li>
             <li><i class="fa fa-star-o"></i></li>
             <li><i class="fa fa-star-o"></i></li>
-          </ul>
-        </div>
-        <div class="post-opcion no-visible" id="opt-1">
-          <ul>
-            <li class="delete-opcion">Eliminar</li>
           </ul>
         </div>
       </div>

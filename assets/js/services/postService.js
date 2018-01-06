@@ -16,7 +16,8 @@
       setPost : setPost,
       setAdd : setAdd,
       uploadImg : uploadImg,
-      getMyPosts : getMyPosts
+      getMyPosts : getMyPosts,
+      getPostPayment : getPostPayment
     }
 
     return postService;
@@ -103,6 +104,17 @@
             toastr.error('Hubo un error al cargar tus publicaciones');
             console.log(error);
           });
+    }
+
+    function getPostPayment() {
+      return $http.post('http://localhost:1337/api/adspayment/publicaciones')
+        .then(function(response) {
+            return response.data;
+          },
+          function(error) {
+            console.log(error);
+          }
+        );
     }
 
   }
