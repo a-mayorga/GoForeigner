@@ -14,7 +14,10 @@
     function payController($stateParams, toastr, payService) {
         var vm = this;
         vm.idPlan = localStorage.getItem("idPago");
+        vm.idPublicacion = localStorage.getItem("idPublicacion");
         vm.payData = {};
+        vm.tipoPublicidad = 1
+        vm.long = 1;
         vm.paypl = paypl;
 
         getDataToPay();
@@ -23,6 +26,7 @@
 
           payService.getInfoPago({ id : vm.idPlan }).then(function(data) {
             vm.payData = data;
+            vm.long = data.duracion;
             paypl(data.costo);
           });
         }
@@ -56,9 +60,26 @@
 
               onAuthorize: function(data, actions) {
                   return actions.payment.execute().then(function(payment) {
-                      console.log(data);
+                      var dataPay = {
+                        idPublicacion : vm.idPublicacion,
+                        idTipoPublicidad : vm.tipoPublicidad,
+                        long : vm.long,
+                        payerID : data.payerID,
+                        paymentID : data.paymentID,
+                        paymentToken : data.paymentToken
+                      }
                       // The payment is complete!
                       // You can now show a confirmation message to the customer
+                      payService.setPagoPublicidad(dataPay).then(function(data) {
+                        console.log(data);
+                        if (parseInt(data.idPagoPublicidad) > 0) {
+                          toastr.success("Pago Exitoso!");
+                          toastr.info("Tu publicacion ahora durara "+vm.long+" días en el apartado explorar");
+                          setTimeout(function(){
+                            window.location.href = '/app/myposts';
+                          },5000);
+                        }
+                      });
                   });
               }
 

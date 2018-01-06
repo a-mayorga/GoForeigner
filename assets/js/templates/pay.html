@@ -5,6 +5,7 @@
         <img src="../images/paypal.svg" alt="">
     </div>
     <div class="info-pago">
+        <input type="hidden" name="pay" value="{{ pay.payData.idTipoPublicidad }}" ng-model="pay.tipoPublicidad">
         <p id="precio">${{ pay.payData.costo }}.00 MX/{{ pay.payData.duracion }} días</p>
         <p>{{ pay.payData.descripcion }}</p>
     </div>

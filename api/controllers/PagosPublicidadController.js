@@ -54,6 +54,30 @@ module.exports = {
 		  res.json(rawResult);
 		  return res.ok();
 		});
+	},
+
+	setPagoPublicidad: function (req, res) {
+		var dayF = new Date();
+		setFinal();
+		function setFinal(){
+			var fecha = new Date();
+			fecha.setDate(fecha.getDate() + parseInt(req.param("long")));
+			dayF = fecha;
+		}
+		var dataPay = {
+			idPublicacion : req.param("idPublicacion"),
+			idTipoPublicidad : req.param("tipoPublicidad"),
+			fechaFinal : dayF,
+			payerID : req.param("payerID"),
+			paymentID : req.param("paymentID"),
+			paymentToken : req.param("paymentToken")
+		}
+		PagosPublicidad.create(dataPay).exec(function(err, pay) {
+			if (err) {
+        return res.json(500, { message: 'Hubo un problema. Inténtalo de nuevo.' });
+      }
+      return res.ok(pay);
+		});
 	}
 
 };

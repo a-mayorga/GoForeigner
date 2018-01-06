@@ -212,6 +212,14 @@ module.exports.routes = {
     controller: 'PagosPublicidadController',
     action: 'delete'
   },
+  'POST /api/pago/setPagoPublicidad': {
+    cors: {
+       origin: '*',
+       headers: 'Content-Type, Authorization'
+    },
+    controller: 'PagosPublicidadController',
+    action: 'setPagoPublicidad'
+  },
   /**************************************************************************/
   'GET /api/posts': {
     cors: {
