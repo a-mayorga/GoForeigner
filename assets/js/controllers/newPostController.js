@@ -76,33 +76,33 @@
             if (vm.data.img[k] != null) {
               vm.fileExt = vm.data.img[k].name.split(".").pop();
               if(!vm.fileExt.match(/^(jpg|jpeg|gif|png)$/)){
-                  toastr.warning('La Foto número '+suma+' no tiene un formato valido');
+                  toastr.error('La Foto número '+suma+' no tiene un formato valido');
                   return null;
               }
             } else {
-              toastr.warning('Carga la foto número '+suma);
+              toastr.error('Carga la foto número '+suma);
               return null;
             }
           }
 
           if (vm.data.price < 1 || vm.data.price > 100000) {
-            toastr.warning("El costo del inmueble no es valido");
+            toastr.error("El costo del inmueble no es valido");
             return null
           }
           if(parseInt(vm.data.guests) > 5 || parseInt(vm.data.guests) < 1){
-            toastr.warning("El número de Huéspedes no es valido");
+            toastr.error("El número de Huéspedes no es valido");
             return null
           }
           if(vm.pos.lat == undefined && vm.pos.lng == undefined ){
-            toastr.warning("Mueve el pin del mapa para señalar la Ubicación");
+            toastr.error("Mueve el pin del mapa para señalar la Ubicación");
             return null
           }
           if(parseInt(vm.data.period) < 1 || parseInt(vm.data.period) > 3){
-            toastr.warning("El periodo no es valido");
+            toastr.error("El periodo no es valido");
             return null
           }
           if (vm.data.restrictions.length < 1 && vm.data.services.length < 3) {
-            toastr.warning("Selecciona por lo menos 3 servicios y 1 restriction");
+            toastr.error("Selecciona por lo menos 3 servicios y 1 restriction");
             return null
           }
 
@@ -118,11 +118,12 @@
             servicios : vm.data.services
           }
 
+          document.getElementById('btnpost').innerHTML = 'Subiendo...';
+          vm.btn = 1;
           postService.setPost(dataPublicacion).then(function(data) {
             if(parseInt(data) > 0){
               vm.setServicio(data);
               vm.uploadImg(data);
-              return true;
             }
           });
         }
@@ -147,7 +148,10 @@
           formData.append("1", vm.data.img.cua);
           postService.uploadImg(formData).then(function(data) {
             if(data.message == 4) {
-              return true;
+              toastr.success("Se ha publicado exitosamente");
+              setTimeout(function(){
+                window.location.href = '/app/myposts';
+              },2000);
             } else {
               return false;
             }
@@ -175,15 +179,9 @@
 
 
         vm.publicarPost = function(){
-          document.getElementById('btnpost').innerHTML = 'Subiendo...';
           if (vm.btn == 0) {
-            vm.validarForm()
-            toastr.success("Se ha publicado exitosamente");
-            setTimeout(function(){
-              window.location.href = '/app/myposts';
-            },2000);
+            vm.validarForm();
           }
-          vm.btn = 1;
         }
 
         /***********************************MAPS***************************************/
