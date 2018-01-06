@@ -24,6 +24,7 @@
         vm.longitude = '';
         vm.pos = {};
         vm.map = { zoom: 17 };
+        vm.btn = 0;
         vm.data = {
           guests : 1,
           services : [],
@@ -33,7 +34,8 @@
             dos : null,
             tre : null,
             cua : null
-          }
+          },
+          price : 0
         };
 
         getServices();
@@ -68,61 +70,75 @@
         };
 
         vm.validarForm = function(){
-          if(parseInt(vm.data.guests) > 0 && parseInt(vm.data.guests) <= 5){
-            if(vm.pos.lat != undefined && vm.pos.lng != undefined ){
-              if(parseInt(vm.data.period) > 0 && parseInt(vm.data.period) <= 3){
-                if (vm.data.restrictions.length > 0 && vm.data.services.length > 2) {
-
-                  var dataPublicacion = {
-                    idUsuario : sessionStorage.getItem('idUsuario'),
-              			lat: vm.pos.lat,
-              			lng: vm.pos.lng,
-              			costo: vm.data.price,
-              			descripciones: vm.data.description,
-              			idZonaInmueble: 1,
-                    huespedes : vm.data.guests,
-                    restricciones : vm.data.restrictions,
-                    servicios : vm.data.services
-                  }
-
-                  postService.setPost(dataPublicacion).then(function(data) {
-                    setServicio(data);
-                    if(uploadImg(data)){
-                      console.log(true);
-                      return true;
-                    } else {
-                      return false;
-                    }
-                  });
-
-                } else {
-                  toastr.error("Selecciona por lo menos 3 servicios y 1 restriction");
-                }
-              } else {
-                toastr.error("El periodo no es valido");
+          var suma = 0;
+          for(var k in vm.data.img) {
+            suma++;
+            if (vm.data.img[k] != null) {
+              vm.fileExt = vm.data.img[k].name.split(".").pop();
+              if(!vm.fileExt.match(/^(jpg|jpeg|gif|png)$/)){
+                  toastr.warning('La Foto número '+suma+' no tiene un formato valido');
+                  return null;
               }
             } else {
-              toastr.error("Mueve el pin del mapa para señalar la Ubicación");
+              toastr.warning('Carga la foto número '+suma);
+              return null;
             }
-          } else {
-            toastr.error("El número de Huéspedes no es valido");
           }
+
+          if (vm.data.price < 1 || vm.data.price > 100000) {
+            toastr.warning("El costo del inmueble no es valido");
+            return null
+          }
+          if(parseInt(vm.data.guests) > 5 || parseInt(vm.data.guests) < 1){
+            toastr.warning("El número de Huéspedes no es valido");
+            return null
+          }
+          if(vm.pos.lat == undefined && vm.pos.lng == undefined ){
+            toastr.warning("Mueve el pin del mapa para señalar la Ubicación");
+            return null
+          }
+          if(parseInt(vm.data.period) < 1 || parseInt(vm.data.period) > 3){
+            toastr.warning("El periodo no es valido");
+            return null
+          }
+          if (vm.data.restrictions.length < 1 && vm.data.services.length < 3) {
+            toastr.warning("Selecciona por lo menos 3 servicios y 1 restriction");
+            return null
+          }
+
+          var dataPublicacion = {
+            idUsuario : sessionStorage.getItem('idUsuario'),
+            lat: vm.pos.lat,
+            lng: vm.pos.lng,
+            costo: vm.data.price,
+            descripciones: vm.data.description,
+            idZonaInmueble: 1,
+            huespedes : vm.data.guests,
+            restricciones : vm.data.restrictions,
+            servicios : vm.data.services
+          }
+
+          postService.setPost(dataPublicacion).then(function(data) {
+            if(parseInt(data) > 0){
+              vm.setServicio(data);
+              vm.uploadImg(data);
+              return true;
+            }
+          });
         }
 
-        function setServicio(id) {
+        vm.setServicio = function(id) {
           var dataPublicacion = {
             idPublicacion : id,
             restricciones : vm.data.restrictions,
             servicios : vm.data.services
           }
           postService.setAdd(dataPublicacion).then(function(data) {
-            console.log(data);
             return true;
           });
         }
 
-        function uploadImg(id) {
-          var contador = 0;
+        vm.uploadImg = function(id) {
           var formData = new FormData();
           formData.append("dataimg", id);
           formData.append("1", vm.data.img.uno);
@@ -130,9 +146,10 @@
           formData.append("1", vm.data.img.tre);
           formData.append("1", vm.data.img.cua);
           postService.uploadImg(formData).then(function(data) {
-            console.log(data);
-            if(parseInt(data.message) == 4) {
+            if(data.message == 4) {
               return true;
+            } else {
+              return false;
             }
           });
 
@@ -156,35 +173,17 @@
           }
         }
 
-        vm.validarImg = function() {
-          for(var k in vm.data.img) {
-            if (vm.data.img[k] != null) {
-              vm.fileExt = vm.data.img[k].name.split(".").pop();
-              if(!vm.fileExt.match(/^(jpg|jpeg|gif|png)$/)){
-                  let suma = parseInt(k)+1;
-                  toastr.error('La Foto número '+suma+' no tiene un formato valido');
-                  return false;
-              }
-            }
-          }
-        }
 
         vm.publicarPost = function(){
-          vm.validarImg();
-          vm.data.location = {
-            lat : vm.pos.lat,
-            lng : vm.pos.lng
-          }
-
-          if(vm.validarForm()){
+          document.getElementById('btnpost').innerHTML = 'Subiendo...';
+          if (vm.btn == 0) {
+            vm.validarForm()
             toastr.success("Se ha publicado exitosamente");
             setTimeout(function(){
               window.location.href = '/app/myposts';
             },2000);
-          } else {
-            toastr.error("Intenta más tarde");
-            // window.location.href = 'app/mypost';
           }
+          vm.btn = 1;
         }
 
         /***********************************MAPS***************************************/
