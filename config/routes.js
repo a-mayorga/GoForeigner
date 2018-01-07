@@ -285,6 +285,22 @@ module.exports.routes = {
     controller: 'PublicacionController',
     action: 'getDataPublicacion'
   },
+  'POST /api/posts/getServicesPost': {
+    cors: {
+       origin: '*',
+       headers: 'Content-Type, Authorization'
+    },
+    controller: 'PublicacionController',
+    action: 'getServicesPost'
+  },
+  'POST /api/posts/getRestrictionsPost': {
+    cors: {
+       origin: '*',
+       headers: 'Content-Type, Authorization'
+    },
+    controller: 'PublicacionController',
+    action: 'getRestrictionsPost'
+  },
 
   /**************************************************************************/
   'GET /api/reports': {

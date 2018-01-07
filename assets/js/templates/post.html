@@ -61,17 +61,13 @@
         <span style="color: var(--primary);">Servicios</span>
       </div>
       <div class="left-options">
-        <ul>
-          <li>Hola</li>
-          <li>Mundo</li>
-          <li>Hello</li>
+        <ul style="list-style-type: circle;">
+          <li ng-repeat="service in post.postServices | limitTo:8:0">{{ service.descripcion }}</li>
         </ul>
       </div>
       <div class="right-options">
-        <ul>
-          <li>Hola</li>
-          <li>Mundo</li>
-          <li>Hello</li>
+        <ul style="list-style-type: circle;">
+          <li ng-repeat="service in post.postServices | limitTo:16:8">{{ service.descripcion }}</li>
         </ul>
       </div>
     </div>
@@ -82,19 +78,17 @@
         <span style="color: var(--primary);">Restricciones</span>
       </div>
       <div class="left-options">
+        <ul style="list-style-type: circle;">
+          <li ng-repeat="restric in post.postRestrictions">{{ restric.descripcion }}</li>
+        </ul>
+      </div>
+      <!-- <div class="right-options">
         <ul>
           <li>Hola</li>
           <li>Mundo</li>
           <li>Hello</li>
         </ul>
-      </div>
-      <div class="right-options">
-        <ul>
-          <li>Hola</li>
-          <li>Mundo</li>
-          <li>Hello</li>
-        </ul>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

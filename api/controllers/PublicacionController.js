@@ -131,4 +131,22 @@ module.exports = {
 		  return res.ok(rawResult);
 		});
 	},
+
+	getServicesPost: function(req, res) {
+		Publicacion.query('SELECT descripcion FROM serviciosinmueble sim, tiposservicio ts WHERE idPublicacion = '+req.param("idPublicacion")+' AND sim.idTipoServicio = ts.idTipoServicio;', [ 'idPublicacion' ] ,function(err, rawResult) {
+		  if (err) { return res.serverError(err); }
+		  // sails.log(rawResult);
+		  // res.json(rawResult);
+		  return res.ok(rawResult);
+		});
+  },
+
+	getRestrictionsPost: function(req, res) {
+		Publicacion.query('SELECT descripcion FROM restriccionesinmuebles res, tiposrestriccion tr WHERE idPublicacion = '+req.param("idPublicacion")+' AND res.idTipoRestriccion = tr.idTipoRestriccion;', [ 'idPublicacion' ] ,function(err, rawResult) {
+		  if (err) { return res.serverError(err); }
+		  // sails.log(rawResult);
+		  // res.json(rawResult);
+		  return res.ok(rawResult);
+		});
+  },
 };

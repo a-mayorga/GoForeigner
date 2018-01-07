@@ -18,7 +18,9 @@
       uploadImg : uploadImg,
       getMyPosts : getMyPosts,
       getPostPayment : getPostPayment,
-      getDataPublicacion : getDataPublicacion
+      getDataPublicacion : getDataPublicacion,
+      getRestrictionsPost : getRestrictionsPost,
+      getServicesPost : getServicesPost
     }
 
     return postService;
@@ -122,6 +124,42 @@
       return $http({
           method: 'POST',
           url: 'http://localhost:1337/api/posts/getDataPublicacion',
+          data: JSON.stringify(idPublicacion),
+          headers: {
+            'Content-type': 'application/json'
+          }
+        })
+        .then(function(response) {
+            return response.data;
+          },
+          function(error) {
+            toastr.error('Hubo un error al cargar la publicación');
+            console.log(error);
+          });
+    }
+
+    function getServicesPost(idPublicacion) {
+      return $http({
+          method: 'POST',
+          url: 'http://localhost:1337/api/posts/getServicesPost',
+          data: JSON.stringify(idPublicacion),
+          headers: {
+            'Content-type': 'application/json'
+          }
+        })
+        .then(function(response) {
+            return response.data;
+          },
+          function(error) {
+            toastr.error('Hubo un error al cargar la publicación');
+            console.log(error);
+          });
+    }
+
+    function getRestrictionsPost(idPublicacion) {
+      return $http({
+          method: 'POST',
+          url: 'http://localhost:1337/api/posts/getRestrictionsPost',
           data: JSON.stringify(idPublicacion),
           headers: {
             'Content-type': 'application/json'
