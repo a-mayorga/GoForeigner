@@ -237,7 +237,7 @@
 
     var postState = {
       name: 'app.post',
-      url: '/post',
+      url: '/post/{id}',
       parent: 'app',
       controller: 'PostCtrl',
       controllerAs: 'post',

@@ -122,4 +122,13 @@ module.exports = {
       return res.ok(myposts);
     });
   },
+
+	getDataPublicacion : function(req, res){
+		Publicacion.query('SELECT * FROM publicacion p, usuarios u WHERE p.idPublicacion ='+req.param("idPublicacion")+' AND u.idUsuario = p.idUsuario', [ 'idPublicacion' ] ,function(err, rawResult) {
+		  if (err) { return res.serverError(err); }
+		  // sails.log(rawResult);
+		  // res.json(rawResult);
+		  return res.ok(rawResult);
+		});
+	},
 };

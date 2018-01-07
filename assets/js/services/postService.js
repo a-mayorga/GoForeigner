@@ -17,7 +17,8 @@
       setAdd : setAdd,
       uploadImg : uploadImg,
       getMyPosts : getMyPosts,
-      getPostPayment : getPostPayment
+      getPostPayment : getPostPayment,
+      getDataPublicacion : getDataPublicacion
     }
 
     return postService;
@@ -115,6 +116,24 @@
             console.log(error);
           }
         );
+    }
+
+    function getDataPublicacion(idPublicacion) {
+      return $http({
+          method: 'POST',
+          url: 'http://localhost:1337/api/posts/getDataPublicacion',
+          data: JSON.stringify(idPublicacion),
+          headers: {
+            'Content-type': 'application/json'
+          }
+        })
+        .then(function(response) {
+            return response.data;
+          },
+          function(error) {
+            toastr.error('Hubo un error al cargar la publicación');
+            console.log(error);
+          });
     }
 
   }

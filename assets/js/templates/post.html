@@ -4,9 +4,10 @@
       <!-- <img src="images/apartment1.jpg"> -->
       <div class="swiper-container">
         <div class="swiper-wrapper">
-          <img class="swiper-slide" src="../images/apartment1.jpg">
-          <img class="swiper-slide" src="../images/apartment1.jpg">
-          <img class="swiper-slide" src="../images/apartment1.jpg">
+          <img class="swiper-slide" src="../images/publicaciones/{{ post.dirImagenuno }}">
+          <img class="swiper-slide" src="../images/publicaciones/{{ post.dirImagendos }}">
+          <img class="swiper-slide" src="../images/publicaciones/{{ post.dirImagentre }}">
+          <img class="swiper-slide" src="../images/publicaciones/{{ post.dirImagencua }}">
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
@@ -21,7 +22,7 @@
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
     <div class="post-info">
       <div class="price-rating">
-        <span>$800.00 MXN / Mensual</span>
+        <span>${{ post.dataPost.costo }}.00 MXN / Mensual</span>
         <ul>
           <li><i class="fa fa-star"></i></li>
           <li><i class="fa fa-star"></i></li>
@@ -32,7 +33,7 @@
       </div>
       <div class="lessee">
         <div class="name">
-          <p>Alberto Torres</p>
+          <p style="text-transform: capitalize">{{ post.dataPost.nombre }} {{ post.dataPost.apellidos }}</p>
         </div>
         <div class="picture">
           <img src="profile_pictures/default.jpg">
@@ -47,7 +48,7 @@
       <div class="post-header" style="text-align: left;">
         <span style="color: var(--primary);">Descripción</span>
       </div>
-      <p>Excelente departamento, para un solo estudiante, cuenta con todos los servicios, agradable para trabajar.</p>
+      <p>{{ post.dataPost.descripcion }}</p>
     </div>
   </div>
 </div>
@@ -105,7 +106,15 @@
         <div class="post-header" style="text-align: left;">
           <span style="color: var(--primary);">Ubicación</span>
         </div>
-        <ng-map zoom="{{post.map.zoom}}" center="[{{post.map.latitude}}, {{post.map.longitude}}]" style="margin-bottom: 10%;"></ng-map>
+        <ng-map zoom="{{post.map.zoom}}" center="[{{post.dataPost.lat}}, {{post.dataPost.lng}}]" style="margin-bottom: 10%;">
+          <!-- <marker position="[{{ post.dataPost.lat }}, {{ post.dataPost.lng }}]" center="true" visible="true" ></marker> -->
+          <custom-marker position="[{{ post.dataPost.lat }}, {{ post.dataPost.lng }}]" center="true" visible="true">
+            <div>
+              <!-- <i class="fa fa-circle-o fa-5x" aria-hidden="true"></i> -->
+              <img src="../images/blue.png" style="width:90px; heigth:90px;opacity:.7;">
+            </div>
+          </custom-marker>
+        </ng-map>
     </div>
   </div>
 </div>
