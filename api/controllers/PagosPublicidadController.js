@@ -48,7 +48,7 @@ module.exports = {
 	},
 
 	publicaciones : function(req, res){
-		PagosPublicidad.query('SELECT * FROM publicacion WHERE idPublicacion IN (SELECT idPublicacion FROM pagosPublicidad WHERE fechaVencimiento >= CURDATE())', [ 'idPublicacion' ] ,function(err, rawResult) {
+		PagosPublicidad.query('SELECT * FROM publicacion WHERE idPublicacion IN (SELECT idPublicacion FROM pagospublicidad WHERE fechaVencimiento >= CURDATE())', [ 'idPublicacion' ] ,function(err, rawResult) {
 		  if (err) { return res.serverError(err); }
 		  // sails.log(rawResult);
 		  // res.json(rawResult);

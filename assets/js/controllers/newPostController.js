@@ -55,13 +55,15 @@
         }
 
         vm.setMarker = function() {
-          var lat = vm.details.geometry.location.lat();
-          var lng = vm.details.geometry.location.lng();
-          vm.pos = {
-            lat: lat,
-            lng: lng
-          };
-          vm.cargarMapa(vm.pos,2,15);
+          setTimeout(function(){
+            var lat = vm.details.geometry.location.lat();
+            var lng = vm.details.geometry.location.lng();
+            vm.pos = {
+              lat: lat,
+              lng: lng
+            };
+            vm.cargarMapa(vm.pos,2,15);
+          },500);
         }
 
         vm.getCurrentlocation = function(e) {
