@@ -5,6 +5,7 @@
   angular
     .module('goForeignerApp', [
       'angular-media-preview',
+      'file-model',
       'ngAnimate',
       'ngMap',
       'ngMapAutocomplete',

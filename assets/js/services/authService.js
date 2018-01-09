@@ -54,8 +54,9 @@
 
     return authService;
 
-    function cacheSession(name, lastName, email, phone, type, status, picture, idUsuario) {
+    function cacheSession(idUser, name, lastName, email, phone, type, status, picture) {
       sessionControl.set('isLogged', true);
+      sessionControl.set('idUser', idUser);
       sessionControl.set('name', name);
       sessionControl.set('lastName', lastName);
       sessionControl.set('email', email);
@@ -63,11 +64,11 @@
       sessionControl.set('type', type);
       sessionControl.set('status', status);
       sessionControl.set('picture', picture);
-      sessionControl.set('idUsuario', idUsuario);
     }
 
     function uncacheSession() {
       sessionControl.unset('isLogged');
+      sessionControl.unset('idUser');
       sessionControl.unset('name');
       sessionControl.unset('lastName');
       sessionControl.unset('email');
@@ -75,7 +76,6 @@
       sessionControl.unset('type');
       sessionControl.unset('status');
       sessionControl.unset('picture');
-      sessionControl.unset('idUsuario');
     }
 
     /* Executes the $auth dependency login function (provided by Satellizer) with the login form data */
@@ -88,9 +88,9 @@
           'Content-type': 'application/json'
         }
       }).then(function(response) {
-          cacheSession(response.data.nombre, response.data.apellidos,
+          cacheSession(response.data.idUsuario, response.data.nombre, response.data.apellidos,
             response.data.correo, response.data.telefono, response.data.idTipoUsuario,
-            response.data.idTipoEstado, response.data.dirImagen, response.data.idUsuario);
+            response.data.idTipoEstado, response.data.dirImagen);
           $state.go('app.explore');
         },
         function(error) {

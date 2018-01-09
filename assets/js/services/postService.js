@@ -95,7 +95,7 @@
       return $http({
           method: 'POST',
           url: 'http://localhost:1337/api/posts/getMyPublicaciones',
-          data: JSON.stringify({idUsuario : sessionStorage.getItem("idUsuario")}),
+          data: JSON.stringify({idUsuario : sessionStorage.getItem("idUser")}),
           headers: {
             'Content-type': 'application/json'
           }
