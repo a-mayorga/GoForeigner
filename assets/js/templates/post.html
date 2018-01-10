@@ -36,7 +36,7 @@
           <p style="text-transform: capitalize">{{ post.dataPost.nombre }} {{ post.dataPost.apellidos }}</p>
         </div>
         <div class="picture">
-          <img src="profile_pictures/default.jpg">
+          <img src="{{ post.dataPost.dirImagen }}">
         </div>
         <div class="post-buttons">
           <button ui-sref="app.terms">Contactar</button>
@@ -100,7 +100,7 @@
         <div class="post-header" style="text-align: left;">
           <span style="color: var(--primary);">Ubicación</span>
         </div>
-        <ng-map zoom="{{post.map.zoom}}" center="[{{post.dataPost.lat}}, {{post.dataPost.lng}}]" style="margin-bottom: 10%;">
+        <ng-map zoom-control="false" zoom="{{post.map.zoom}}" center="[{{post.dataPost.lat}}, {{post.dataPost.lng}}]" style="margin-bottom: 10%;">
           <!-- <marker position="[{{ post.dataPost.lat }}, {{ post.dataPost.lng }}]" center="true" visible="true" ></marker> -->
           <custom-marker position="[{{ post.dataPost.lat }}, {{ post.dataPost.lng }}]" center="true" visible="true">
             <div>
