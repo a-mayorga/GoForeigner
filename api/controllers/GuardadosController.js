@@ -1,4 +1,4 @@
-/**
+ /**
  * GuardadosController
  *
  * @description :: Server-side logic for managing guardados
@@ -16,28 +16,33 @@ module.exports = {
 	},
 
 	save: function (req, res) {
+		// console.log(param.allParams());
 		var param = {
 			idUsuario: req.param('idUsuario'),
 			idPublicacion: req.param('idPublicacion')
 		}
-		User.create(param).exec(function(err, users) {
-			console.log("done");
+		Guardados.create(param).exec(function(err, save) {
+			res.json(save)
 		});
 	},
 
 	update: function (req, res) {
-		Category.update({ idGuardados: req.param('idGuardados') }, {
+		Guardados.update({ idGuardados: req.param('idGuardados') }, {
 			idUsuario: req.param('idUsuario'),
 			idPublicacion: req.param('idPublicacion')
-		}).exec(function(err, users) {
-			console.log("done");
+		}).exec(function(err, deleteSaved) {
+			res.json(deleteSaved)
 		});
 		return;
 	},
 
 	delete: function (req, res) {
-	Category.destroy({ idGuardados: req.param('idGuardados') }).exec(function(err, users) {
-			console.log("done");
+		var param = {
+			idUsuario: req.param('idUsuario'),
+			idPublicacion: req.param('idPublicacion')
+		}
+		Guardados.destroy(param).exec(function(err, deleteSaved) {
+				res.json(deleteSaved);
 		});
 		return;
 	}

@@ -12,12 +12,14 @@
       - Comment
   */
   angular
-    .module('navBarDir', [])
+    .module('navBarDir', [
+      'postSrvc'
+    ])
     .directive('navBar', navBarDir);
 
-  navBarDir.$inject = [];
+  navBarDir.$inject = ['postService'];
 
-  function navBarDir() {
+  function navBarDir(postService) {
     var navBarDir = {
       restrict: 'E',
       templateUrl: 'js/templates/navbar.html',
@@ -34,7 +36,24 @@
 
       angular.element(element[0].querySelector('i.save')).on('click', function() {
         // NOTE: Implement save functionality
-        alert('bye');
+        var heart = document.querySelector('i.save');
+        var idPublicacion = document.getElementById('idPublicacion').value;
+        if (heart.classList.contains("fa-heart-o")) {
+          heart.classList.remove("fa-heart-o");
+          postService.savePost({idPublicacion : idPublicacion, idUsuario : sessionStorage.getItem('idUser')}).then(function(data) {
+            if (data.idGuardados > 0) {
+              heart.classList.add("fa-heart");
+            }
+          });
+        } else {
+          heart.classList.remove("fa-heart");
+          postService.deletePostSaved({idPublicacion : idPublicacion, idUsuario : sessionStorage.getItem('idUser')}).then(function(data) {
+            if (data[0].idGuardados > 0) {
+              heart.classList.add("fa-heart-o");
+            }
+          });
+        }
+        // alert('bye');
       });
     }
   }

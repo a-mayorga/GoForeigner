@@ -20,7 +20,9 @@
       getPostPayment : getPostPayment,
       getDataPublicacion : getDataPublicacion,
       getRestrictionsPost : getRestrictionsPost,
-      getServicesPost : getServicesPost
+      getServicesPost : getServicesPost,
+      savePost : savePost,
+      deletePostSaved : deletePostSaved
     }
 
     return postService;
@@ -173,6 +175,44 @@
             console.log(error);
           });
     }
+
+    function savePost(idPublicacion) {
+      return $http({
+          method: 'POST',
+          url: 'http://localhost:1337/api/saved/save',
+          data: JSON.stringify(idPublicacion),
+          headers: {
+            'Content-type': 'application/json'
+          }
+        })
+        .then(function(response) {
+            return response.data;
+          },
+          function(error) {
+            toastr.error('savePost');
+            console.log(error);
+          });
+    }
+
+    function deletePostSaved(idPublicacion) {
+      return $http({
+          method: 'POST',
+          url: 'http://localhost:1337/api/saved/delete',
+          data: JSON.stringify(idPublicacion),
+          headers: {
+            'Content-type': 'application/json'
+          }
+        })
+        .then(function(response) {
+            return response.data;
+          },
+          function(error) {
+            toastr.error('savePost');
+            console.log(error);
+          });
+    }
+
+
 
   }
 })();

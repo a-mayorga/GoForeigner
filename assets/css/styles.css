@@ -72,6 +72,14 @@ html {
   color: var(--primary);
   float: right;
   margin-right: 20px;
+  transition: 2s all;
+}
+
+.navbar i.fa.fa-heart {
+  color: var(--primary);
+  float: right;
+  margin-right: 20px;
+  transition: 2s all;
 }
 
 /* INDEX STYLES */
