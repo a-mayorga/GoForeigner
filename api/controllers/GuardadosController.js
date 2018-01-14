@@ -55,4 +55,11 @@ module.exports = {
       return res.ok(myposts);
     });
   },
+
+	getMySaves : function(req, res){
+		PagosPublicidad.query('SELECT * FROM publicacion WHERE idPublicacion IN (SELECT idPublicacion FROM guardados WHERE idusuario = '+req.param('idUsuario')+');', [ 'idPublicacion' ] ,function(err, rawResult) {
+		  if (err) { return res.serverError(err); }
+		  return res.ok(rawResult);
+		});
+	},
 };

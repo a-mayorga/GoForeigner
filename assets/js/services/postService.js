@@ -23,7 +23,8 @@
       getServicesPost : getServicesPost,
       savePost : savePost,
       deletePostSaved : deletePostSaved,
-      getIsSaved : getIsSaved
+      getIsSaved : getIsSaved,
+      getMySaves : getMySaves
     }
 
     return postService;
@@ -219,6 +220,24 @@
       return $http({
           method: 'POST',
           url: 'http://localhost:1337/api/saved/getIsSaved',
+          data: JSON.stringify(idPublicacion),
+          headers: {
+            'Content-type': 'application/json'
+          }
+        })
+        .then(function(response) {
+            return response.data;
+          },
+          function(error) {
+            toastr.error('Error al cargar datos');
+            console.log(error);
+          });
+    }
+
+    function getMySaves(idPublicacion) {
+      return $http({
+          method: 'POST',
+          url: 'http://localhost:1337/api/saved/getMySaves',
           data: JSON.stringify(idPublicacion),
           headers: {
             'Content-type': 'application/json'

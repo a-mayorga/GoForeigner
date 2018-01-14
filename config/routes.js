@@ -177,7 +177,15 @@ module.exports.routes = {
        headers: 'Content-Type, Authorization'
     },
     controller: 'GuardadosController',
-    action: 'delete'
+    action: 'getIsSaved'
+  },
+  'POST /api/saved/getMySaves': {
+    cors: {
+       origin: '*',
+       headers: 'Content-Type, Authorization'
+    },
+    controller: 'GuardadosController',
+    action: 'getMySaves'
   },
   /**************************************************************************/
   'GET /api/adspayment': {
