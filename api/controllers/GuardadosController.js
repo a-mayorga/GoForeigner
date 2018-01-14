@@ -45,5 +45,14 @@ module.exports = {
 				res.json(deleteSaved);
 		});
 		return;
-	}
+	},
+
+	getIsSaved: function(req, res) {
+    Publicacion.findOne({idUsuario : req.param("idUsuario")}).exec(function(err, myposts) {
+      if (err) {
+        return res.json(500, { message: 'Hubo un problema. Inténtalo de nuevo.' });
+      }
+      return res.ok(myposts);
+    });
+  },
 };

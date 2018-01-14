@@ -23,6 +23,7 @@
       zoom: 15
     };
 
+    getIsSaved();
     getDataPublicacion();
     getServicesPost();
     getRestrictionsPost();
@@ -36,6 +37,20 @@
       },
     });
 
+    function getIsSaved() {
+      postService.getIsSaved({idPublicacion : vm.idPublicacion, idUsuario : sessionStorage.getItem('idUser')}).then(function(data) {
+        console.log(data);
+        var heart = document.querySelector('i.save');
+        if (data[0].idGuardados > 0 ) {
+            heart.classList.remove("fa-heart-o");
+            heart.classList.add("fa-heart");
+          } else {
+            heart.classList.remove("fa-heart");
+            heart.classList.add("fa-heart-o");
+          }
+      });
+    }
+
     function getDataPublicacion() {
       postService.getDataPublicacion({idPublicacion : vm.idPublicacion}).then(function(data) {
         vm.dataPost = data[0];
@@ -44,7 +59,6 @@
 
     function getServicesPost() {
       postService.getServicesPost({idPublicacion : vm.idPublicacion}).then(function(data) {
-        console.log(data);
         vm.postServices = data;
       });
     }

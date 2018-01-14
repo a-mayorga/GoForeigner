@@ -22,7 +22,8 @@
       getRestrictionsPost : getRestrictionsPost,
       getServicesPost : getServicesPost,
       savePost : savePost,
-      deletePostSaved : deletePostSaved
+      deletePostSaved : deletePostSaved,
+      getIsSaved : getIsSaved
     }
 
     return postService;
@@ -189,7 +190,7 @@
             return response.data;
           },
           function(error) {
-            toastr.error('savePost');
+            toastr.error('error al guardar');
             console.log(error);
           });
     }
@@ -207,7 +208,27 @@
             return response.data;
           },
           function(error) {
-            toastr.error('savePost');
+            toastr.error('Error al eliminar');
+            window.location.reload();
+            console.log(error);
+          });
+    }
+
+
+    function getIsSaved(idPublicacion) {
+      return $http({
+          method: 'POST',
+          url: 'http://localhost:1337/api/saved/getIsSaved',
+          data: JSON.stringify(idPublicacion),
+          headers: {
+            'Content-type': 'application/json'
+          }
+        })
+        .then(function(response) {
+            return response.data;
+          },
+          function(error) {
+            toastr.error('Error al cargar datos');
             console.log(error);
           });
     }

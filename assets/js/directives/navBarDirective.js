@@ -48,6 +48,8 @@
         } else {
           heart.classList.remove("fa-heart");
           postService.deletePostSaved({idPublicacion : idPublicacion, idUsuario : sessionStorage.getItem('idUser')}).then(function(data) {
+            console.log(data);
+            heart.classList.add("fa-heart-o");
             if (data[0].idGuardados > 0) {
               heart.classList.add("fa-heart-o");
             }
