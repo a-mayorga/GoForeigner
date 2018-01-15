@@ -386,7 +386,7 @@
 
   }
 
-  function appRun($rootScope, $state, authService, toastr) {
+  function appRun($rootScope, $state, authService, sessionControl, toastr) {
     $rootScope.$state = $state;
     /* Listening to state changes to decide if the user is authorized to see its template */
     $rootScope.$on('$stateChangeStart', function(evt, toState, toParams, fromState, fromParams) {
@@ -400,15 +400,15 @@
         /* Avoiding a logged user from returning to the login form */
         if (toState.name === 'login' && authService.isLoggedIn()) {
             evt.preventDefault();
-            $state.go('app.explore');
+            $state.go('app.profile');
         }
         if (toState.name === 'register' && authService.isLoggedIn()) {
             evt.preventDefault();
-            $state.go('app.explore');
+            $state.go('app.profile');
         }
         if (toState.name === 'index' && authService.isLoggedIn()) {
             evt.preventDefault();
-            $state.go('app.explore');
+            $state.go('app.profile');
         }
     });
   }

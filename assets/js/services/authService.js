@@ -91,7 +91,18 @@
           cacheSession(response.data.idUsuario, response.data.nombre, response.data.apellidos,
             response.data.correo, response.data.telefono, response.data.idTipoUsuario,
             response.data.idTipoEstado, response.data.dirImagen);
-          $state.go('app.explore');
+
+          var userType = sessionControl.get('type');
+
+          if(userType == 1) {
+            $state.go('app.posts');
+          }
+          else if (userType == 2) {
+            $state.go('app.myposts');
+          }
+          else if (userType == 3) {
+            $state.go('app.explore');
+          }
         },
         function(error) {
           uncacheSession();
