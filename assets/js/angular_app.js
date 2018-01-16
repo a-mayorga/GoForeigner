@@ -20,6 +20,7 @@
       'savedCtrl',
       'profileCtrl',
       'editProfileCtrl',
+      'offerCtrl',
       'helpCtrl',
       'myPostsCtrl',
       'notificationsCtrl',
@@ -162,8 +163,8 @@
       name: 'app.offer',
       url: '/offer',
       parent: 'app',
-      controller: 'EditProfileCtrl',
-      controllerAs: 'editProfile',
+      controller: 'OfferCtrl',
+      controllerAs: 'offer',
       templateUrl: 'js/templates/offerGuests.html',
       module: 'private',
       data: {

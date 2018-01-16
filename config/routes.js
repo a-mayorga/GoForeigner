@@ -72,6 +72,14 @@ module.exports.routes = {
     controller: 'UserController',
     action: 'delete'
   },
+  'POST /api/user/changetype': {
+    cors: {
+       origin: '*',
+       headers: 'Content-Type, Authorization'
+    },
+    controller: 'UserController',
+    action: 'changetype'
+  },
   /**************************************************************************/
   'GET /api/grades': {
     cors: {

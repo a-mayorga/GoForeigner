@@ -143,5 +143,22 @@ module.exports = {
       console.log("done");
     });
     return;
+  },
+  changetype: function(req, res) {
+    var params = {
+      idTipoUsuario: req.body.type
+    };
+
+    User.update({
+      idUsuario: parseInt(req.body.idUser)
+    }, params).exec(function(err, updated) {
+      if (err) {
+        return res.json(500, {
+          message: 'Hubo un problema. Inténtalo de nuevo.'
+        });
+      }
+
+      res.json(updated);
+    });
   }
 };

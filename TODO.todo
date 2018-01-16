@@ -2,10 +2,13 @@ TODO:
   ☐ After searching on initial page, show results
   ☐ Change index, login and register image background
   ☐ Border: 2px solid var(--primary) for all inputs when focused
-  ☐ Implement new post functionality
   ☐ Make search bar and bottom bar directives
+  ☐ Change save animation
+  ☐ Fix icon color when post is already saved
+  ☐ Fix redirection when user is already signed in depending on the user type
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+  ✔ Implement new post functionality @done(2018-01-16 15:48) @project(TODO)
   ✔ Add phone input to register @done(2017-12-21 16:10) @project(TODO)
   ✔ Fix edit profile view @done(2017-12-21 13:33) @project(TODO)
   ✔ Fix edit profile @done(2017-12-20 02:18) @project(TODO)
