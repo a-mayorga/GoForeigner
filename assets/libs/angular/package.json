@@ -1,50 +1,27 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "angular",
-        "scope": null,
-        "escapedName": "angular",
-        "name": "angular",
-        "rawSpec": "",
-        "spec": "latest",
-        "type": "tag"
-      },
-      "D:\\Desktop\\NodeProjects\\GoForeigner"
-    ]
-  ],
-  "_from": "angular@latest",
-  "_id": "angular@1.6.7",
-  "_inCache": true,
+  "_from": "angular@^1.6.7",
+  "_id": "angular@1.6.8",
+  "_inBundle": false,
+  "_integrity": "sha512-9WErZIOw1Cu1V5Yxdvxz/6YpND8ntdP71fdPpufPFJvZodZXqCjQBYrHqEoMZreO5i84O3D/Jw/vepoFt68Azw==",
   "_location": "/angular",
-  "_nodeVersion": "6.12.0",
-  "_npmOperationalInternal": {
-    "host": "s3://npm-registry-packages",
-    "tmp": "tmp/angular-1.6.7.tgz_1511547637356_0.36757712927646935"
-  },
-  "_npmUser": {
-    "name": "angularcore",
-    "email": "angular-core+npm@google.com"
-  },
-  "_npmVersion": "3.10.10",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "angular",
-    "scope": null,
-    "escapedName": "angular",
+    "type": "range",
+    "registry": true,
+    "raw": "angular@^1.6.7",
     "name": "angular",
-    "rawSpec": "",
-    "spec": "latest",
-    "type": "tag"
+    "escapedName": "angular",
+    "rawSpec": "^1.6.7",
+    "saveSpec": null,
+    "fetchSpec": "^1.6.7"
   },
   "_requiredBy": [
-    "#USER",
-    "/"
+    "/",
+    "/angular-ui-router"
   ],
-  "_resolved": "https://registry.npmjs.org/angular/-/angular-1.6.7.tgz",
-  "_shasum": "0f89837dae1776b01ccb1fa2096db0d9373d9897",
-  "_shrinkwrap": null,
-  "_spec": "angular",
+  "_resolved": "https://registry.npmjs.org/angular/-/angular-1.6.8.tgz",
+  "_shasum": "5be378a58be91a5489e78b59c4518cd9fd273ffb",
+  "_spec": "angular@^1.6.7",
   "_where": "D:\\Desktop\\NodeProjects\\GoForeigner",
   "author": {
     "name": "Angular Core Team",
@@ -53,15 +30,9 @@
   "bugs": {
     "url": "https://github.com/angular/angular.js/issues"
   },
-  "dependencies": {},
+  "bundleDependencies": false,
+  "deprecated": false,
   "description": "HTML enhanced for web apps",
-  "devDependencies": {},
-  "directories": {},
-  "dist": {
-    "shasum": "0f89837dae1776b01ccb1fa2096db0d9373d9897",
-    "tarball": "https://registry.npmjs.org/angular/-/angular-1.6.7.tgz"
-  },
-  "gitHead": "03cf5343bfd0d30b7b72a48f7974cd6ef6842630",
   "homepage": "http://angularjs.org",
   "keywords": [
     "angular",
@@ -71,19 +42,7 @@
   ],
   "license": "MIT",
   "main": "index.js",
-  "maintainers": [
-    {
-      "name": "angularcore",
-      "email": "angular-core+npm@google.com"
-    },
-    {
-      "name": "petebd",
-      "email": "pete@bacondarwin.com"
-    }
-  ],
   "name": "angular",
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/angular/angular.js.git"
@@ -91,5 +50,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.6.7"
+  "version": "1.6.8"
 }

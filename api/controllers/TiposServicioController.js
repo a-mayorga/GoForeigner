@@ -7,7 +7,7 @@
 
 module.exports = {
 	getTiposServicio: function(req, res) {
-		TiposServicio.find({ select: ['descripcion'] }).exec(function(err, types) {
+		TiposServicio.find({ select: ['descripcion','idTipoServicio'] }).exec(function(err, types) {
 			if(err) {
 				console.log(err);
 			}

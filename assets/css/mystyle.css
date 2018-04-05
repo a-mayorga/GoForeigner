@@ -7,9 +7,24 @@
     z-index: 1;
 }
 
+/*************************PAYPAL*********/
+#paypal-button{
+  margin-top: 50px;
+}
+/*************************PAYPAL*********/
+
+
 .container{
   /* padding: 0 !important; */
 }
+
+.seleccionado{
+  background-color: #4A90E2;
+  /* color : #F06373; */
+  box-shadow: 2px 2px 2px rgba(0,0,0,.6);
+
+}
+
 hr{
  width: 90%;
  margin-left: 5%;
@@ -45,10 +60,14 @@ h2{
 }
 
 .info-pago{
-    box-shadow: 0px 1px 1px 5px rgba(0,0,0,0.2);
-    height: 40%;
-    width: 90%;
-    margin-left: 5%;
+    box-shadow: 0px 1px 6px rgba(181, 181, 181, 0.6);
+    /* min-height: 70%; */
+    width: 100%;
+    /* width: 200px; */
+    /* margin-left: 5%; */
+    padding: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
 }
 
 .plan-pago{
@@ -65,34 +84,35 @@ h2{
 }
 
 .pago > p{
-    text-align: center;
+    /* text-align: center; */
     /* font-size: 4em; */
 }
 
 .pago > img{
     margin-top: -200px;
-    margin-left: 25%;
+    /* margin-left: 25%; */
     width: 50%;
 }
 
 /*******BOTONES*****/
 .btn-primary{
     margin-top: 10%;
-    margin-left: 15%;
-    margin-bottom: 50px;
+    /* margin-left: 15%; */
+    margin-bottom: 40px;
     display: block;
-    width: 70%;
+    /* width: 70%; */
     height: 50px;
     border : 2px #F06373 solid;
     color: #F06373;
     /* font-size: 2em; */
+    cursor: pointer;
 }
 /********opcion***************/
 .opcion{
     margin-top: 30px;
     box-shadow: -1px 1px 11px -1px rgba(0,0,0,0.46);
-    width: 90%;
-    margin-left: 5%;
+    /* width: 90%; */
+    /* margin-left: 5%; */
     /* min-height: 80px; */
     /* font-size: 3em; */
     text-align: left;
@@ -299,13 +319,6 @@ h2{
 .realizar{
     text-align: right;
 }
-
-#map{
-    margin-left: 5%;
-    width: 90%;
-    height: 900px;
-}
-
 
 /********************PUBLICAR**********/
 

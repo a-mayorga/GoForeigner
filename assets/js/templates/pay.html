@@ -1,9 +1,14 @@
-<div class="pago separar">
-    <p>Método de pago</p>
-    <img src="../images/paypal.svg" alt="">
+<div class="row center-sm center-md center-lg">
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+    <div class="pago separar">
+        <p>Método de pago</p>
+        <img src="../images/paypal.svg" alt="">
+    </div>
+    <div class="info-pago">
+        <input type="hidden" name="pay" value="{{ pay.payData.idTipoPublicidad }}" ng-model="pay.tipoPublicidad">
+        <p id="precio">${{ pay.payData.costo }}.00 MX/{{ pay.payData.duracion }} días</p>
+        <p>{{ pay.payData.descripcion }}</p>
+    </div>
+    <div id="paypal-button"></div>
+  </div>
 </div>
-<div class="info-pago">
-    <p id="precio">$100.00 MX/PAGO UNICO</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit minima sapiente ad adipisci sed eaque beatae ipsum, dicta odit, magnam maxime sunt aspernatur aliquid doloribus, odio delectus magni, nisi praesentium?</p>
-</div>
-<div id="paypal-button"></div>

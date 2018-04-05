@@ -1,6 +1,6 @@
 <div class="search-bar" ng-show="$state.includes('app.explore')">
   <i class="fa fa-search"></i>
-  <input type="search" placeholder="Cerca de mí">
+  <input type="search" placeholder="Cerca de mí" ng-map-autocomplete ng-model="navigation.autocomplete" options="navigation.options" details="navigation.details" ng-model="navigation.result">
   <div class="filters">
     <span>Filtros:</span>
     <ul>
@@ -8,8 +8,8 @@
     </ul>
   </div>
 </div>
-<nav-bar ng-show="$state.includes('app.help') || $state.includes('app.newpost') || $state.includes('app.editprofile') || $state.includes('app.offer') || $state.includes('app.post') || $state.includes('app.terms')"></nav-bar>
-<div class="container" ui-view></div>
+<nav-bar ng-show="$state.includes('app.help') || $state.includes('app.newpost') || $state.includes('app.editprofile') || $state.includes('app.offer') || $state.includes('app.post') || $state.includes('app.terms') || $state.includes('app.contact')"></nav-bar>
+<div class="cont" ui-view></div>
 <div class="bottom-bar" ng-hide="$state.includes('app.index') || $state.includes('app.login')|| $state.includes('app.register')">
   <ul>
     <li ui-sref-active="active" ng-hide="navigation.user.type == 1 || navigation.user.type == 2">

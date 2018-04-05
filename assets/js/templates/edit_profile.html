@@ -1,29 +1,33 @@
-<div class="profile-picture">
-  <img src="{{ editprofile.picture }}">
-</div>
-<div class="profile-change-picture">
-  <div class="preview" id="preview">
-    <img src="{{ editprofile.preview }}">
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+    <div class="profile-picture">
+      <img src="{{ editprofile.picture }}">
+    </div>
+    <div class="profile-change-picture">
+      <div class="preview" id="preview">
+        <img src="{{ editprofile.preview }}">
+      </div>
+      <div class="upload-file">
+        <input type="file" name="file" id="file" media-preview preview-container="preview" accept="image/*" file-model="editprofile.newPicture">
+        <label for="file"><i class="fa fa-cloud-upload"></i> Subir foto</label>
+      </div>
+    </div>
   </div>
-  <div class="upload-file">
-    <input type="file" name="file" id="file" media-preview preview-container="preview" accept="image/*">
-    <label for="file"><i class="fa fa-cloud-upload"></i> Subir foto</label>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+    <div class="profile-data">
+      <span>Nombre</span><br>
+      <input type="text" maxlength="50" ng-model="editprofile.profileData.name"><br>
+      <span>Apellidos</span><br>
+      <input type="text" maxlength="80" ng-model="editprofile.profileData.lastName"><br>
+      <span>Email</span><br>
+      <input type="email" maxlength="50" ng-model="editprofile.profileData.email"><br>
+      <span>Teléfono</span><br>
+      <input type="number" onkeypress="if(this.value.length == 15) return false;" ng-model="editprofile.profileData.phone"><br>
+      <span>Nuevo password</span><br>
+      <input type="password" ng-model="editprofile.profileData.newPass"><br>
+      <span>Confirmar password</span><br>
+      <input type="password" ng-model="editprofile.profileData.confPass"><br>
+      <button class="save-changes" ng-click="editprofile.saveChanges()">Guardar</button>
+    </div>
   </div>
-</div>
-<div class="profile-data">
-  <span>Nombre</span><br>
-  <input type="text" maxlength="50" value="{{ editprofile.name }}"><br>
-  <span>Apellidos</span><br>
-  <input type="text" maxlength="80" value="{{ editprofile.lastName }}"><br>
-  <span>Email</span><br>
-  <input type="email" maxlength="50" value="{{ editprofile.email }}"><br>
-  <span>Teléfono</span><br>
-  <input type="number" onkeypress="if(this.value.length == 15) return false;" value="{{ editprofile.phone }}"><br>
-  <span>Password anterior</span><br>
-  <input type="password"><br>
-  <span>Nuevo password</span><br>
-  <input type="password"><br>
-  <span>Confirmar password</span><br>
-  <input type="password"><br>
-  <button class="save-changes">Guardar</button>
 </div>

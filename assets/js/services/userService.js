@@ -8,17 +8,19 @@
    */
   angular
     .module('userSrvc', [
-      'toastr'
+      'toastr',
+      'authSrvc'
     ])
     .factory('userService', userService);
 
-  userService.$inject = ['$http', '$state', 'toastr'];
+  userService.$inject = ['$http', '$state', 'toastr', 'sessionControl'];
 
-  function userService($http, $state, toastr) {
+  function userService($http, $state, toastr, sessionControl) {
     var userService = {
       getUsers: getUsers,
       createUser: createUser,
       updateUser: updateUser,
+      changeType: changeType,
       deleteUser: deleteUser
     }
 
@@ -62,22 +64,46 @@
     function updateUser(userData) {
       return $http({
           method: 'POST',
-          url: 'http://localhost:8000/api/users/update',
+          url: 'http://localhost:1337/api/user/update',
+          data: userData,
+          transformRequest: angular.identity,
+          headers: {
+            'Content-type': undefined
+          }
+        })
+        .then(function(response) {
+            sessionControl.set('name', response.data[0].nombre);
+            sessionControl.set('lastName', response.data[0].apellidos);
+            sessionControl.set('email', response.data[0].correo);
+            sessionControl.set('phone', response.data[0].telefono);
+            sessionControl.set('picture', response.data[0].dirImagen);
+            location.reload(true);
+          },
+          function(error) {
+            toastr.error('Hubo un error al actualizar tu información. Inténtalo de nuevo.');
+            console.log(error);
+          });
+    }
+
+    function changeType(userData) {
+      return $http({
+          method: 'POST',
+          url: 'http://localhost:1337/api/user/changetype',
           data: JSON.stringify(userData),
           headers: {
             'Content-type': 'application/json'
           }
         })
         .then(function(response) {
-            // NOTE: Return to the entries and reload them
-            toastr.success('Usuario editado correctamente');
+            sessionControl.set('type', 2);
+            $state.go('app.profile');
+            setTimeout(function() {
+              location.reload(true);
+            }, 5);
           },
           function(error) {
-            console.log(error.data);
-            /* NOTE: Filter errors by code */
-            toastr.error('Hubo un error al editar el usuario');
-            // toastr.error('Tu sesión expiró');
-            // authService.logout();
+            toastr.error('Hubo un error al actualizar tu información. Inténtalo de nuevo.');
+            console.log(error);
           });
     }
 

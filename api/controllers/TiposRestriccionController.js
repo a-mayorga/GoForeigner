@@ -7,7 +7,7 @@
 
 module.exports = {
 	getTipoRestriccion: function(req, res) {
-		TiposRestriccion.find({ select: ['descripcion'] }).exec(function(err, types) {
+		TiposRestriccion.find({ select: ['descripcion','idTipoRestriccion'] }).exec(function(err, types) {
 			if(err) {
 				console.log(err);
 			}

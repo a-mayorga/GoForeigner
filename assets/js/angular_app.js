@@ -5,8 +5,10 @@
   angular
     .module('goForeignerApp', [
       'angular-media-preview',
+      'file-model',
       'ngAnimate',
       'ngMap',
+      'ngMapAutocomplete',
       'toastr',
       'ui.router',
       'mainCtrl',
@@ -18,6 +20,7 @@
       'savedCtrl',
       'profileCtrl',
       'editProfileCtrl',
+      'offerCtrl',
       'helpCtrl',
       'myPostsCtrl',
       'notificationsCtrl',
@@ -26,7 +29,9 @@
       'postCtrl',
       'payCtrl',
       'scoreHomeCtrl',
+      'planAdvertisingCtrl',
       'termsCtrl',
+      'contactCtrl',
       'reportsCtrl',
       'resultsCtrl',
       'authSrvc',
@@ -57,9 +62,9 @@
     var indexState = {
       name: 'index',
       url: '/',
-      controller: 'IndexCtrl',
-      controllerAs: 'index',
-      templateUrl: 'js/templates/index.html',
+      controller: 'LoginCtrl',
+      controllerAs: 'login',
+      templateUrl: 'js/templates/login.html',
       module: 'public',
       data: {
         'pageTitle': 'GoForeigner',
@@ -158,8 +163,8 @@
       name: 'app.offer',
       url: '/offer',
       parent: 'app',
-      controller: 'EditProfileCtrl',
-      controllerAs: 'editProfile',
+      controller: 'OfferCtrl',
+      controllerAs: 'offer',
       templateUrl: 'js/templates/offerGuests.html',
       module: 'private',
       data: {
@@ -234,7 +239,7 @@
 
     var postState = {
       name: 'app.post',
-      url: '/post',
+      url: '/post/{id}',
       parent: 'app',
       controller: 'PostCtrl',
       controllerAs: 'post',
@@ -258,14 +263,27 @@
       }
     }
 
+    var contactState = {
+      name: 'app.contact',
+      url: '/contact',
+      parent: 'app',
+      controller: 'ContactCtrl',
+      controllerAs: 'contact',
+      templateUrl: 'js/templates/contact.html',
+      module: 'private',
+      data: {
+        'pageTitle': 'Contacto'
+      }
+    }
+
     var payState = {
       name: 'app.pay',
-      url: '/pay/{id}',
+      url: '/pay',
       parent: 'app',
       controller: 'PayCtrl',
       controllerAs: 'pay',
       templateUrl: 'js/templates/pay.html',
-      module: 'public',
+      module: 'private',
       data: {
         'pageTitle': 'Pago de Publicidad'
       }
@@ -278,7 +296,7 @@
       controller: 'PlanAdvertisingCtrl',
       controllerAs: 'planAdvertising',
       templateUrl: 'js/templates/planAdvertising.html',
-      module: 'public',
+      module: 'private',
       data: {
         'pageTitle': 'Planes de Publicidad'
       }
@@ -353,6 +371,7 @@
     $stateProvider.state(planAdvertisingState);
     $stateProvider.state(scoreHomeState);
     $stateProvider.state(termsState);
+    $stateProvider.state(contactState);
     $stateProvider.state(reportsState);
     $stateProvider.state(resultsState);
     $stateProvider.state(notFoundState);
@@ -368,7 +387,7 @@
 
   }
 
-  function appRun($rootScope, $state, authService, toastr) {
+  function appRun($rootScope, $state, authService, sessionControl, toastr) {
     $rootScope.$state = $state;
     /* Listening to state changes to decide if the user is authorized to see its template */
     $rootScope.$on('$stateChangeStart', function(evt, toState, toParams, fromState, fromParams) {
@@ -382,7 +401,15 @@
         /* Avoiding a logged user from returning to the login form */
         if (toState.name === 'login' && authService.isLoggedIn()) {
             evt.preventDefault();
-            $state.go('profile');
+            $state.go('app.profile');
+        }
+        if (toState.name === 'register' && authService.isLoggedIn()) {
+            evt.preventDefault();
+            $state.go('app.profile');
+        }
+        if (toState.name === 'index' && authService.isLoggedIn()) {
+            evt.preventDefault();
+            $state.go('app.profile');
         }
     });
   }

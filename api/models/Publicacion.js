@@ -16,33 +16,32 @@
        primaryKey: true,
        columnName: 'idPublicacion'
      },
+     idUsuario : {
+       type: 'integer',
+       columnName: 'idUsuario'
+     },
      idZonaInmueble: {
        type: 'integer',
-       columnName: 'zonainmueble'
+       columnName: 'idZonaInmueble'
      },
      lat: {
-       type: 'varchar',
+       type: 'string',
        size: 25,
        columnName: 'lat'
      },
      lng: {
-       type: 'varchar',
+       type: 'string',
        size: 25,
        columnName: 'lng'
      },
      costo: {
-       type: 'double',
+       type: 'float',
        columnName: 'costo'
      },
      descripcion: {
-       type: 'varchar',
+       type: 'string',
        size: 150,
        columnName: 'descripcion'
-     },
-     telefono: {
-       type: 'varchar',
-       size: 15,
-       columnName: 'telefono'
      },
      huespedes: {
        type: 'integer',
@@ -54,6 +53,26 @@
             return new Date();
        },
        columnName: 'fechaPublicacion'
+     },
+     dirImagenuno: {
+       type: 'string',
+       size: 250,
+       columnName: 'dirImagenuno'
+     },
+     dirImagendos: {
+       type: 'string',
+       size: 250,
+       columnName: 'dirImagendos'
+     },
+     dirImagencua: {
+       type: 'string',
+       size: 250,
+       columnName: 'dirImagencua'
+     },
+     dirImagentre: {
+       type: 'string',
+       size: 250,
+       columnName: 'dirImagentre'
      },
      fechaVencimiento: {
        type: "datetime",

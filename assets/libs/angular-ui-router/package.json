@@ -1,54 +1,31 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "angular-ui-router",
-        "scope": null,
-        "escapedName": "angular-ui-router",
-        "name": "angular-ui-router",
-        "rawSpec": "",
-        "spec": "latest",
-        "type": "tag"
-      },
-      "D:\\Desktop\\NodeProjects\\GoForeigner"
-    ]
-  ],
-  "_from": "angular-ui-router@latest",
+  "_from": "angular-ui-router@^0.4.3",
   "_id": "angular-ui-router@0.4.3",
-  "_inCache": true,
+  "_inBundle": false,
+  "_integrity": "sha512-EGBG7G7ArFVkJPM+ZIgPKuMYuT16UQrr3zj3BEiXHKwxss867bGt3u7QD9g4BxR+K2qQOSWok6JGvgTWXAko3A==",
   "_location": "/angular-ui-router",
-  "_nodeVersion": "7.0.0",
-  "_npmOperationalInternal": {
-    "host": "s3://npm-registry-packages",
-    "tmp": "tmp/angular-ui-router-0.4.3.tgz_1507164025487_0.11401218245737255"
-  },
-  "_npmUser": {
-    "name": "christopherthielen",
-    "email": "christopherthielen@ikkyikkyikkypikangzoopboing.com"
-  },
-  "_npmVersion": "5.4.2",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "angular-ui-router",
-    "scope": null,
-    "escapedName": "angular-ui-router",
+    "type": "range",
+    "registry": true,
+    "raw": "angular-ui-router@^0.4.3",
     "name": "angular-ui-router",
-    "rawSpec": "",
-    "spec": "latest",
-    "type": "tag"
+    "escapedName": "angular-ui-router",
+    "rawSpec": "^0.4.3",
+    "saveSpec": null,
+    "fetchSpec": "^0.4.3"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/angular-ui-router/-/angular-ui-router-0.4.3.tgz",
   "_shasum": "6c29546fe50b8d2f74614dcb8660d6fc40d6e167",
-  "_shrinkwrap": null,
-  "_spec": "angular-ui-router",
+  "_spec": "angular-ui-router@^0.4.3",
   "_where": "D:\\Desktop\\NodeProjects\\GoForeigner",
   "bugs": {
     "url": "https://github.com/angular-ui/ui-router/issues"
   },
+  "bundleDependencies": false,
   "contributors": [
     {
       "name": "Nate Abele",
@@ -72,6 +49,7 @@
   "dependencies": {
     "angular": "^1.0.8"
   },
+  "deprecated": "This npm package 'angular-ui-router' has been renamed to '@uirouter/angularjs'. Please update your package.json. See https://ui-router.github.io/blog/uirouter-scoped-packages/",
   "description": "State-based routing for AngularJS",
   "devDependencies": {
     "faithful-exec": "~0.1.0",
@@ -99,13 +77,6 @@
     "requirejs": "^2.1.22",
     "shelljs": "~0.2.6"
   },
-  "directories": {},
-  "dist": {
-    "integrity": "sha512-EGBG7G7ArFVkJPM+ZIgPKuMYuT16UQrr3zj3BEiXHKwxss867bGt3u7QD9g4BxR+K2qQOSWok6JGvgTWXAko3A==",
-    "shasum": "6c29546fe50b8d2f74614dcb8660d6fc40d6e167",
-    "tarball": "https://registry.npmjs.org/angular-ui-router/-/angular-ui-router-0.4.3.tgz"
-  },
-  "gitHead": "3509acf4acb54a204bf5375dca8a9ad4e6fd4298",
   "homepage": "http://angular-ui.github.com/",
   "license": "MIT",
   "licenses": [
@@ -117,21 +88,11 @@
   "main": "release/angular-ui-router.js",
   "maintainers": [
     {
-      "name": "nateabele",
-      "email": "nate.abele@gmail.com"
-    },
-    {
-      "name": "ProLoser",
-      "email": "proloser@hotmail.com"
-    },
-    {
-      "name": "christopherthielen",
-      "email": "christopherthielen@sandgnat.com"
+      "name": "AngularUI",
+      "url": "https://github.com/angular-ui?tab=members"
     }
   ],
   "name": "angular-ui-router",
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/angular-ui/ui-router.git"

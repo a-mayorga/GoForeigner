@@ -54,8 +54,9 @@
 
     return authService;
 
-    function cacheSession(name, lastName, email, phone, type, status, picture) {
+    function cacheSession(idUser, name, lastName, email, phone, type, status, picture) {
       sessionControl.set('isLogged', true);
+      sessionControl.set('idUser', idUser);
       sessionControl.set('name', name);
       sessionControl.set('lastName', lastName);
       sessionControl.set('email', email);
@@ -67,6 +68,7 @@
 
     function uncacheSession() {
       sessionControl.unset('isLogged');
+      sessionControl.unset('idUser');
       sessionControl.unset('name');
       sessionControl.unset('lastName');
       sessionControl.unset('email');
@@ -86,10 +88,21 @@
           'Content-type': 'application/json'
         }
       }).then(function(response) {
-          cacheSession(response.data.nombre, response.data.apellidos,
+          cacheSession(response.data.idUsuario, response.data.nombre, response.data.apellidos,
             response.data.correo, response.data.telefono, response.data.idTipoUsuario,
             response.data.idTipoEstado, response.data.dirImagen);
-          $state.go('app.profile');
+
+          var userType = sessionControl.get('type');
+
+          if(userType == 1) {
+            $state.go('app.posts');
+          }
+          else if (userType == 2) {
+            $state.go('app.myposts');
+          }
+          else if (userType == 3) {
+            $state.go('app.explore');
+          }
         },
         function(error) {
           uncacheSession();

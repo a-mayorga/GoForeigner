@@ -14,17 +14,22 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/mystyle.css">
   <link rel="stylesheet" href="css/swiper/swiper.min.css">
+  <link rel="stylesheet" href="css/flexboxgrid/flexboxgrid.min.css">
+  <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+  <script src="libs/swiper/swiper.min.js" charset="utf-8"></script>
 </head>
 <body class=" {{ main.bodyClass }} ">
   <ui-view></ui-view>
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDg_mhQ8Q5tKoN_s1wkjuTanpZIRVmAnrA"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&key=AIzaSyDg_mhQ8Q5tKoN_s1wkjuTanpZIRVmAnrA&"></script>
   <script src="libs/angular/angular.min.js" charset="utf-8"></script>
   <script src="libs/angular-animate/angular-animate.min.js" charset="utf-8"></script>
+  <script src="libs/angular-file-model/angular-file-model.js" charset="utf-8"></script>
   <script src="libs/angular-media-preview/dist/angular-media-preview.min.js" charset="utf-8"></script>
   <script src="libs/angular-toastr/dist/angular-toastr.tpls.js" charset="utf-8"></script>
   <script src="libs/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
-   <script src="libs/ngmap/build/scripts/ng-map.min.js" charset="utf-8"></script>
+  <script src="libs/ngmap/build/scripts/ng-map.min.js" charset="utf-8"></script>
+  <script src="libs/ngMapAutocomplete/src/ng-map-autocomplete.js" charset="utf-8"></script>
   <script src="js/angular_app.js" charset="utf-8"></script>
   <script src="js/controllers/mainController.js" charset="utf-8"></script>
   <script src="js/controllers/indexController.js" charset="utf-8"></script>
@@ -35,6 +40,7 @@
   <script src="js/controllers/savedController.js" charset="utf-8"></script>
   <script src="js/controllers/profileController.js" charset="utf-8"></script>
   <script src="js/controllers/editProfileController.js" charset="utf-8"></script>
+  <script src="js/controllers/offerController.js" charset="utf-8"></script>
   <script src="js/controllers/helpController.js" charset="utf-8"></script>
   <script src="js/controllers/myPostsController.js" charset="utf-8"></script>
   <script src="js/controllers/notificationsController.js" charset="utf-8"></script>
@@ -42,6 +48,7 @@
   <script src="js/controllers/postsController.js" charset="utf-8"></script>
   <script src="js/controllers/postController.js" charset="utf-8"></script>
   <script src="js/controllers/termsController.js" charset="utf-8"></script>
+  <script src="js/controllers/contactController.js" charset="utf-8"></script>
   <script src="js/controllers/payController.js" charset="utf-8"></script>
   <script src="js/controllers/scoreHomeController.js" charset="utf-8"></script>
   <script src="js/controllers/planAdvertisingController.js" charset="utf-8"></script>
@@ -56,6 +63,6 @@
   <script src="js/services/restrictionsService.js" charset="utf-8"></script>
   <script src="js/services/planAdvertisingService.js" charset="utf-8"></script>
   <script src="js/services/payService.js" charset="utf-8"></script>
-  <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+  <script src="js/services/postService.js" charset="utf-8"></script>
 </body>
 </html>

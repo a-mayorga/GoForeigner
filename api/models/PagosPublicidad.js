@@ -24,13 +24,31 @@
        type: 'integer',
        columnName: 'idTipoPublicacidad'
      },
+     paymentToken: {
+       type: 'string',
+       size : 70,
+       columnName: 'paymentToken'
+     },
+     paymentID : {
+       type: 'string',
+       size : 70,
+       columnName: 'paymentID'
+     },
+     payerID : {
+       type: 'string',
+       size : 70,
+       columnName: 'payerID'
+     },
      fechaInicio: {
        type: 'date',
+       defaultsTo: function () {
+            return new Date();
+       },
        columnName: 'fechaInicio'
      },
      fechaFinal: {
        type: 'date',
-       columnName: 'idTipoUsuario'
+       columnName: 'fechaFinal'
      },
    }
 
